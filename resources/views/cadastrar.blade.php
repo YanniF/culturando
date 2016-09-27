@@ -3,9 +3,10 @@
 @section('content')
 	<div class="container" id="cadastro">
 		<div class="content">
-			<form class="form-horizontal" method="post" role="form">
+			<form class="form-horizontal" method="post" role="form" action="{{ action('AtracoesController@cadastrar') }}">
+				<input type="hidden" name="_token" value="{{ csrf_token() }}">
 				<div class="logo">
-					<a href="?p=painel"><img src="../img/logo.png" class="img-responsive" alt="Culturando" title="Culturando"></a>
+					<a href="{{ action('AtracoesController@criarComboPainel') }}"><img src="../img/logo.png" class="img-responsive" alt="Culturando" title="Culturando"></a>
 				</div>				
 				<div class="content">
 					<div class="form-group">
@@ -18,7 +19,7 @@
 						<label class="control-label" for="tipoAtracao">Atração:</label>
 						<div class="inputs">
 							<select class="form-control" id="tipoAtracao" name="tipoAtracao">						 	
-								@foreach($atracoes as $atracao)
+								@foreach($tipoAtracao as $atracao)
 									<option value="{{ $atracao->tipo }}">{{ $atracao->tipo }}</option>
 								@endforeach
 							</select>
@@ -90,12 +91,12 @@
 				<div class="content">
 					<div class="form-group">
 						<div class="botao">
-					    	<button type="submit" name="btnSalvar" class="btn btn-default" title="Clique aqui para salvar as informações"><span class="glyphicon glyphicon-floppy-disk"></span> Salvar</button>
+					    	<button type="submit" name="salvar" class="btn btn-default" title="Clique aqui para salvar as informações"><span class="glyphicon glyphicon-floppy-disk"></span> Salvar</button>
 					    </div>					    
 					</div>
 					<div class="form-group">
 						<div class="botao">
-					    	<button type="reset" name="btnLimpar" class="btn btn-default" title="Clique aqui para apagar as informações digitadas"><span class="glyphicon glyphicon-erase"></span> Limpar</button>
+					    	<button type="reset" name="limpar" class="btn btn-default" title="Clique aqui para apagar as informações digitadas"><span class="glyphicon glyphicon-erase"></span> Limpar</button>
 					    </div>
 					</div>
 				</div>				

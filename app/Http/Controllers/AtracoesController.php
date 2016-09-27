@@ -3,10 +3,11 @@
 namespace culturando\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Input;
 use culturando\Http\Requests;
 use culturando\Models\Cidade;
 use culturando\Models\TipoAtracao;
+use culturando\Models\Atracao;
 
 class AtracoesController extends Controller
 {
@@ -22,39 +23,72 @@ class AtracoesController extends Controller
         return TipoAtracao::all();
     }
 
+    //popula o menu da página inicial
     public function criarMenu() {
 
-        $cidadesBaixada = AtracoesController::listarCidadeBaixada();
-        $cidadesVale = AtracoesController::listarCidadeVale();
-        $atracoes = AtracoesController::listarAtracoes();
-        
+        $cidadesBaixada = $this->listarCidadeBaixada();
+        $cidadesVale = $this->listarCidadeVale();
+        $tipoAtracao = $this->listarAtracoes();        
 
-        return view('/home')->with(array('atracoes' => $atracoes, 'baixada' => $cidadesBaixada, 'vale' => $cidadesVale));
+        return view('/home')->with(array('tipoAtracao' => $tipoAtracao, 'baixada' => $cidadesBaixada, 'vale' => $cidadesVale));
     }
 
+    //popula o menu da página de atrações
     public function criarMenuAtracoes() {
         
-        $cidadesBaixada = AtracoesController::listarCidadeBaixada();
-        $cidadesVale = AtracoesController::listarCidadeVale();
-        $atracoes = AtracoesController::listarAtracoes();
+        $cidadesBaixada = $this->listarCidadeBaixada();
+        $cidadesVale = $this->listarCidadeVale();
+        $tipoAtracao = $this->listarAtracoes();
 
-        return view('/atracoes')->with(array('atracoes' => $atracoes, 'baixada' => $cidadesBaixada, 'vale' => $cidadesVale));
+        return view('/atracoes')->with(array('tipoAtracao' => $tipoAtracao, 'baixada' => $cidadesBaixada, 'vale' => $cidadesVale));
     }
 
+    //popula o combo da página painel 
     public function criarComboPainel() {
         
-        $cidadesBaixada = AtracoesController::listarCidadeBaixada();
-        $cidadesVale = AtracoesController::listarCidadeVale();
-        $atracoes = AtracoesController::listarAtracoes();
+        $cidadesBaixada = $this->listarCidadeBaixada();
+        $cidadesVale = $this->listarCidadeVale();
+        $tipoAtracao = $this->listarAtracoes();
 
-        return view('/painel')->with(array('atracoes' => $atracoes, 'baixada' => $cidadesBaixada, 'vale' => $cidadesVale));
+        return view('/painel')->with(array('tipoAtracao' => $tipoAtracao, 'baixada' => $cidadesBaixada, 'vale' => $cidadesVale));
     }
 
-    public function novo() {
-        $cidadesBaixada = AtracoesController::listarCidadeBaixada();
-        $cidadesVale = AtracoesController::listarCidadeVale();
-        $atracoes = AtracoesController::listarAtracoes();
+    //faz a ação conforme o botão clicado
+    public function verificarBotao() {
 
-        return view('/cadastrar')->with(array('atracoes' => $atracoes, 'baixada' => $cidadesBaixada, 'vale' => $cidadesVale));
+        if(Input::get('cadastrar')) {
+            return redirect()->action('AtracoesController@novo');//redireciona para a página de cadastro
+        } 
+        elseif(Input::get('filtrar')) {
+            $this->filtrar(); //if register then use this method
+        }
+        else {
+            return redirect()->action('AtracoesController@criarComboPainel');
+        }
+    }
+
+    public function filtrar() {
+
+        return "Filtrando";
+    }
+
+    //exibe a página de cadastro de atrações
+    public function novo() {
+        
+        $cidadesBaixada = $this->listarCidadeBaixada();
+        $cidadesVale = $this->listarCidadeVale();
+        $tipoAtracao = $this->listarAtracoes();
+
+        return view('/cadastrar')->with(array('tipoAtracao' => $tipoAtracao, 'baixada' => $cidadesBaixada, 'vale' => $cidadesVale));
+    }
+
+    public function cadastrar(Request $req) {
+
+        $params = $req->all();
+        $atracoes = new Atracao($params);
+        $atracoes->save();
+
+        return redirect()->action('AtracoesController@criarComboPainel')->withInput();
+
     }
 }

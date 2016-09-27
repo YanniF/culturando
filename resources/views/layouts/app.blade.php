@@ -27,7 +27,7 @@
         <div class="container">
             <div class="content">
                 <div class="logo">
-                    <a href="?p=home">
+                    <a href="{{ action('AtracoesController@criarMenu') }}">
                         <img src="img/logo.png" class="img-responsive" alt="Culturando" title="Culturando">
                     </a>
                 </div><!-- logo -->
@@ -80,9 +80,9 @@
                         
                         <div class="collapse navbar-collapse" id="navbar-collapse-2">
                             <ul class="nav navbar-nav">
-                                <li><a href="?p=home"><span class="glyphicon glyphicon-home"></span></a></li>
+                                <li><a href="{{ action('AtracoesController@criarMenu') }}"><span class="glyphicon glyphicon-home"></span></a></li>
                                 
-                                @foreach($atracoes as $atracao)
+                                @foreach($tipoAtracao as $atracao)
                                     <li class="dropdown">
                                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{ mb_strtoupper($atracao->tipo) }} <span class="caret"></span></a>
                                         <ul class="dropdown-menu">

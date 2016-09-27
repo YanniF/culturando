@@ -7,7 +7,7 @@
         <form class="form-horizontal" role="form" method="POST" action="{{ url('/login') }}">
             {{ csrf_field() }}
             <div class="logo">
-                <a href="?p=login"><img src="../img/logo.png" class="img-responsive" alt="Culturando" title="Culturando"></a>
+                <a href="{{ url('/admin') }}"><img src="../img/logo.png" class="img-responsive" alt="Culturando" title="Culturando"></a>
             </div>
             <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
                 <label class="control-label" for="username">Usuário:</label>
