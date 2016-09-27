@@ -7,7 +7,7 @@
 			<form class="form-horizontal" method="post" role="form" action="{{ url('/verificar') }}">
 				<input type="hidden" name="_token" value="{{ csrf_token() }}">
 				<div class="logo">
-					<a href="{{ action('AtracoesController@criarComboPainel') }}"><img src="../img/logo.png" class="img-responsive" alt="Culturando" title="culturando"></a>
+					<a href="{{ action('AtracoesController@listarElementosPainel') }}"><img src="../img/logo.png" class="img-responsive" alt="Culturando" title="culturando"></a>
 				</div>
 				<div class="content"><h3>Selecione as informações que serão exibidas na tabela abaixo</h3></div>
 				<div class="content">
@@ -71,22 +71,24 @@
 			        <th>Foto</th>
 			        <th>Nome</th>
 			        <th>Tipo</th>
+			        <th>Telefone</th>
 			        <th>Cidade</th>
-			        <th>Visualizar</th>
+			        <th>Exibir</th>
 			        <th>Editar</th>
 			        <th>Excluir</th>
 			      </tr>
 			    </thead>
 			    <tbody>
-			    	@foreach($atracao as $a)
+			    	@foreach($atracoes as $a)
 				    	<tr>
-							<td></td>
+							<td>{{ $a->foto }}</td>
 							<td>{{ $a->nome }}</td>
 							<td>{{ $a->tipoAtracao }}</td>
+							<td>{{ $a->telefone }}</td>
 							<td>{{ $a->cidade }}</td>
-							<td><button type='submit' name='visualizar' class='btn btn-primary'><span class='glyphicon glyphicon-search'></span></button></td>
-							<td><button type='submit' name='editar' class='btn btn-success'><span class='glyphicon glyphicon-pencil'></span></button></td>
-							<td><button type='submit' name='apagar' class='btn btn-danger'><span class='glyphicon glyphicon-remove'></span></button></td>
+							<td><a class="btn btn-primary" href=""><span class='glyphicon glyphicon-search'></span></a></td>
+							<td><a class="btn btn-success" href=""><span class='glyphicon glyphicon-pencil'></span></a></td>
+							<td><a class="btn btn-danger" href="{{ action('AtracoesController@excluir', $a->id) }}"><span class='glyphicon glyphicon-remove'></span></a></td>							
 						</tr>
 						@endforeach
 			    </tbody>

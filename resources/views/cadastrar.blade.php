@@ -3,10 +3,10 @@
 @section('content')
 	<div class="container" id="cadastro">
 		<div class="content">
-			<form class="form-horizontal" method="post" role="form" action="{{ action('AtracoesController@cadastrar') }}">
+			<form class="form-horizontal" method="post" role="form" action="{{ action('AtracoesController@cadastrar') }}" enctype="multipart/form-data">
 				<input type="hidden" name="_token" value="{{ csrf_token() }}">
 				<div class="logo">
-					<a href="{{ action('AtracoesController@criarComboPainel') }}"><img src="../img/logo.png" class="img-responsive" alt="Culturando" title="Culturando"></a>
+					<a href="{{ action('AtracoesController@listarElementosPainel') }}"><img src="../img/logo.png" class="img-responsive" alt="Culturando" title="Culturando"></a>
 				</div>				
 				<div class="content">
 					<div class="form-group">

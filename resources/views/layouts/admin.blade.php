@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Culturando - Login</title>
+	<title>Culturando - Área administrativa</title>
 	
 	<link rel="stylesheet" href="css/plugins/plugins.css">  
 	<link rel="stylesheet" href="css/styleAdmin.css">
