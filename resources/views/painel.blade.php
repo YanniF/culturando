@@ -4,7 +4,7 @@
 
 <div class="container" id="painel">
 		<div class="content">
-			<form class="form-horizontal" method="post" role="form" action="{{ url('/verificar') }}">
+			<form class="form-horizontal" method="get" role="form" action="{{ url('/verificar') }}">
 				<input type="hidden" name="_token" value="{{ csrf_token() }}">
 				<div class="logo">
 					<a href="{{ action('AtracoesController@listarElementosPainel') }}"><img src="../img/logo.png" class="img-responsive" alt="Culturando" title="culturando"></a>
@@ -12,9 +12,9 @@
 				<div class="content"><h3>Selecione as informações que serão exibidas na tabela abaixo</h3></div>
 				<div class="content">
 					<div class="form-group">
-						<label class="control-label" for="selAtracao">Atração:</label>
+						<label class="control-label" for="tipoAtracao">Atração:</label>
 						<div class="inputs">
-							<select class="form-control" id="selAtracao" name="selAtracao">
+							<select class="form-control" id="tipoAtracao" name="tipoAtracao">
 								<option value="-">-</option>
 								@foreach($tipoAtracao as $atracao)
 									<option value="{{ $atracao->tipo }}">{{ $atracao->tipo }}</option>
@@ -23,9 +23,9 @@
 						</div>
 					</div>	
 				  	<div class="form-group">
-						<label class="control-label" for="selCidade">Cidade:</label>
+						<label class="control-label" for="cidade">Cidade:</label>
 						<div class="inputs">
-							<select class="form-control" id="selCidade" name="selCidade">
+							<select class="form-control" id="cidade" name="cidade">
 								<option value="-">-</option>
 							 	<optgroup label="Baixada Santista">							 		
 							 		@foreach($baixada as $cityB)
@@ -81,7 +81,7 @@
 			    <tbody>
 			    	@foreach($atracoes as $a)
 				    	<tr>
-							<td>{{ $a->foto }}</td>
+							<td><img src="{{ $a->foto }}" alt="{{ $a->nome }}" title="{{ $a->nome }}"></td>
 							<td>{{ $a->nome }}</td>
 							<td>{{ $a->tipoAtracao }}</td>
 							<td>{{ $a->telefone }}</td>
@@ -90,7 +90,7 @@
 							<td><a class="btn btn-success" href=""><span class='glyphicon glyphicon-pencil'></span></a></td>
 							<td><a class="btn btn-danger" href="{{ action('AtracoesController@excluir', $a->id) }}"><span class='glyphicon glyphicon-remove'></span></a></td>							
 						</tr>
-						@endforeach
+					@endforeach
 			    </tbody>
 			</table>
 		</div>		

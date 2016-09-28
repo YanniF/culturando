@@ -4,7 +4,8 @@ Route::get('/', 'AtracoesController@criarMenu');
 Route::get('/atracoes', 'AtracoesController@criarMenuAtracoes');
 
 Route::get('/painel', 'AtracoesController@listarElementosPainel')->middleware('auth');
-Route::post('/verificar', 'AtracoesController@verificarBotao');
+Route::get('/verificar', 'AtracoesController@verificarBotao');
+
 Route::get('/novo', 'AtracoesController@novo')->middleware('auth');
 Route::post('/cadastrar', 'AtracoesController@cadastrar')->middleware('auth');
 Route::get('/excluir/{id}', 'AtracoesController@excluir')->middleware('auth');

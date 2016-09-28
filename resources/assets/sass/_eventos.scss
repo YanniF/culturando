@@ -1,0 +1,45 @@
+body {
+	> #eventos {
+		margin-bottom: 40px;
+
+		> .container {
+			.content {
+				
+				#evento1 {
+					// @include make-xs-column(8);
+					// @include make-sm-column(8);
+					@include make-md-column(8);		
+				}
+
+				#evento2 { 
+					// @include make-xs-column(4);
+					// @include make-sm-column(4);
+					@include make-md-column(4);
+				}				
+				
+				> .eventos-baixada {
+					.evento-item {
+						// @include make-xs-column(12);
+						// @include make-sm-column(7);
+						@include make-md-column(3);	
+						@include make-md-column-offset(1);
+						@include make-md-column-pull(1);
+
+						font: 300 16px $fonte;
+						margin-bottom: 20px;							
+					}					
+				}
+
+				> #eventos-fora {
+					// @include make-xs-column(12);
+					// @include make-sm-column(7);
+					@include make-md-column(4);
+
+					.evento-item {
+						
+					}
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,245 @@
+body {
+	> header {
+		margin-top: 20px;
+		margin-bottom: 20px;
+
+		> .container {
+			> .content {
+				> .logo {
+					@include make-xs-column(8);
+					@include make-sm-column(3);
+					@include make-md-column(3);
+				}
+
+				> #menu1 {
+					@include make-xs-column(4);
+					@include make-sm-column(9);
+					@include make-md-column(9);
+
+					background-color: #FFFFFF;
+					border:none;
+					margin-top: 10px;
+
+
+					> .navbar-collapse {	
+						> .navbar-nav {
+							float: right;
+
+							li {
+								a {
+									font: 600 16px $fonte;
+									color: $cor-media;
+									padding-bottom: 5px;
+									transition: all 0.2s linear;						
+
+									&:visited, &:link {
+										background-color: #FFFFFF;
+									}
+
+									&:hover {
+										color: $cor-muy-escura;
+										transition: all 0.2s linear;
+									}
+								}						
+
+								ul {
+									li {
+										padding: 10px 0;
+										a {	
+											&:hover {
+												color: $cor-muy-escura;
+												border: none;
+											}
+										}
+									}
+								}
+							}
+						}//navbar-nav
+					}//navbar-collapse
+				}//menu1
+			}
+		}
+		
+	}
+
+	> #navegacao {			
+		background-color: $cor-escura;
+		width: 100%;
+		border-bottom: 5px solid $cor-clara;
+		
+		> .container {
+			> .content {
+				margin: 0;
+
+				> #menu2 {
+					@include make-md-column(12);
+					padding: 0;
+
+					> .navbar-default {
+						background-color: $cor-escura;
+						border-radius: 0;
+						box-shadow: none;
+						border: none;
+						margin-bottom: 0;
+
+						> .navbar-collapse {
+							padding: 0;
+
+							> .navbar-nav {
+								background-color: $cor-escura;
+
+								li {
+									a {
+										font: 600 16px $fonte;
+										color: $cor-clara;
+										transition: all 0.2s linear;
+
+										&:visited, &:link {
+											background-color: $cor-escura;
+										}
+
+										&:hover {
+											color: #FFFFFF;
+											transition: all 0.2s linear;
+										}
+									}
+
+									ul {
+										background-color: $cor-escura;										
+										 
+									 	.dropdown-header {
+									 		font: 400 14px $fonte;
+									 		
+									 	}
+									 	.divider {
+									 		background-color: $cor-escura;
+									 	}										 
+									}
+								}								
+							}
+						}
+					}//navbar-default
+				}//menu2
+			}//content
+		}//container					
+	}//navegacao
+
+	> #slider {
+		margin-top: 20px;
+		margin-bottom: 60px;
+
+		> #myCarousel {
+			width: 80%;
+			margin:auto;
+
+			> .carousel-indicators {
+				margin-bottom: 0;
+				bottom: -30px;
+
+				li {
+					background-color: $cor-clara;
+					border-color: $cor-clara;
+
+					&.active {
+						background-color: $cor-muy-escura;
+						border-color: $cor-muy-escura;
+					}
+				}
+			}
+
+			> .carousel-inner {
+				.item {
+					img {
+						margin: auto;
+					}
+
+					.carousel-caption {
+						background-color: rgba(0,0,0,0.5);
+						padding: 5px 0;
+						width: 85%;						
+						margin: auto;
+						left: 0;
+						right: 0;
+						bottom: 5px;
+						
+						a {
+							text-decoration: none;
+							text-align: justify;
+
+							h3, p {
+								font: 600 18px $fonte;
+								color: #FFFFFF;								
+								padding-left: 10px;
+								padding-right: 10px;
+								margin: 5px;
+							}
+
+							p {
+								font-weight: 400;
+							}
+						}						
+					}//carousel-caption
+				}//item
+			}//carousel-inner
+
+			.carousel-control {				
+				color: $cor-muy-escura;
+				background-image: none;	
+				width: 20px;										
+			}
+		}//myCarousel
+	}//slider
+
+	> #destaque-titulo {
+		> .container {
+			>.content {
+				h3 {
+					@include make-xs-column(12);
+					@include make-sm-column(12);
+					@include make-md-column(12);										
+				}
+			}//content			
+		}//container
+	}//destaque-titulo
+
+	> #destaque {
+		background-color: $cor-escura;
+		margin-bottom: 40px;
+		
+		> .container {
+			> .content {
+				.destaque-item {
+					@include make-xs-column(12);
+					@include make-sm-column(4);
+					@include make-md-column(4);
+
+					margin: 20px 0;							
+
+					> a {
+						text-decoration: none;
+
+						> .fundo {
+							background-color: $cor-media;
+							width: 70%;
+							margin: auto;
+
+							> img {
+								margin: auto;
+								height: 170px;
+							}
+
+							> p {
+								padding: 20px;
+								margin: 0;
+								font: 600 16px $fonte;
+								color: #FFFFFF;
+								text-align: justify;							
+							}
+						}						
+					}
+				}//destaque-item	
+			}//content
+		}//container
+							
+	}//destaque
+}

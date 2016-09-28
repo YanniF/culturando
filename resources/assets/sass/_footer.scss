@@ -1,0 +1,29 @@
+body {
+	> .scroll-top {		
+		position: fixed;
+		width: 40px;
+		height: 40px;
+		right: 8%;
+		bottom: 3%;
+		background-color: $cor-media;//mudar cor
+		opacity: 0.5;
+		cursor: pointer;
+		display: none;
+
+		&:hover {
+			opacity: 1;
+		}
+		
+		.glyphicon-chevron-up {			
+			font-size: 18px;
+			color: #FFFFFF;
+			top: 25%;
+			left: 28%;
+		}
+	}
+
+	> footer {
+		background-color: $cor-media;
+		height: 200px;//tirar
+	}
+} 

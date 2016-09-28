@@ -1,0 +1,159 @@
+@media screen and (max-width: 768px) {
+	body {
+		> header {	
+			> .container {
+				> .content {
+					> #menu1 {	
+						padding-right: 0;
+						margin-bottom: 0;
+
+						> .navbar-collapse {							
+
+							> .navbar-nav {
+								float: left;
+
+								li {
+									a {
+										font-size: 12px;
+									}
+								}
+							}//navbar					
+						}//navbar-collapse				
+					}//menu1
+				}//content
+			}//container			
+		}
+	
+		> #navegacao {		
+			> .container {
+				> .content {
+					> #menu2 {
+						> .navbar-default {
+
+							> .navbar-collapse {
+								border: none;
+								box-shadow: none;
+
+								> .navbar-nav {	
+									margin: 0;								
+
+									li {
+										a {
+											padding-left: 10px;
+										}
+									}
+								}
+							}//navbar-collpase
+						}//navbar-default						
+					}//menu2
+				}//content
+			}//container
+		}//navegacao
+
+		> #slider {
+			> #myCarousel {
+				width: 100%;
+				margin:auto;
+
+				> .carousel-inner {
+					.item {
+						img {
+							margin: auto;
+						}
+
+						.carousel-caption {
+							width:95%;
+							
+							a {
+								h3 {
+									font-size: 14px;
+								}
+
+								p {
+									display: none;
+								}
+							}
+						}
+					}//item
+				}//carousel-inner
+				.carousel-control {				
+					display: none;										
+				}
+			}//myCarousel
+		}//slider
+
+		/* > #scroll-top {
+			width: 25px;
+			height: 25px;
+
+			.glyphicon-chevron-up {			
+				font-size: 10px;
+				top: 10%;
+			}
+		} */
+	}
+}
+
+@media screen and (min-width: 769px) and (max-width: 999px) {
+	
+	body {
+		> header {	
+			> .container {
+				> .content {
+					> #menu1 {
+						padding-left: 0;
+						padding-right: 0;
+
+						> .navbar-collapse {
+							padding-left: 0;
+							padding-right: 0;
+
+							> .navbar-nav {
+								li {
+									a {
+										font-size: 14px;
+										padding-left: 10px;
+										padding-right: 10px;
+									}
+								}
+							}//navbar					
+						}//navbar-collapse				
+					}//menu1
+				}//content
+			}//container			
+		}
+	}
+}
+
+@media screen and (max-width: 1220px) {
+	body {
+		> #navegacao {
+			> .container {
+				padding-right: 0;
+
+				> .content {
+					> #menu2 {
+						> .navbar-default {
+							> .navbar-collapse {
+								> .navbar-nav {
+									li {
+										a {
+											padding-top: 17px;
+											font-size: 14px;
+										}
+
+										ul {
+											margin-top: -1px;
+										}
+									}
+								}//navbar
+							}//navbar-collapse
+						}//navbar-default								
+					}//menu2
+				}//content
+			}//container
+		}//navegacao
+		
+	}
+}
+

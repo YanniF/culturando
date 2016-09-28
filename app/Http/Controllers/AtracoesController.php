@@ -46,33 +46,36 @@ class AtracoesController extends Controller
     }
 
     //popula o combo da página painel 
-    public function listarElementosPainel() {
+    public function listarElementosPainel(Request $req) {
         
+        if($req->tipoAtracao != null && $req->cidade != null) {
+            
+            $atracoes = Atracao::select('*')->where('tipoAtracao', '=', $req->tipoAtracao)->get();//terminar
+            
+        }
+        else {            
+            $atracoes = Atracao::all();
+        }   
+
         $cidadesBaixada = $this->listarCidadeBaixada();
         $cidadesVale = $this->listarCidadeVale();
-        $tipoAtracao = $this->listarAtracoes();
-        $atracoes = Atracao::all();
+        $tipoAtracao = $this->listarAtracoes();        
 
         return view('/painel')->with(array('tipoAtracao' => $tipoAtracao, 'baixada' => $cidadesBaixada, 'vale' => $cidadesVale, 'atracoes' => $atracoes));
     }
 
     //faz a ação conforme o botão clicado
-    public function verificarBotao() {
+    public function verificarBotao(Request $req) {
 
         if(Input::get('cadastrar')) {
             return redirect()->action('AtracoesController@novo');//redireciona para a página de cadastro
         } 
-        elseif(Input::get('filtrar')) {
-            $this->filtrar(); //if register then use this method
+        elseif(Input::get('filtrar')) {            
+            return $this->listarElementosPainel($req);
         }
         else {
             return redirect()->action('AtracoesController@listarElementosPainel');
         }
-    }
-
-    public function filtrar() {
-
-        return "Filtrando";
     }
 
     //exibe a página de cadastro de atrações
@@ -90,14 +93,16 @@ class AtracoesController extends Controller
         $params = $req->all();
         $atracoes = new Atracao($params);
         
-        //tratamento da imagem
-        $ext = strtolower(substr($_FILES['foto']['name'], -4)); //Pegando extensão do arquivo
-        $novoNome = date("Y.m.d-H.i.s") . $ext; //Definindo um novo nome para o arquivo
-        $dir = 'img/upload/';
+        if($req->foto != null) {//caso tenha sido cadastrado uma imagem
+            //tratamento da imagem
+            $ext = strtolower(substr($_FILES['foto']['name'], -4)); //Pegando extensão do arquivo
+            $novoNome = date("Y.m.d-H.i.s") . $ext; //Definindo um novo nome para o arquivo
+            $dir = 'img/upload/';
+            
+            move_uploaded_file($_FILES['foto']['tmp_name'], $dir . $novoNome); //Faz o upload do arquivo        
+            $atracoes->foto = $dir . $novoNome;//Insere o caminho do arquivo para o banco
+        }
         
-        move_uploaded_file($_FILES['foto']['tmp_name'], $dir . $novoNome); //Faz o upload do arquivo        
-        $atracoes->foto = $dir . $novoNome;//Insere o caminho do arquivo para o banco
-
         $atracoes->save();
         
         return redirect()->action('AtracoesController@listarElementosPainel')->withInput();
@@ -106,6 +111,11 @@ class AtracoesController extends Controller
     public function excluir($id) {
         
         $atracao = Atracao::find($id);
+
+        if($atracao->foto != null) {
+            unlink($atracao->foto);//apagar a imagem
+        }
+
         $atracao->delete();
 
         return redirect()->action('AtracoesController@listarElementosPainel');

@@ -1,0 +1,50 @@
+a {
+	outline: none !important;
+	img {
+		border: none;
+	}
+}
+
+.content {
+	@include make-row();			
+}
+
+.container {
+	>.content {
+
+		> .titulo {	
+			font: 600 22px $fonte;
+			color: $cor-escura;
+			margin-top: 0;
+			margin-bottom: 20px;	
+
+			span {
+				font-size: 18px;
+			}
+		}		
+	}
+}
+
+#eventos {
+	font: 300 16px $fonte;
+	
+	a {
+		text-decoration: none;
+
+		> img {
+			margin: 10px auto;
+		}
+
+		> h3 {
+			font-size: 20px;
+			font-weight: bold;
+			color: $azul;	
+			text-align: center;								
+			margin-bottom: 0;
+		}	
+	}						
+
+	p {
+		text-align: justify;
+	}	
+}
