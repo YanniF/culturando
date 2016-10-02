@@ -7,7 +7,7 @@
 	    }
 	    else {
 	    	link.fadeOut(400);
-	    }		
+	    }
 	};
 
 	$(document).ready(function() {

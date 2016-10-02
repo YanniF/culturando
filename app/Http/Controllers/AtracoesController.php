@@ -72,7 +72,7 @@ class AtracoesController extends Controller
         $cidadesVale = $this->listarCidadeVale();
         $tipoAtracao = $this->listarAtracoes();        
 
-        return view('/painel')->with(array('tipoAtracao' => $tipoAtracao, 'baixada' => $cidadesBaixada, 'vale' => $cidadesVale, 'atracoes' => $atracoes));
+        return view('/admin/painel')->with(array('tipoAtracao' => $tipoAtracao, 'baixada' => $cidadesBaixada, 'vale' => $cidadesVale, 'atracoes' => $atracoes));
     }
 
     //faz a ação conforme o botão clicado
@@ -96,7 +96,7 @@ class AtracoesController extends Controller
         $cidadesVale = $this->listarCidadeVale();
         $tipoAtracao = $this->listarAtracoes();
 
-        return view('/cadastrar')->with(array('tipoAtracao' => $tipoAtracao, 'baixada' => $cidadesBaixada, 'vale' => $cidadesVale));
+        return view('/admin/cadastrar')->with(array('tipoAtracao' => $tipoAtracao, 'baixada' => $cidadesBaixada, 'vale' => $cidadesVale));
     }
 
     public function cadastrar(Request $req) {
