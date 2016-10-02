@@ -50,8 +50,19 @@ class AtracoesController extends Controller
         
         if($req->tipoAtracao != null && $req->cidade != null) {
             
-            $atracoes = Atracao::select('*')->where('tipoAtracao', '=', $req->tipoAtracao)->get();//terminar
-            
+            //verificando se foi selecionado algo nos combos e executando a query conforme a opção selecionada
+            if($req->tipoAtracao == '-' && $req->cidade == '-') {
+                $atracoes = Atracao::all();
+            }
+            else if($req->tipoAtracao == '-') {
+                $atracoes = Atracao::select('*')->where('cidade', '=', $req->cidade)->get();
+            }
+            else if($req->cidade == '-') {
+                $atracoes = Atracao::select('*')->where('tipoAtracao', '=', $req->tipoAtracao)->get();
+            }
+            else {
+                $atracoes = Atracao::select('*')->where('tipoAtracao', '=', $req->tipoAtracao)->where('cidade', '=', $req->cidade)->get();
+            }
         }
         else {            
             $atracoes = Atracao::all();

@@ -4,7 +4,7 @@
 
 <div class="container" id="painel">
 		<div class="content">
-			<form class="form-horizontal" method="get" role="form" action="{{ url('/verificar') }}">
+			<form class="form-horizontal" method="post" role="form" action="{{ url('/verificar') }}">
 				<input type="hidden" name="_token" value="{{ csrf_token() }}">
 				<div class="logo">
 					<a href="{{ action('AtracoesController@listarElementosPainel') }}"><img src="../img/logo.png" class="img-responsive" alt="Culturando" title="culturando"></a>
