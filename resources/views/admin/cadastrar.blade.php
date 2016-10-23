@@ -3,11 +3,20 @@
 @section('content')
 	<div class="container" id="cadastro">
 		<div class="content">
+			<div class="logo">
+				<a href="{{ action('AtracoesController@listarElementosPainel') }}"><img src="/img/logo.png" class="img-responsive" alt="Culturando" title="Clique aqui para voltar para o painel"></a>
+			</div>
+			<div class="logout">					
+				<a href="{{ url('/logout') }}" class="btn btn-default" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+					<span class="glyphicon glyphicon-log-out"></span> Sair
+				</a>
+				<form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
+		            {{ csrf_field() }}
+		        </form>
+			</div>
+
 			<form class="form-horizontal" method="post" role="form" action="{{ action('AtracoesController@cadastrar') }}" enctype="multipart/form-data">
 				<input type="hidden" name="_token" value="{{ csrf_token() }}">
-				<div class="logo">
-					<a href="{{ action('AtracoesController@listarElementosPainel') }}"><img src="../img/logo.png" class="img-responsive" alt="Culturando" title="Culturando"></a>
-				</div>				
 				<div class="content">
 					<div class="form-group">
 				    	<label class="control-label" for="nome">Nome:</label>
@@ -69,7 +78,7 @@
 					<div class="form-group">		  			
 				    	<label class="control-label" for="site">Site:</label>
 					    <div class="inputs">
-					    	<input type="text" class="form-control" id="site" name="site" value="{{ old('site') }}">
+					    	<input type="url" class="form-control" id="site" name="site" value="{{ old('site') }}" title="Formato: http://www.site.com">
 					    </div>
 					 </div>
 					<div class="form-group">

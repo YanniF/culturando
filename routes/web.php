@@ -8,10 +8,7 @@ Route::post('/admin/verificar', 'AtracoesController@verificarBotao');
 
 Route::get('/admin/novo', 'AtracoesController@novo')->middleware('auth');
 Route::post('/admin/cadastrar', 'AtracoesController@cadastrar')->middleware('auth');
+Route::get('/admin/exibir/{id}', 'AtracoesController@exibir')->middleware('auth');
 Route::get('/admin/excluir/{id}', 'AtracoesController@excluir')->middleware('auth');
-
-Route::get('/login', function() {
-	return view('auth/login');
-});
 
 Auth::routes();

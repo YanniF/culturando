@@ -1,0 +1,58 @@
+body{
+	> #login {		
+		> .content {
+			.logo {
+				@include make-md-column(12);
+
+				margin-bottom: 30px;
+				> a {					
+					> img {
+						margin: 20px auto;
+					}
+				}
+			}
+			> .form-horizontal {
+				width: 60%;
+				margin: 100px auto;
+				border: 5px solid $cor-escura;
+				border-radius: 10px;
+
+				> .form-group {
+					margin: 20px 10px;
+					padding: 10px 20px;
+					font: 600 20px $fonte;
+
+					.control-label {
+						@include make-md-column(2);
+						text-align: right;
+					}
+
+					.inputs {
+						@include make-md-column(10);
+
+						.form-control {
+							padding: 0 10px;
+							font-size: 18px;
+						}
+					}
+
+					.botao {
+						@include make-md-column(7);
+						@include make-md-column-offset(5);
+						
+						.btn-default {
+							font-size: 20px;
+							font-weight: bold;
+							border: 2px solid $cor-escura;
+
+							&:hover {
+								background-color: $cor-muy-clara;
+							}
+						}						
+					}
+				}
+			}//form-horizontal			 
+		}//content
+	}//login
+}
+	

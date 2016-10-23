@@ -35,7 +35,7 @@
             </div>            
             <div class="form-group">
                 <div class="botao">
-                    <button type="submit" name="btnSubmit" class="btn btn-default">Entrar</button>
+                    <button type="submit" name="btnSubmit" class="btn btn-default"><span class="glyphicon glyphicon-log-in"></span> Entrar</button>
                 </div>
             </div>
         </form>

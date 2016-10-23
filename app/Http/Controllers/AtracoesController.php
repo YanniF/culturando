@@ -111,12 +111,26 @@ class AtracoesController extends Controller
             $dir = 'img/upload/';
             
             move_uploaded_file($_FILES['foto']['tmp_name'], $dir . $novoNome); //Faz o upload do arquivo        
-            $atracoes->foto = $dir . $novoNome;//Insere o caminho do arquivo para o banco
+            $atracoes->foto = '/' . $dir . $novoNome;//Insere o caminho do arquivo para o banco
         }
-        
+                
         $atracoes->save();
         
         return redirect()->action('AtracoesController@listarElementosPainel')->withInput();
+    }
+
+    public function exibir($id) {
+
+        if($atracao = Atracao::find($id)) {
+            return view('/admin/detalhes')->with('atracao', $atracao);
+        }
+        else {
+            return redirect()->action('AtracoesController@listarElementosPainel')->withInput();
+        }
+    }
+
+    public function alterar($id) {
+
     }
 
     public function excluir($id) {
@@ -124,6 +138,7 @@ class AtracoesController extends Controller
         $atracao = Atracao::find($id);
 
         if($atracao->foto != null) {
+            $atracao->foto = substr($atracao->foto, 1);
             unlink($atracao->foto);//apagar a imagem
         }
 

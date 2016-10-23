@@ -6,16 +6,16 @@
 	<title>Culturando - Área administrativa</title>
 	
 	<link rel="stylesheet" href="/css/plugins/plugins.css">  
-	<link rel="stylesheet" href="/css/styleAdmin.css">
+	<link rel="stylesheet" href="/css/admin/styleAdmin.css">
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="/css/responsive.css">
 </head>
-<body>
+ <body>
 
 	@yield('content')
 
 	<script src="/js/plugins/jquery/jquery-2.2.3.min.js"></script>
 	<script src="/js/plugins/bootstrap/bootstrap.min.js"></script>  
-    <!-- <script src="/js/main.js"></script> -->
+	<!-- <script src="/js/main.js"></script> -->
 </body>
 </html>

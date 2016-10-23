@@ -2,13 +2,22 @@
 
 @section('content')
 
-<div class="container" id="painel">
+	<div class="container" id="painel">
 		<div class="content">
+			<div class="logo">
+				<a href="{{ action('AtracoesController@listarElementosPainel') }}"><img src="/img/logo.png" class="img-responsive" alt="Culturando" title="Clique aqui para voltar para o painel"></a>
+			</div>
+			<div class="logout">					
+				<a href="{{ url('/logout') }}" class="btn btn-default" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+					<span class="glyphicon glyphicon-log-out"></span> Sair
+				</a>
+				<form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
+		            {{ csrf_field() }}
+		        </form>
+			</div>
 			<form class="form-horizontal" method="post" role="form" action="{{ url('/admin/verificar') }}">
 				<input type="hidden" name="_token" value="{{ csrf_token() }}">
-				<div class="logo">
-					<a href="{{ action('AtracoesController@listarElementosPainel') }}"><img src="../img/logo.png" class="img-responsive" alt="Culturando" title="culturando"></a>
-				</div>
+				
 				<div class="content"><h3>Selecione as informações que serão exibidas na tabela abaixo</h3></div>
 				<div class="content">
 					<div class="form-group">
@@ -81,12 +90,12 @@
 			    <tbody>
 			    	@foreach($atracoes as $a)
 				    	<tr>
-							<td><img src="{{ $a->foto }}" alt="{{ $a->nome }}" title="{{ $a->nome }}"></td>
+							<td><img class="img-responsive" src="{{ $a->foto }}" alt="{{ $a->nome }}" title="{{ $a->nome }}"></td>
 							<td>{{ $a->nome }}</td>
 							<td>{{ $a->tipoAtracao }}</td>
 							<td>{{ $a->telefone }}</td>
 							<td>{{ $a->cidade }}</td>
-							<td><a class="btn btn-primary" href=""><span class='glyphicon glyphicon-search'></span></a></td>
+							<td><a class="btn btn-primary" href="{{ action('AtracoesController@exibir', $a->id) }}"><span class='glyphicon glyphicon-search'></span></a></td>
 							<td><a class="btn btn-success" href=""><span class='glyphicon glyphicon-pencil'></span></a></td>
 							<td><a class="btn btn-danger" href="{{ action('AtracoesController@excluir', $a->id) }}"><span class='glyphicon glyphicon-remove'></span></a></td>							
 						</tr>
