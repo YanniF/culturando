@@ -16,7 +16,7 @@ body {
 
 		> .btn {
 			font: bold 16px $fonte;
-			border: 2px solid $cor-escura;		
+			border: 2px solid $cor-escura;
 
 			&:hover {
 				background-color: $cor-muy-clara;
@@ -24,8 +24,37 @@ body {
 		}
 		margin-bottom: 20px;
 	}
-
+	
 	> #painel {
+		> .content {			
+			h3 {
+				@include make-md-column(12);
+					
+				font: 600 24px $fonte;	
+			}
+
+			.botoes {
+				@include make-md-column(12);
+
+				margin: 60px 0;
+
+				.btn {
+					@include make-md-column(2);
+					@include make-md-column-offset(2);
+					@include make-md-column-pull(1);
+
+					font: bold 22px $fonte;
+					border: 2px solid $cor-escura;
+
+					&:hover {
+						background-color: $cor-muy-clara;
+					}
+				}
+			}
+		}
+	}
+
+	> #painelAtracoes {
 		> .content {
 			h3 {
 				@include make-md-column(12);

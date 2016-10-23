@@ -15,94 +15,22 @@
 		            {{ csrf_field() }}
 		        </form>
 			</div>
-			<form class="form-horizontal" method="post" role="form" action="{{ url('/admin/verificar') }}">
-				<input type="hidden" name="_token" value="{{ csrf_token() }}">
-				
-				<div class="content"><h3>Selecione as informações que serão exibidas na tabela abaixo</h3></div>
-				<div class="content">
-					<div class="form-group">
-						<label class="control-label" for="tipoAtracao">Atração:</label>
-						<div class="inputs">
-							<select class="form-control" id="tipoAtracao" name="tipoAtracao">
-								<option value="-">-</option>
-								@foreach($tipoAtracao as $atracao)
-									<option value="{{ $atracao->tipo }}">{{ $atracao->tipo }}</option>
-								@endforeach
-							</select>
-						</div>
-					</div>	
-				  	<div class="form-group">
-						<label class="control-label" for="cidade">Cidade:</label>
-						<div class="inputs">
-							<select class="form-control" id="cidade" name="cidade">
-								<option value="-">-</option>
-							 	<optgroup label="Baixada Santista">							 		
-							 		@foreach($baixada as $cityB)
-										<option value="{{ $cityB->nome }}">{{ $cityB->nome }}</option>
-							 		@endforeach
-								</optgroup>
-								<optgroup label="Vale do Ribeira">
-									@foreach($vale as $cityV)
-										<option value="{{ $cityV->nome }}">{{ $cityV->nome }}</option>
-							 		@endforeach
-								</optgroup>
-							</select>
-						</div>
-					</div>
-				</div>
-				<div class="content">
-					<div class="form-group">
-						<div class="botao">
-					    	<button type="submit" name="filtrar" value="filtrar" class="btn btn-default" title="Clique para filtrar as informações"><span class="glyphicon glyphicon-filter"></span> Filtrar</button>
-					    </div>					    
-					</div>
-					<div class="form-group">
-						<div class="botao">
-					    	<button type="submit" name="cadastrar" value="cadastrar" class="btn btn-default" title="Clique para cadastrar um novo item"><span class="glyphicon glyphicon-plus"></span> Cadastrar</button>
-					    </div>					    
-					</div>
-				</div>				
-			</form>			
-		</div><!-- content -->
+		</div>
 		<div class="content">
-			@if(old('nome'))
-				<div class="alert alert-success"> <!-- o old pega os dados enviados por redirect -->
-					<strong>Sucesso! </strong>Atração cadastrada com sucesso!
-				</div>
-			@endif
-		</div>		
-
+	        <h3>Escolha qual área você deseja acessar</h3>
+			<div class="botoes">
+				<a href="{{ action('AtracoesController@listarElementosPainel') }}" class="btn btn-default"><span class="glyphicon glyphicon-star"></span> Atrações</a>
+				<a href="" class="btn btn-default"><span class="glyphicon glyphicon-star-empty"></span> Destaques</a>
+				<a href="" class="btn btn-default"><span class="glyphicon glyphicon-star"></span> Eventos</a>
+			</div>					
+		</div>
 		<div class="content">
-			<h3>Lista das atrações:</h3>
-			<table class="table table-striped">
-			    <thead>
-			      <tr>
-			        <th>Foto</th>
-			        <th>Nome</th>
-			        <th>Tipo</th>
-			        <th>Telefone</th>
-			        <th>Cidade</th>
-			        <th>Exibir</th>
-			        <th>Editar</th>
-			        <th>Excluir</th>
-			      </tr>
-			    </thead>
-			    <tbody>
-			    	@foreach($atracoes as $a)
-				    	<tr>
-							<td><img class="img-responsive" src="{{ $a->foto }}" alt="{{ $a->nome }}" title="{{ $a->nome }}"></td>
-							<td>{{ $a->nome }}</td>
-							<td>{{ $a->tipoAtracao }}</td>
-							<td>{{ $a->telefone }}</td>
-							<td>{{ $a->cidade }}</td>
-							<td><a class="btn btn-primary" href="{{ action('AtracoesController@exibir', $a->id) }}"><span class='glyphicon glyphicon-search'></span></a></td>
-							<td><a class="btn btn-success" href=""><span class='glyphicon glyphicon-pencil'></span></a></td>
-							<td><a class="btn btn-danger" href="{{ action('AtracoesController@excluir', $a->id) }}"><span class='glyphicon glyphicon-remove'></span></a></td>							
-						</tr>
-					@endforeach
-			    </tbody>
-			</table>
-		</div>		
-	</div><!-- container -->
+			<div class="botoes">
+				<a href="" class="btn btn-default"><span class="glyphicon glyphicon-star"></span> Galeria</a>
+				<a href="" class="btn btn-default"><span class="glyphicon glyphicon-star-empty"></span> Parceiros</a>
+				<a href="" class="btn btn-default"><span class="glyphicon glyphicon-star"></span> Slider</a>
+			</div>					
+		</div>
+	</div>
 
 @endsection

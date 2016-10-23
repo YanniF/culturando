@@ -5,6 +5,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title>Culturando - Área administrativa</title>
 	
+	<link href="{{ asset('img/icon.png') }}" rel="shortcut icon">
 	<link rel="stylesheet" href="/css/plugins/plugins.css">  
 	<link rel="stylesheet" href="/css/admin/styleAdmin.css">
     <link rel="stylesheet" href="/css/style.css">
