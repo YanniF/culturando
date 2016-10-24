@@ -96,7 +96,7 @@
 							<td>{{ $a->telefone }}</td>
 							<td>{{ $a->cidade }}</td>
 							<td><a class="btn btn-primary" href="{{ action('AtracoesController@exibir', $a->id) }}"><span class='glyphicon glyphicon-search'></span></a></td>
-							<td><a class="btn btn-success" href=""><span class='glyphicon glyphicon-pencil'></span></a></td>
+							<td><a class="btn btn-success" href="{{ action('AtracoesController@editar', $a->id) }}"><span class='glyphicon glyphicon-pencil'></span></a></td>
 							<td><a class="btn btn-danger" href="{{ action('AtracoesController@excluir', $a->id) }}"><span class='glyphicon glyphicon-remove'></span></a></td>							
 						</tr>
 					@endforeach

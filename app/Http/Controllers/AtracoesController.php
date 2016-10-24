@@ -129,8 +129,38 @@ class AtracoesController extends Controller
         }
     }
 
-    public function alterar($id) {
+    public function editar($id) {
+        
+        $atracao = Atracao::find($id);
+        $cidadesBaixada = $this->listarCidadeBaixada();
+        $cidadesVale = $this->listarCidadeVale();
+        $tipoAtracao = $this->listarAtracoes();
 
+        return view('/admin/atracoes/alterar')->with(array('a' => $atracao, 'tipoAtracao' => $tipoAtracao, 'baixada' => $cidadesBaixada, 'vale' => $cidadesVale));
+    }
+
+    public function alterar($id, Request $req) {
+
+        $atracao = Atracao::findOrFail($id);
+        $params = $req->all();
+
+        if($req->exists('foto')) {
+            //apagando a imagem antiga, se houver
+            if($atracao->foto) {
+               $atracao->foto = substr($atracao->foto, 1);
+                unlink($atracao->foto); 
+            }            
+            //e adicionando uma nova
+            $ext = strtolower(substr($_FILES['foto']['name'], -4)); 
+            $novoNome = date("Y.m.d-H.i.s") . $ext;
+            $dir = 'img/upload/';            
+            move_uploaded_file($_FILES['foto']['tmp_name'], $dir . $novoNome);         
+            $params['foto'] = '/' . $dir . $novoNome;
+        }
+
+        $atracao->fill($params)->save();
+
+       return redirect()->action('AtracoesController@listarElementosPainel');
     }
 
     public function excluir($id) {
@@ -138,7 +168,7 @@ class AtracoesController extends Controller
         $atracao = Atracao::find($id);
 
         if($atracao->foto != null) {
-            $atracao->foto = substr($atracao->foto, 1);
+            $atracao->foto = substr($atracao->foto, 1);//barras...
             unlink($atracao->foto);//apagar a imagem
         }
 
