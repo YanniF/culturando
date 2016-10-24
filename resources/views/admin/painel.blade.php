@@ -20,7 +20,7 @@
 	        <h3>Escolha qual área você deseja acessar</h3>
 			<div class="botoes">
 				<a href="{{ action('AtracoesController@listarElementosPainel') }}" class="btn btn-default"><span class="glyphicon glyphicon-star"></span> Atrações</a>
-				<a href="" class="btn btn-default"><span class="glyphicon glyphicon-star-empty"></span> Destaques</a>
+				<a href="{{ action('DestaquesController@listarElementos') }}" class="btn btn-default"><span class="glyphicon glyphicon-star-empty"></span> Destaques</a>
 				<a href="" class="btn btn-default"><span class="glyphicon glyphicon-star"></span> Eventos</a>
 			</div>					
 		</div>
