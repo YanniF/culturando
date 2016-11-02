@@ -13,6 +13,10 @@ use culturando\Models\Atracao;
 
 class AtracoesController extends Controller
 {
+    public function __construct() {
+        $this->middleware('auth');
+    }
+
     public function listarCidadeBaixada() {
         return Cidade::select('nome')->where('baixadaOuVale', '=', 'Baixada')->get();
     }
@@ -23,16 +27,6 @@ class AtracoesController extends Controller
 
     public function listarAtracoes() {
         return TipoAtracao::all();
-    }
-
-    //popula o menu da página inicial
-    public function criarMenu() {
-
-        $cidadesBaixada = $this->listarCidadeBaixada();
-        $cidadesVale = $this->listarCidadeVale();
-        $tipoAtracao = $this->listarAtracoes();        
-
-        return view('/home')->with(array('tipoAtracao' => $tipoAtracao, 'baixada' => $cidadesBaixada, 'vale' => $cidadesVale));
     }
 
     //popula o menu da página de atrações
@@ -107,7 +101,7 @@ class AtracoesController extends Controller
         if($req->foto != null) {//caso tenha sido cadastrado uma imagem
             //tratamento da imagem
             $ext = strtolower(substr($_FILES['foto']['name'], -4)); //Pegando extensão do arquivo
-            $novoNome = date("Y.m.d-H.i.s") . $ext; //Definindo um novo nome para o arquivo
+            $novoNome = 'atracao-' . date("Y.m.d-H.i.s") . $ext; //Definindo um novo nome para o arquivo
             $dir = 'img/upload/';
             
             move_uploaded_file($_FILES['foto']['tmp_name'], $dir . $novoNome); //Faz o upload do arquivo        
@@ -152,7 +146,7 @@ class AtracoesController extends Controller
             }            
             //e adicionando uma nova
             $ext = strtolower(substr($_FILES['foto']['name'], -4)); 
-            $novoNome = date("Y.m.d-H.i.s") . $ext;
+            $novoNome = 'atracao-' . date("Y.m.d-H.i.s") . $ext;
             $dir = 'img/upload/';            
             move_uploaded_file($_FILES['foto']['tmp_name'], $dir . $novoNome);         
             $params['foto'] = '/' . $dir . $novoNome;

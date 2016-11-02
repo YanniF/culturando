@@ -15,7 +15,7 @@
 		            {{ csrf_field() }}
 		        </form>
 			</div>
-			<form class="form-horizontal" method="post" role="form" action="{{ url('/admin/verificar') }}">
+			<form class="form-horizontal" method="post" role="form" action="{{ url('/admin/atracoes/verificar') }}">
 				<input type="hidden" name="_token" value="{{ csrf_token() }}">
 				
 				<div class="content"><h3>Selecione as informações que serão exibidas na tabela abaixo</h3></div>
@@ -97,12 +97,29 @@
 							<td>{{ $a->cidade }}</td>
 							<td><a class="btn btn-primary" href="{{ action('AtracoesController@exibir', $a->id) }}"><span class='glyphicon glyphicon-search'></span></a></td>
 							<td><a class="btn btn-success" href="{{ action('AtracoesController@editar', $a->id) }}"><span class='glyphicon glyphicon-pencil'></span></a></td>
-							<td><a class="btn btn-danger" href="{{ action('AtracoesController@excluir', $a->id) }}"><span class='glyphicon glyphicon-remove'></span></a></td>							
+							<td><a class="btn btn-danger apagar" href="#" data-nome="atracoes-{{ $a->nome }}" data-id="{{ $a->id}}"><span class='glyphicon glyphicon-remove'></span></a></td>
 						</tr>
 					@endforeach
 			    </tbody>
 			</table>
-		</div>		
+		</div>
+		<div id="apagarModal" class="modal fade" role="dialog">
+			<div class="modal-dialog modal-sm">
+				<div class="modal-content">
+					<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+					<h4 class="modal-title">Atrações</h4>
+					</div>
+					<div class="modal-body">
+						<p class="nome"></p>
+					</div>
+					<div class="modal-footer">
+						<a href="#" class="btn btn-default apagar-sim">Sim</a>
+						<a href="#" class="btn btn-default" data-dismiss="modal">Não</a>
+					</div>
+				</div>
+			</div>
+		</div>	
 	</div><!-- container -->
 
 @endsection

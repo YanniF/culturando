@@ -48,3 +48,14 @@ a {
 		text-align: justify;
 	}	
 }
+
+//botões da área administrativa terão este efeito
+.btn-default {
+	font: bold 16px $fonte;
+	border: 2px solid $cor-escura;
+
+	&:hover {
+		background-color: $cor-muy-clara;
+		border: 2px solid $cor-escura;
+	}			
+}

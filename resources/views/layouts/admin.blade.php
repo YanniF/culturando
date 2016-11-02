@@ -17,6 +17,6 @@
 
 	<script src="/js/plugins/jquery/jquery-2.2.3.min.js"></script>
 	<script src="/js/plugins/bootstrap/bootstrap.min.js"></script>  
-	<!-- <script src="/js/main.js"></script> -->
+	<script src="/js/main.js"></script>
 </body>
 </html>

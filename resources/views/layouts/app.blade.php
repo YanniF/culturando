@@ -8,7 +8,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('app.name', 'Laravel') }} - @yield('title')</title>
 
     <!-- Styles -->
     <link href="{{ asset('img/icon.png') }}" rel="shortcut icon">
@@ -28,7 +28,7 @@
         <div class="container">
             <div class="content">
                 <div class="logo">
-                    <a href="{{ action('AtracoesController@criarMenu') }}">
+                    <a href="{{ action('HomeController@criarMenu') }}">
                         <img src="img/logo.png" class="img-responsive" alt="Culturando" title="Culturando">
                     </a>
                 </div><!-- logo -->
@@ -81,7 +81,7 @@
                         
                         <div class="collapse navbar-collapse" id="navbar-collapse-2">
                             <ul class="nav navbar-nav">
-                                <li><a href="{{ action('AtracoesController@criarMenu') }}"><span class="glyphicon glyphicon-home"></span></a></li>
+                                <li><a href="{{ action('HomeController@criarMenu') }}"><span class="glyphicon glyphicon-home"></span></a></li>
                                 
                                 @foreach($tipoAtracao as $atracao)
                                     <li class="dropdown">
