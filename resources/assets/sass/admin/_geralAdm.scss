@@ -1,0 +1,188 @@
+body {
+
+
+	> #painelAtracoes,	
+	> #painelDestaques {
+		> .content {
+			h3 {
+				@include make-md-column(12);
+				
+				margin-top: 0;
+				font: 600 20px $fonte;				
+			}
+
+			> .form-horizontal {
+				padding-bottom: 15px;
+
+				> .content {
+					margin: 0;
+
+					> h3 {
+						@include make-md-column(12);
+
+						font: 600 20px $fonte;
+					}
+
+					> .form-group {
+						@include make-md-column(6);
+						margin: 0;
+						padding: 5px 0;
+						font: 600 20px $fonte;
+
+						.control-label {
+							@include make-md-column(2);				
+						}
+
+						.inputs {
+							@include make-md-column(10);
+
+							.form-control {
+								padding: 0 10px;
+								font-size: 18px;							
+							}
+						}
+
+						.botao {
+							@include make-md-column(12);
+							text-align: center;
+							
+							.btn-default {
+								span {
+									font-size: 13px;																
+								}
+							}						
+						}
+					}
+				}//content					
+			}//form
+			> .table-striped {
+				
+				> thead {
+					font: 600 18px $fonte;
+				}
+
+				> tbody {
+					img {
+						max-width: 200px;
+					}
+
+					.btn {
+						span {
+							font-size: 14px;																
+						}
+					}
+				}				
+			}			
+			//painel destaques
+			> .cabec {
+				> h3 {
+					@include make-md-column(10);
+					margin-bottom: 50px;					
+				}
+
+				> .botao {
+					@include make-md-column(2);
+					text-align: right;
+				}
+			}
+		}//content
+
+		> .modal {
+			> .modal-dialog {
+				> .modal-content {
+					.modal-title {
+						font: bold 20px $fonte;
+					}
+					.modal-body {
+						p {
+							font: normal 18px $fonte;
+						}
+					}
+					.modal-footer {
+						.btn-default:nth-child(2) {
+							margin-left: 30px;
+						}
+					}
+				}
+			}
+		}//modal
+	}//painel
+
+	> #cadastro {
+		> .content {
+			> .form-horizontal {
+				width: 100%;
+				margin: 70px auto;
+				border: none;
+
+				> .content {
+					> .form-group {
+						@include make-md-column(6);
+
+						padding: 10px 20px;
+						font: 600 16px $fonte;
+
+						.control-label {
+							@include make-md-column(2);
+						}
+
+						.inputs {
+							@include make-md-column(10);
+
+							.form-control {
+								padding: 0 10px;
+								font-size: 16px;							
+							}
+						}
+
+						.botao {
+							@include make-md-column(12);
+							text-align: center;
+							
+							.btn-default {
+								span {
+									font-size: 14px;																
+								}
+							}						
+						}
+					}
+
+					> .baixo {
+						@include make-md-column(12);
+
+						.control-label {
+							@include make-md-column(1);				
+						}
+
+						.inputs {
+							@include make-md-column(11);
+						}
+					}
+				}
+				
+			}//form-horizontal
+		}//content
+	}//cadastro
+
+	> #detalhes {
+		> .content {
+			> .info {				
+				h1 {
+					margin-top: 40px;
+					font: 600 30px $fonte;
+				}
+				ul {
+					padding: 0;
+					list-style: none;
+
+					li {
+						padding-bottom: 20px;
+						font-family: $fonte;
+						font-size: 20px;
+						text-align: justify;
+					}
+				}
+			}//info
+		}//content
+	}//detalhes
+}

@@ -16,5 +16,7 @@ Route::get('/admin/atracoes/exibir/{id}', 'AtracoesController@exibir');
 Route::get('/admin/atracoes/excluir/{id}', 'AtracoesController@excluir');
 
 Route::get('/admin/destaques/painel', 'DestaquesController@listarElementos');
+Route::get('/admin/destaques/novo', 'DestaquesController@novo');
+Route::post('/admin/destaques/cadastrar', 'DestaquesController@cadastrar');
 
 Auth::routes();

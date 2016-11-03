@@ -9,5 +9,5 @@ class Destaque extends Model
     protected $table = 'destaques';
     public $timestamps = false;    
     protected $guarded = ['id'];
-    protected $fillable = array('destaque', 'descricao', 'foto', 'link');
+    protected $fillable = array('destaque', 'descricao', 'imagem', 'link');
 }

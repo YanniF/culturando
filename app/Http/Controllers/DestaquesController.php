@@ -5,6 +5,7 @@ namespace culturando\Http\Controllers;
 use Illuminate\Http\Request;
 
 use culturando\Http\Requests;
+use culturando\Models\Destaque;
 
 class DestaquesController extends Controller
 {
@@ -14,6 +15,12 @@ class DestaquesController extends Controller
     }
 
     public function listarElementos() {
-    	return view('/admin/destaques/painel');
+    	
+    	$destaques = Destaque::all();
+    	return view('/admin/destaques/painel')->with('destaques', $destaques);
+    }
+
+    public function novo() {
+        return view('/admin/destaques/cadastrar');
     }
 }

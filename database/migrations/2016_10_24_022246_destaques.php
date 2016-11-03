@@ -17,7 +17,7 @@ class Destaques extends Migration
             $table->increments('id');
             $table->string('destaque');
             $table->text('descricao');
-            $table->string('foto');
+            $table->string('imagem');
             $table->string('link')->nullable();
             $table->timestamps();
         });
