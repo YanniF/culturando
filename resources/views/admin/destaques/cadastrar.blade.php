@@ -19,25 +19,25 @@
 				<input type="hidden" name="_token" value="{{ csrf_token() }}">
 				<div class="content">
 					<div class="form-group">
-				    	<label class="control-label" for="nome">Título:</label>
+				    	<label class="control-label" for="destaque">Título:</label>
 					    <div class="inputs">
-					    	<input type="text" class="form-control" id="nome" name="nome" value="{{ old('nome') }}" required>
+					    	<input type="text" class="form-control" id="destaque" name="destaque" value="{{ old('destaque') }}" required>
 					    </div>
 				  	</div>
 				</div>
 				<div class="content">
 					<div class="form-group">
-				    	<label class="control-label" for="foto">Foto:</label>
+				    	<label class="control-label" for="imagem">Imagem:</label>
 					    <div class="inputs">
-					    	<input type="file" id="foto" name="foto">
+					    	<input type="file" id="imagem" name="imagem" required>
 					    </div>
 				  	</div>
 				</div>
 				<div class="content">
 					<div class="form-group">		  			
-				    	<label class="control-label" for="site">Link:</label>
+				    	<label class="control-label" for="link">Link:</label>
 					    <div class="inputs">
-					    	<input type="url" class="form-control" id="site" name="site" value="{{ old('site') }}" title="Formato: http://www.site.com">
+					    	<input type="url" class="form-control" id="link" name="link" value="{{ old('link') }}" title="Formato: http://www.site.com">
 					    </div>
 					 </div>	
 				</div>							

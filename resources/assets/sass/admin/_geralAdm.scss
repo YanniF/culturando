@@ -2,7 +2,9 @@ body {
 
 
 	> #painelAtracoes,	
-	> #painelDestaques {
+	> #painelDestaques,
+	> #painelParceiros,
+	> #painelEventos, {
 		> .content {
 			h3 {
 				@include make-md-column(12);

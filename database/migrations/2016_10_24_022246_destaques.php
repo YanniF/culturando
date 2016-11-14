@@ -30,6 +30,6 @@ class Destaques extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('destaques');
     }
 }

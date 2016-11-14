@@ -29,16 +29,6 @@ class AtracoesController extends Controller
         return TipoAtracao::all();
     }
 
-    //popula o menu da página de atrações
-    public function criarMenuAtracoes() {
-        
-        $cidadesBaixada = $this->listarCidadeBaixada();
-        $cidadesVale = $this->listarCidadeVale();
-        $tipoAtracao = $this->listarAtracoes();
-
-        return view('/atracoes')->with(array('tipoAtracao' => $tipoAtracao, 'baixada' => $cidadesBaixada, 'vale' => $cidadesVale));
-    }
-
     //popula o combo da página painel 
     public function listarElementosPainel(Request $req) {
         

@@ -21,13 +21,13 @@
 			<div class="botoes">
 				<a href="{{ action('AtracoesController@listarElementosPainel') }}" class="btn btn-default"><span class="glyphicon glyphicon-star"></span> Atrações</a>
 				<a href="{{ action('DestaquesController@listarElementos') }}" class="btn btn-default"><span class="glyphicon glyphicon-star-empty"></span> Destaques</a>
-				<a href="" class="btn btn-default"><span class="glyphicon glyphicon-star"></span> Eventos</a>
+				<a href="{{ action('EventosController@listarElementos') }}" class="btn btn-default"><span class="glyphicon glyphicon-star"></span> Eventos</a>
 			</div>					
 		</div>
 		<div class="content">
 			<div class="botoes">
 				<a href="" class="btn btn-default"><span class="glyphicon glyphicon-star"></span> Galeria</a>
-				<a href="" class="btn btn-default"><span class="glyphicon glyphicon-star-empty"></span> Parceiros</a>
+				<a href="{{ action('ParceirosController@listarElementos') }}" class="btn btn-default"><span class="glyphicon glyphicon-star-empty"></span> Parceiros</a>
 				<a href="" class="btn btn-default"><span class="glyphicon glyphicon-star"></span> Slider</a>
 			</div>					
 		</div>

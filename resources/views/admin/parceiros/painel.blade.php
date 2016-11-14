@@ -2,7 +2,7 @@
 
 @section('content')
 
-	<div class="container" id="painelDestaques">
+	<div class="container" id="painelParceiros">
 		<div class="content">
 			<div class="logo">
 				<a href="{{ action('PainelController@chamarPainel') }}"><img src="/img/logo.png" class="img-responsive" alt="Culturando" title="Clique aqui para voltar para o painel"></a>
@@ -17,17 +17,17 @@
 			</div>
 		</div>
 		<div class="content">
-			@if(old('destaque'))
-				<div class="alert alert-success"> <!-- o old pega os dados enviados por redirect -->
-					<strong>Sucesso! </strong>Destaque cadastrado com sucesso!
+			@if(old('nome'))
+				<div class="alert alert-success">
+					<strong>Sucesso! </strong>Parceiro cadastrado com sucesso!
 				</div>
 			@endif
 		</div>
 		<div class="content">
 			<div class="cabec">
-				<h3>Lista dos destaques:</h3>
+				<h3>Lista dos parceiros:</h3>
 				<div class="botao">
-					<a href="{{ action('DestaquesController@novo') }}"class="btn btn-default" title="Clique para cadastrar um novo item"><span class="glyphicon glyphicon-plus"></span> Cadastrar</a>
+					<a href="{{ action('ParceirosController@novo') }}"class="btn btn-default" title="Clique para cadastrar um novo item"><span class="glyphicon glyphicon-plus"></span> Cadastrar</a>
 				</div>
 				
 			</div>			
@@ -35,24 +35,22 @@
 			    <thead>
 			      <tr>
 			        <th>Imagem</th>
-			        <th>Texto Destaque</th>
-			        <th>Texto Completo</th>
-			        <th>Link</th>
+			        <th>Parceiro</th>
+			        <th>Link</th>			        
 			        <th>Exibir</th>
 			        <th>Editar</th>
 			        <th>Apagar</th>
 			      </tr>
 			    </thead>
 			    <tbody>
-			    	@foreach($destaques as $d)
+			    	@foreach($parceiros as $p)
 				    	<tr>
-							<td><img class="img-responsive" src="{{ $d->imagem }}"></td>
-							<td>{{ $d->destaque }}</td>
-							<td>{{ $d->descricao }}</td>
-							<td><a href="{{ $d->link }}">{{ $d->link }}</a></td>
-							<td><a class="btn btn-primary" href="{{ action('DestaquesController@exibir', $d->id) }}"><span class='glyphicon glyphicon-search'></span></a></td>
-							<td><a class="btn btn-success" href="{{ action('DestaquesController@editar', $d->id) }}"><span class='glyphicon glyphicon-pencil'></span></a></td>
-							<td><a class="btn btn-danger apagar" href="#" data-nome="destaques-{{ $d->destaque }}" data-id="{{ $d->id}}"><span class='glyphicon glyphicon-remove'></span></a></td>
+							<td><img class="img-responsive" src="{{ $p->imagem }}"></td>
+							<td>{{ $p->nome }}</td>
+							<td><a href="{{ $p->link }}">{{ $p->link }}</a></td>
+							<td><a class="btn btn-primary" href="{{ action('ParceirosController@exibir', $p->id) }}"><span class='glyphicon glyphicon-search'></span></a></td>
+							<td><a class="btn btn-success" href="{{ action('ParceirosController@editar', $p->id) }}"><span class='glyphicon glyphicon-pencil'></span></a></td>
+							<td><a class="btn btn-danger apagar" href="#" data-nome="parceiros-{{ $p->nome }}" data-id="{{ $p->id}}"><span class='glyphicon glyphicon-remove'></span></a></td>
 						</tr>
 					@endforeach
 			    </tbody>
