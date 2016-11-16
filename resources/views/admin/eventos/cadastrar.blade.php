@@ -15,76 +15,37 @@
 		        </form>
 			</div>
 
-			<form class="form-horizontal" method="post" role="form" action="{{ action('AtracoesController@cadastrar') }}" enctype="multipart/form-data">
+			<form class="form-horizontal" method="post" role="form" action="{{ action('EventosController@cadastrar') }}" enctype="multipart/form-data">
 				<input type="hidden" name="_token" value="{{ csrf_token() }}">
 				<div class="content">
 					<div class="form-group">
-				    	<label class="control-label" for="nome">Nome:</label>
+				    	<label class="control-label" for="titulo">Título:</label>
 					    <div class="inputs">
-					    	<input type="text" class="form-control" id="nome" name="nome" value="{{ old('nome') }}" required>
+					    	<input type="text" class="form-control" id="titulo" name="titulo" value="{{ old('titulo') }}" required>
 					    </div>
 				  	</div>
 				  	<div class="form-group">
-						<label class="control-label" for="tipoAtracao">Atração:</label>
+						<label class="control-label" for="eventoEm">Evento:</label>
 						<div class="inputs">
-							<select class="form-control" id="tipoAtracao" name="tipoAtracao">						 	
-								@foreach($tipoAtracao as $atracao)
-									<option value="{{ $atracao->tipo }}">{{ $atracao->tipo }}</option>
-								@endforeach
+							<select class="form-control" id="eventoEm" name="eventoEm">
+							 	<option value="Baixada Santista">Baixada Santista</option>
+							 	<option value="Vale do Ribeira">Vale do Ribeira</option>
+								<option value="São Paulo">São Paulo</option>						 		
 							</select>
 						</div>
 					</div>
-				</div>
-				<div class="content">
-					<div class="form-group">
-				    	<label class="control-label" for="endereco">Endereço:</label>
-					    <div class="inputs">
-					    	<input type="text" class="form-control" id="endereco" name="endereco" value="{{ old('endereco') }}" required>
-					    </div>
-				  	</div>
-				  	<div class="form-group">
-						<label class="control-label" for="cidade">Cidade:</label>
-						<div class="inputs">
-							<select class="form-control" id="cidade" name="cidade">
-							 	<optgroup label="Baixada Santista">
-									@foreach($baixada as $cityB)
-										<option value="{{ $cityB->nome }}">{{ $cityB->nome }}</option>
-							 		@endforeach
-								</optgroup>
-								<optgroup label="Vale do Ribeira">
-									@foreach($vale as $cityV)
-										<option value="{{ $cityV->nome }}">{{ $cityV->nome }}</option>
-							 		@endforeach
-								</optgroup>
-							</select>
-						</div>
-					</div>
-				</div>
-				<div class="content">
-					<div class="form-group">
-				    	<label class="control-label" for="telefone">Telefone:</label>
-					    <div class="inputs">
-					    	<input type="text" class="form-control" id="telefone" name="telefone" value="{{ old('telefone') }}">
-					    </div>
-				  	</div>
-				  	<div class="form-group">
-				    	<label class="control-label" for="email">E-mail:</label>
-					    <div class="inputs">
-					    	<input type="email" class="form-control" id="email" name="email" value="{{ old('email') }}">
-					    </div>
-				  	</div>
-				</div>
+				</div>				
 				<div class="content">
 					<div class="form-group">		  			
-				    	<label class="control-label" for="site">Site:</label>
+				    	<label class="control-label" for="link">Link:</label>
 					    <div class="inputs">
-					    	<input type="url" class="form-control" id="site" name="site" value="{{ old('site') }}" title="Formato: http://www.site.com">
+					    	<input type="url" class="form-control" id="link" name="link" value="{{ old('link') }}" title="Formato: http://www.site.com" required>
 					    </div>
 					</div>
 					<div class="form-group">
-				    	<label class="control-label" for="foto">Foto:</label>
+				    	<label class="control-label" for="imagem">Imagem:</label>
 					    <div class="inputs">
-					    	<input type="file" id="foto" name="foto">
+					    	<input type="file" id="imagem" name="imagem" required>
 					    </div>
 				  	</div>
 				</div>				
@@ -92,11 +53,10 @@
 				  	<div class="form-group baixo">
 						<label class="control-label" for="descricao">Descrição:</label>
 						<div class="inputs">
-							<textarea class="form-control" rows="5" id="descricao" name="descricao">{{ old('descricao') }}</textarea>
+							<textarea class="form-control" rows="8" id="descricao" name="descricao" required>{{ old('descricao') }}</textarea>
 						</div>						
 					</div>
 			  	</div>
-			  	
 				<div class="content">
 					<div class="form-group">
 						<div class="botao">

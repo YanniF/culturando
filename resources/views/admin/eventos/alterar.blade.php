@@ -4,7 +4,7 @@
 	<div class="container" id="cadastro">
 		<div class="content">
 			<div class="logo">
-				<a href="{{ action('AtracoesController@listarElementosPainel') }}"><img src="/img/logo.png" class="img-responsive" alt="Culturando" title="Clique aqui para voltar para o painel"></a>
+				<a href="{{ action('EventosController@listarElementos') }}"><img src="/img/logo.png" class="img-responsive" alt="Culturando" title="Clique aqui para voltar para o painel"></a>
 			</div>
 			<div class="logout">					
 				<a href="{{ url('/logout') }}" class="btn btn-default" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
@@ -15,88 +15,41 @@
 		        </form>
 			</div>
 
-			<form class="form-horizontal" method="post" role="form" action="{{ action('AtracoesController@alterar', $a->id) }}" enctype="multipart/form-data">
+			<form class="form-horizontal" method="post" role="form" action="{{ action('EventosController@alterar', $e->id) }}" enctype="multipart/form-data">
 				<input type="hidden" name="_token" value="{{ csrf_token() }}">
 				<div class="content">
 					<div class="form-group">
-				    	<label class="control-label" for="nome">Nome:</label>
+				    	<label class="control-label" for="titulo">Título:</label>
 					    <div class="inputs">
-					    	<input type="text" class="form-control" id="nome" name="nome" value="{{ $a->nome }}" required>
+					    	<input type="text" class="form-control" id="titulo" name="titulo" value="{{ $e->titulo }}" required>
 					    </div>
 				  	</div>
 				  	<div class="form-group">
-						<label class="control-label" for="tipoAtracao">Atração:</label>
+						<label class="control-label" for="eventoEm">Evento:</label>
 						<div class="inputs">
-							<select class="form-control" id="tipoAtracao" name="tipoAtracao">						 	
-								@foreach($tipoAtracao as $atracao)
-									@if($atracao->tipo == $a->tipoAtracao)
-										<option selected="selected" value="{{ $atracao->tipo }}">{{ $atracao->tipo }}</option>
-									@else
-										<option value="{{ $atracao->tipo }}">{{ $atracao->tipo }}</option>
-									@endif
-								@endforeach
+							<select class="form-control" id="eventoEm" name="eventoEm">
+								@if($e->eventoEm == 'Vale do Ribeira')
+									<option selected="selected"  value="Vale do Ribeira">Vale do Ribeira</option>
+								@elseif($e->eventoEm == 'São Paulo')
+									<option selected="selected"  value="São Paulo">São Paulo</option>
+								@else
+									<option selected="selected"  value="Baixada Santista">Baixada Santista</option>	
+								@endif					 		
 							</select>
 						</div>
 					</div>
-				</div>
-				<div class="content">
-					<div class="form-group">
-				    	<label class="control-label" for="endereco">Endereço:</label>
-					    <div class="inputs">
-					    	<input type="text" class="form-control" id="endereco" name="endereco" value="{{ $a->endereco }}" required>
-					    </div>
-				  	</div>
-				  	<div class="form-group">
-						<label class="control-label" for="cidade">Cidade:</label>
-						<div class="inputs">
-							<select class="form-control" id="cidade" name="cidade">
-							 	<optgroup label="Baixada Santista">
-									@foreach($baixada as $cityB)
-										@if($cityB->nome == $a->cidade)
-											<option selected="selected" value="{{ $cityB->nome }}">{{ $cityB->nome }}</option>
-										@else	
-											<option value="{{ $cityB->nome }}">{{ $cityB->nome }}</option>
-										@endif	
-							 		@endforeach
-								</optgroup>
-								<optgroup label="Vale do Ribeira">
-									@foreach($vale as $cityV)
-										@if($cityV->nome == $a->cidade)
-											<option selected="selected" value="{{ $cityV->nome }}">{{ $cityV->nome }}</option>
-										@else
-											<option value="{{ $cityV->nome }}">{{ $cityV->nome }}</option>
-										@endif
-							 		@endforeach
-								</optgroup>
-							</select>
-						</div>
-					</div>
-				</div>
-				<div class="content">
-					<div class="form-group">
-				    	<label class="control-label" for="telefone">Telefone:</label>
-					    <div class="inputs">
-					    	<input type="text" class="form-control" id="telefone" name="telefone" value="{{ $a->telefone }}">
-					    </div>
-				  	</div>
-				  	<div class="form-group">
-				    	<label class="control-label" for="email">E-mail:</label>
-					    <div class="inputs">
-					    	<input type="email" class="form-control" id="email" name="email" value="{{ $a->email }}">
-					    </div>
-				  	</div>
-				</div>
+				</div>				
 				<div class="content">
 					<div class="form-group">		  			
-				    	<label class="control-label" for="site">Site:</label>
+				    	<label class="control-label" for="link">Link:</label>
 					    <div class="inputs">
-					    	<input type="url" class="form-control" id="site" name="site" value="{{ $a->site }}" title="Formato: http://www.site.com">
+					    	<input type="url" class="form-control" id="link" name="link" value="{{ $e->link }}" title="Formato: http://www.site.com" required>
 					    </div>
-					 </div>
+					</div>
 					<div class="form-group">
-				    	<label class="control-label" for="foto">Foto:</label>
+				    	<label class="control-label" for="imagem">Imagem:</label>
 					    <div class="inputs">
-					    	<input type="file" id="foto" name="foto">
+					    	<input type="file" id="imagem" name="imagem">
 					    </div>
 				  	</div>
 				</div>				
@@ -104,11 +57,10 @@
 				  	<div class="form-group baixo">
 						<label class="control-label" for="descricao">Descrição:</label>
 						<div class="inputs">
-							<textarea class="form-control" rows="5" id="descricao" name="descricao">{{ $a->descricao }}</textarea>
+							<textarea class="form-control" rows="8" id="descricao" name="descricao" required>{{ $e->descricao }}</textarea>
 						</div>						
 					</div>
 			  	</div>
-			  	
 				<div class="content">
 					<div class="form-group">
 						<div class="botao">

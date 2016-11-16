@@ -5,7 +5,7 @@
 	<div class="container" id="detalhes">
 		<div class="content">
 			<div class="logo">
-				<a href="{{ action('AtracoesController@listarElementosPainel') }}"><img src="/img/logo.png" class="img-responsive" alt="Culturando" title="Clique aqui para voltar para o painel"></a>
+				<a href="{{ action('EventosController@listarElementos') }}"><img src="/img/logo.png" class="img-responsive" alt="Culturando" title="Clique aqui para voltar para o painel"></a>
 			</div>
 			<div class="logout">					
 				<a href="{{ url('/logout') }}" class="btn btn-default" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
@@ -16,16 +16,12 @@
 		        </form>
 			</div>
 			<div class="info">
-				<h1>{{ $atracao->nome }}</h1>
-				<img class="img-responsive" src="{{ $atracao->foto }}">
+				<h1>{{ $evento->titulo }}</h1>
+				<img class="img-responsive" src="{{ $evento->imagem }}">
 				<ul>
-					<li><strong>Tipo: </strong>{{ $atracao->tipoAtracao }}</li>
-					<li><strong>Endereço: </strong>{{ $atracao->endereco }}</li>
-					<li><strong>Cidade: </strong>{{ $atracao->cidade }}</li>
-					<li><strong>Telefone: </strong>{{ $atracao->telefone }}</li>
-					<li><strong>E-mail: </strong><a href="mailto:{{ $atracao->email }}">{{ $atracao->email }}</a></li>
-					<li><strong>Site: </strong><a href="{{ $atracao->site }}">{{ $atracao->site }}</a></li>
-					<li><strong>Descrição: </strong>{{ $atracao->descricao }}</li>
+					<li><strong>Evento em: </strong>{{ $evento->eventoEm }}</li>
+					<li><strong>Link: </strong><a href="{{ $evento->link }}">{{ $evento->link }}</a></li>
+					<li><strong>Descrição: </strong>{{ $evento->descricao }}</li>
 				</ul>
 			</div>			
 		</div>

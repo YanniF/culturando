@@ -19,7 +19,7 @@ class Eventos extends Migration
             $table->string('imagem');
             $table->text('descricao');
             $table->string('link')->nullable();
-            $table->string('eventoEm', 10);
+            $table->string('eventoEm', 25);
             $table->timestamps();
         });
     }

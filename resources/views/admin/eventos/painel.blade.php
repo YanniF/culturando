@@ -25,9 +25,9 @@
 						<div class="inputs">
 							<select class="form-control" id="evento" name="evento">
 								<option value="-">-</option>								
-								<option value="baixada">Baixada Santista</option>
-								<option value="vale">Vale do Ribeira</option>
-								<option value="sp">São Paulo</option>
+								<option value="Baixada Santista">Baixada Santista</option>
+								<option value="Vale do Ribeira">Vale do Ribeira</option>
+								<option value="São Paulo">São Paulo</option>
 							</select>
 						</div>
 					</div>
@@ -61,9 +61,7 @@
 			      <tr>
 			        <th>Foto</th>
 			        <th>Título</th>
-			        <th>Tipo</th>
-			        <th>Telefone</th>
-			        <th>Cidade</th>
+			        <th>Evento em:</th>
 			        <th>Exibir</th>
 			        <th>Editar</th>
 			        <th>Excluir</th>
@@ -72,13 +70,11 @@
 			    <tbody>
 			    	@foreach($eventos as $e)
 				    	<tr>
-							<td><img class="img-responsive" src="{{ $e->foto }}" alt="{{ $e->nome }}" title="{{ $e->nome }}"></td>
-							<td>{{ $e->nome }}</td>
-							<td>{{ $e->tipoAtracao }}</td>
-							<td>{{ $e->telefone }}</td>
-							<td>{{ $e->cidade }}</td>
-							<td><a class="btn btn-primary" href="{{ action('AtracoesController@exibir', $e->id) }}"><span class='glyphicon glyphicon-search'></span></a></td>
-							<td><a class="btn btn-success" href="{{ action('AtracoesController@editar', $e->id) }}"><span class='glyphicon glyphicon-pencil'></span></a></td>
+							<td><img class="img-responsive" src="{{ $e->imagem }}" alt="{{ $e->titulo }}" title="{{ $e->titulo }}"></td>
+							<td>{{ $e->titulo }}</td>							
+							<td>{{ $e->eventoEm }}</td>
+							<td><a class="btn btn-primary" href="{{ action('EventosController@exibir', $e->id) }}"><span class='glyphicon glyphicon-search'></span></a></td>
+							<td><a class="btn btn-success" href="{{ action('EventosController@editar', $e->id) }}"><span class='glyphicon glyphicon-pencil'></span></a></td>
 							<td><a class="btn btn-danger apagar" href="#" data-nome="eventos-{{ $e->nome }}" data-id="{{ $e->id}}"><span class='glyphicon glyphicon-remove'></span></a></td>
 						</tr>
 					@endforeach
