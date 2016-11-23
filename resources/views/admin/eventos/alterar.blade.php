@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('content')
-	<div class="container" id="cadastro">
+	<div class="container" id="alterar">
 		<div class="content">
 			<div class="logo">
 				<a href="{{ action('EventosController@listarElementos') }}"><img src="/img/logo.png" class="img-responsive" alt="Culturando" title="Clique aqui para voltar para o painel"></a>

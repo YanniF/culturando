@@ -1,10 +1,10 @@
 @extends('layouts.admin')
 
 @section('content')
-	<div class="container" id="alterar">
+	<div class="container" id="cadastro">
 		<div class="content">
 			<div class="logo">
-				<a href="{{ action('DestaquesController@listarElementos') }}"><img src="/img/logo.png" class="img-responsive" alt="Culturando" title="Clique aqui para voltar para o painel"></a>
+				<a href="{{ action('SliderController@listarElementos') }}"><img src="/img/logo.png" class="img-responsive" alt="Culturando" title="Clique aqui para voltar para o painel"></a>
 			</div>
 			<div class="logout">					
 				<a href="{{ url('/logout') }}" class="btn btn-default" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
@@ -15,41 +15,32 @@
 		        </form>
 			</div>
 
-			<form class="form-horizontal" method="post" role="form" action="{{ action('DestaquesController@alterar', $d->id) }}" enctype="multipart/form-data">
+			<form class="form-horizontal" method="post" role="form" action="{{ action('SliderController@cadastrar') }}" enctype="multipart/form-data">
 				<input type="hidden" name="_token" value="{{ csrf_token() }}">
 				<div class="content">
 					<div class="form-group">
-				    	<label class="control-label" for="destaque">Destaque:</label>
+				    	<label class="control-label" for="mensagem">Mensagem:</label>
 					    <div class="inputs">
-					    	<input type="text" class="form-control" id="destaque" name="destaque" value="{{ $d->destaque }}" required>
+					    	<input type="text" class="form-control" id="mensagem" name="mensagem" value="{{ old('mensagem') }}" required>
 					    </div>
 				  	</div>
-				</div>				
+				</div>
 				<div class="content">
 					<div class="form-group">
 				    	<label class="control-label" for="imagem">Imagem:</label>
 					    <div class="inputs">
-					    	<input type="file" id="imagem" name="imagem">
+					    	<input type="file" id="imagem" name="imagem" required>
 					    </div>
 				  	</div>
 				</div>
-				<div class="content">  	
-				  	<div class="form-group">		  			
+				<div class="content">
+					<div class="form-group">		  			
 				    	<label class="control-label" for="link">Link:</label>
 					    <div class="inputs">
-					    	<input type="url" class="form-control" id="link" name="link" value="{{ $d->link }}" title="Formato: http://www.site.com">
+					    	<input type="url" class="form-control" id="link" name="link" value="{{ old('link') }}" title="Formato: http://www.site.com">
 					    </div>
-					</div>
-				</div>				
-			  	<div class="content">			  		
-				  	<div class="form-group baixo">
-						<label class="control-label" for="descricao">Descrição:</label>
-						<div class="inputs">
-							<textarea class="form-control" rows="5" id="descricao" name="descricao">{{ $d->descricao }}</textarea>
-						</div>						
-					</div>
-			  	</div>
-			  	
+					 </div>	
+				</div>			  	
 				<div class="content">
 					<div class="form-group">
 						<div class="botao">

@@ -21,9 +21,9 @@
 				<div class="content"><h3>Selecione as informações que serão exibidas na tabela abaixo</h3></div>
 				<div class="content">
 					<div class="form-group">
-						<label class="control-label" for="evento">Evento:</label>
+						<label class="control-label" for="eventoEm">Evento:</label>
 						<div class="inputs">
-							<select class="form-control" id="evento" name="evento">
+							<select class="form-control" id="eventoEm" name="eventoEm">
 								<option value="-">-</option>								
 								<option value="Baixada Santista">Baixada Santista</option>
 								<option value="Vale do Ribeira">Vale do Ribeira</option>

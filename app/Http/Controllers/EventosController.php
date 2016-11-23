@@ -16,16 +16,16 @@ class EventosController extends Controller
 	
 	public function listarElementos(Request $req) {
         
-        if($req->eventoEm != null) {            
+        if($req->eventoEm != null) {        
             //verificando se foi selecionado algo nos combos e executando a query conforme a opção selecionada
             if($req->eventoEm == '-') {
                 $eventos = Evento::all();
             }
-            else if($req->eventoEm == '-') {
-                $eventos = Evento::select('*')->where('eventoEm', '=', $req->evento)->get();
+            else {
+                $eventos = Evento::select('*')->where('eventoEm', '=', $req->eventoEm)->get();
             }
         }
-        else {            
+        else {
             $eventos = Evento::all();
         }   
 

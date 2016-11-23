@@ -28,7 +28,7 @@
 			<div class="botoes">
 				<a href="" class="btn btn-default"><span class="glyphicon glyphicon-star"></span> Galeria</a>
 				<a href="{{ action('ParceirosController@listarElementos') }}" class="btn btn-default"><span class="glyphicon glyphicon-star-empty"></span> Parceiros</a>
-				<a href="" class="btn btn-default"><span class="glyphicon glyphicon-star"></span> Slider</a>
+				<a href="{{ action('SliderController@listarElementos') }}" class="btn btn-default"><span class="glyphicon glyphicon-star"></span> Slider</a>
 			</div>					
 		</div>
 	</div>

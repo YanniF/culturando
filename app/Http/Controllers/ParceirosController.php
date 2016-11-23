@@ -47,7 +47,7 @@ class ParceirosController extends Controller
             return view('/admin/parceiros/detalhes')->with('parceiro', $parceiro);
         }
         else {
-            return redirect()->action('DestaqueController@listarElementos')->withInput();
+            return redirect()->action('ParceirosController@listarElementos')->withInput();
         }
     }
 
