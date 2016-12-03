@@ -29,11 +29,7 @@ class ParceirosController extends Controller
         $parceiro = new Parceiro($params);
         
         if($req->imagem != null) {
-            $ext = strtolower(substr($_FILES['imagem']['name'], -4));
-            $novoNome = 'parceiro-' . date("Y.m.d-H.i.s") . $ext;
-            $dir = 'img/upload/';            
-            move_uploaded_file($_FILES['imagem']['tmp_name'], $dir . $novoNome);
-            $parceiro->imagem = '/' . $dir . $novoNome;
+            $parceiro->imagem = $this->subirImagem('parceiro');;
         }
                 
         $parceiro->save();
@@ -68,11 +64,7 @@ class ParceirosController extends Controller
                 unlink($parceiro->imagem); 
             }
 
-            $ext = strtolower(substr($_FILES['imagem']['name'], -4)); 
-            $novoNome = 'parceiro-' . date("Y.m.d-H.i.s") . $ext;
-            $dir = 'img/upload/';            
-            move_uploaded_file($_FILES['imagem']['tmp_name'], $dir . $novoNome);         
-            $params['imagem'] = '/' . $dir . $novoNome;
+            $params['imagem'] = $this->subirImagem('parceiro');
         }
 
         $parceiro->fill($params)->save();

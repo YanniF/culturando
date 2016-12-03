@@ -89,13 +89,7 @@ class AtracoesController extends Controller
         $atracoes = new Atracao($params);
         
         if($req->foto != null) {//caso tenha sido cadastrado uma imagem
-            //tratamento da imagem
-            $ext = strtolower(substr($_FILES['foto']['name'], -4)); //Pegando extensão do arquivo
-            $novoNome = 'atracao-' . date("Y.m.d-H.i.s") . $ext; //Definindo um novo nome para o arquivo
-            $dir = 'img/upload/';
-            
-            move_uploaded_file($_FILES['foto']['tmp_name'], $dir . $novoNome); //Faz o upload do arquivo        
-            $atracoes->foto = '/' . $dir . $novoNome;//Insere o caminho do arquivo para o banco
+            $atracoes->foto = $this->subirImagem('atracao');
         }
                 
         $atracoes->save();
@@ -135,11 +129,7 @@ class AtracoesController extends Controller
                 unlink($atracao->foto); 
             }            
             //e adicionando uma nova
-            $ext = strtolower(substr($_FILES['foto']['name'], -4)); 
-            $novoNome = 'atracao-' . date("Y.m.d-H.i.s") . $ext;
-            $dir = 'img/upload/';            
-            move_uploaded_file($_FILES['foto']['tmp_name'], $dir . $novoNome);         
-            $params['foto'] = '/' . $dir . $novoNome;
+            $params['foto'] = $this->subirImagem('atracao');
         }
 
         $atracao->fill($params)->save();

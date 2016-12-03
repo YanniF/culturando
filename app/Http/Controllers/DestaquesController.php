@@ -15,7 +15,7 @@ class DestaquesController extends Controller
     }
 
     public function listarElementos() {
-    	
+
     	$destaques = Destaque::all();
     	return view('/admin/destaques/painel')->with('destaques', $destaques);
     }
@@ -29,12 +29,8 @@ class DestaquesController extends Controller
         $params = $req->all();
         $destaque = new Destaque($params);
         
-        if($req->imagem != null) {
-            $ext = strtolower(substr($_FILES['imagem']['name'], -4));
-            $novoNome = 'destaque-' . date("Y.m.d-H.i.s") . $ext;
-            $dir = 'img/upload/';            
-            move_uploaded_file($_FILES['imagem']['tmp_name'], $dir . $novoNome);
-            $destaque->imagem = '/' . $dir . $novoNome;
+        if($req->imagem != null) {            
+            $destaque->imagem = $this->subirImagem('destaque');            
         }
                 
         $destaque->save();
@@ -69,12 +65,8 @@ class DestaquesController extends Controller
                $destaque->imagem = substr($destaque->imagem, 1);
                 unlink($destaque->imagem); 
             }
-
-            $ext = strtolower(substr($_FILES['imagem']['name'], -4)); 
-            $novoNome = 'destaque-' . date("Y.m.d-H.i.s") . $ext;
-            $dir = 'img/upload/';            
-            move_uploaded_file($_FILES['imagem']['tmp_name'], $dir . $novoNome);         
-            $params['imagem'] = '/' . $dir . $novoNome;
+                    
+            $params['imagem'] = $this->subirImagem('destaque'); 
         }
 
         $destaque->fill($params)->save();

@@ -55,11 +55,7 @@ class EventosController extends Controller
         $eventos = new Evento($params);
         
         if($req->imagem != null) {
-            $ext = strtolower(substr($_FILES['imagem']['name'], -4));
-            $novoNome = 'evento-' . date("Y.m.d-H.i.s") . $ext;
-            $dir = 'img/upload/';            
-            move_uploaded_file($_FILES['imagem']['tmp_name'], $dir . $novoNome);
-            $eventos->imagem = '/' . $dir . $novoNome;
+            $eventos->imagem = $this->subirImagem('evento');
         }
                 
         $eventos->save();
@@ -93,11 +89,7 @@ class EventosController extends Controller
                $evento->imagem = substr($evento->imagem, 1);
                 unlink($evento->imagem); 
             }
-            $ext = strtolower(substr($_FILES['imagem']['name'], -4)); 
-            $novoNome = 'evento-' . date("Y.m.d-H.i.s") . $ext;
-            $dir = 'img/upload/';            
-            move_uploaded_file($_FILES['imagem']['tmp_name'], $dir . $novoNome);         
-            $params['imagem'] = '/' . $dir . $novoNome;
+            $params['imagem'] = $this->subirImagem('destaque');
         }
 
         $evento->fill($params)->save();
@@ -111,7 +103,7 @@ class EventosController extends Controller
 
         if($evento->exists('imagem')) {
             $evento->imagem = substr($evento->imagem, 1);
-            //unlink($evento->imagem);
+            unlink($evento->imagem);
         }
 
         $evento->delete();

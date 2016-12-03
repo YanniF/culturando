@@ -29,11 +29,7 @@ class SliderController extends Controller
         $slider = new Slider($params);
         
         if($req->imagem != null) {
-            $ext = strtolower(substr($_FILES['imagem']['name'], -4));
-            $novoNome = 'slider-' . date("Y.m.d-H.i.s") . $ext;
-            $dir = 'img/upload/';            
-            move_uploaded_file($_FILES['imagem']['tmp_name'], $dir . $novoNome);
-            $slider->imagem = '/' . $dir . $novoNome;
+            $slider->imagem = $this->subirImagem('slider');
         }
                 
         $slider->save();
@@ -67,12 +63,7 @@ class SliderController extends Controller
                $slider->imagem = substr($slider->imagem, 1);
                 unlink($slider->imagem); 
             }
-
-            $ext = strtolower(substr($_FILES['imagem']['name'], -4)); 
-            $novoNome = 'slider-' . date("Y.m.d-H.i.s") . $ext;
-            $dir = 'img/upload/';            
-            move_uploaded_file($_FILES['imagem']['tmp_name'], $dir . $novoNome);         
-            $params['imagem'] = '/' . $dir . $novoNome;
+            $params['imagem'] = $this->subirImagem('destaque');
         }
 
         $slider->fill($params)->save();
