@@ -14,7 +14,19 @@
 		            {{ csrf_field() }}
 		        </form>
 			</div>
-
+		</div>
+		<div class="content">
+			@if (count($errors) > 0)
+			    <div class="alert alert-danger">
+			        <ul>
+			            @foreach ($errors->all() as $error)
+			                <li>{{ $error }}</li>
+			            @endforeach
+			        </ul>
+			    </div>
+			@endif
+		</div>
+		<div class="content">
 			<form class="form-horizontal" method="post" role="form" action="{{ action('ParceirosController@cadastrar') }}" enctype="multipart/form-data">
 				<input type="hidden" name="_token" value="{{ csrf_token() }}">
 				<div class="content">

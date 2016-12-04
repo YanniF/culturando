@@ -21,7 +21,7 @@ class Atracoes extends Migration
             $table->string('cidade', 30);
             $table->string('telefone', 15)->nullable();
             $table->string('email', 80)->nullable();
-            $table->string('site', 80)->nullable();
+            $table->string('site')->nullable();
             $table->string('foto')->nullable();
             $table->text('descricao')->nullable();
             $table->timestamps();

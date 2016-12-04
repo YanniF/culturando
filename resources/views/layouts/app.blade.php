@@ -28,7 +28,7 @@
         <div class="container">
             <div class="content">
                 <div class="logo">
-                    <a href="{{ action('HomeController@criarMenu') }}">
+                    <a href="{{ action('HomeController@index') }}">
                         <img src="img/logo.png" class="img-responsive" alt="Culturando" title="Culturando">
                     </a>
                 </div><!-- logo -->
@@ -81,7 +81,7 @@
                         
                         <div class="collapse navbar-collapse" id="navbar-collapse-2">
                             <ul class="nav navbar-nav">
-                                <li><a href="{{ action('HomeController@criarMenu') }}"><span class="glyphicon glyphicon-home"></span></a></li>
+                                <li><a href="{{ action('HomeController@index') }}"><span class="glyphicon glyphicon-home"></span></a></li>
                                 
                                 @foreach($tipoAtracao as $atracao)
                                     <li class="dropdown">
@@ -124,35 +124,21 @@
 
             <!-- Wrapper for slides -->
             <div class="carousel-inner" role="listbox">
-                <div class="item active">
-                    <img src="img/img-slider1.jpg" alt="Imagem1" title="Imagem1">
-                    <div class="carousel-caption">
-                        <a href="">
-                            <h3>Título imagem1</h3>
-                            <p>Mussum Ipsum, cacilds vidis litro abertis. Atirei o pau no gatis, per gatis num morreus. Suco de cevadiss deixa as pessoas mais interessantiss. </p>
-                        </a>
+                <?php $c = 0; ?>
+            @foreach($slider as $s)
+                @if($c == 0)
+                    <div class="item active">
+                @else
+                    <div class="item">
+                @endif
+                    <a href="{{$s->link}}"><img src="{{$s->imagem}}" alt="{{$s->titulo}}" title="{{$s->titulo}}"></a>
+                    <div class="carousel-caption">                        
+                        <h3><a href="{{$s->link}}">{{$s->titulo}}</a></h3>
+                        <p><a href="{{$s->link}}">{{$s->mensagem}}</a></p>                        
                     </div>
                 </div>
-
-                <div class="item">
-                    <img src="img/img-slider2.jpg" alt="Imagem2" title="Imagem2">
-                    <div class="carousel-caption">
-                        <a href="">
-                            <h3>Título imagem2</h3>
-                            <p>Mussum Ipsum, cacilds vidis litro abertis. Atirei o pau no gatis, per gatis num morreus. Suco de cevadiss deixa as pessoas mais interessantiss. </p>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="item">
-                    <img src="img/img-slider3.jpg" alt="Imagem3" title="Imagem3">
-                    <div class="carousel-caption">
-                        <a href="">
-                            <h3>Título imagem3</h3>
-                            <p>Mussum Ipsum, cacilds vidis litro abertis. Atirei o pau no gatis, per gatis num morreus. Suco de cevadiss deixa as pessoas mais interessantiss. </p>
-                        </a>                        
-                    </div>
-                </div>
+                <?php $c++; ?>
+            @endforeach                
             </div>  
 
             <!-- Left and right controls -->
@@ -178,30 +164,16 @@
     <div id="destaque">
         <div class="container">
             <div class="content">
+            @foreach($destaques as $d)
                 <div class="destaque-item">
-                    <a href=""> 
+                    <a href="{{$d->link}}"> 
                         <div class="fundo">
-                            <img src="img/destaque1.jpg" class="img-responsive" alt="Destaque 1" title="Destaque 1">
-                            <p>Mussum Ipsum, cacilds vidis litro abertis. Atirei o pau no gatis, per gatis num morreus.</p>
+                            <img src="{{$d->imagem}}" class="img-responsive" alt="{{$d->destaque}}" title="{{$d->destaque}}">
+                            <p>{{$d->destaque}}</p>
                         </div>
                     </a>
                 </div>
-                <div class="destaque-item">
-                    <a href=""> 
-                        <div class="fundo">
-                            <img src="img/destaque2.jpg" class="img-responsive" alt="Destaque 2" title="Destaque 2">
-                            <p>Mussum Ipsum, cacilds vidis litro abertis. Atirei o pau no gatis, per gatis num morreus.</p>
-                        </div>
-                    </a>
-                </div>
-                <div class="destaque-item">
-                    <a href="">
-                        <div class="fundo">
-                            <img src="img/destaque3.jpg" class="img-responsive" alt="Destaque 3" title="Destaque 3">
-                            <p>Mussum Ipsum, cacilds vidis litro abertis. Atirei o pau no gatis, per gatis num morreus.</p>
-                        </div>                      
-                    </a>
-                </div>
+            @endforeach
             </div>
         </div>      
     </div>

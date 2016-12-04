@@ -14,9 +14,29 @@
 		            {{ csrf_field() }}
 		        </form>
 			</div>
-
+		</div>
+		<div class="content">
+			@if (count($errors) > 0)
+			    <div class="alert alert-danger">
+			        <ul>
+			            @foreach ($errors->all() as $error)
+			                <li>{{ $error }}</li>
+			            @endforeach
+			        </ul>
+			    </div>
+			@endif
+		</div>
+		<div class="content">
 			<form class="form-horizontal" method="post" role="form" action="{{ action('SliderController@alterar', $s->id) }}" enctype="multipart/form-data">
 				<input type="hidden" name="_token" value="{{ csrf_token() }}">
+				<div class="content">
+					<div class="form-group">		  			
+				    	<label class="control-label" for="titulo">Título:</label>
+					    <div class="inputs">
+					    	<input type="text" class="form-control" id="titulo" name="titulo" value="{{ old('titulo') }}">
+					    </div>
+					 </div>	
+				</div>		
 				<div class="content">
 					<div class="form-group">
 				    	<label class="control-label" for="mensagem">Mensagem:</label>
@@ -24,15 +44,16 @@
 					    	<input type="text" class="form-control" id="mensagem" name="mensagem" value="{{ $s->mensagem }}" required>
 					    </div>
 				  	</div>
-				</div>				
+				</div>
 				<div class="content">
 					<div class="form-group">
 				    	<label class="control-label" for="imagem">Imagem:</label>
 					    <div class="inputs">
 					    	<input type="file" id="imagem" name="imagem">
+					    	<span>Tamanho ideal: 950x350</span>
 					    </div>
 				  	</div>
-				</div>
+				</div>	
 				<div class="content">  	
 				  	<div class="form-group">		  			
 				    	<label class="control-label" for="link">Link:</label>

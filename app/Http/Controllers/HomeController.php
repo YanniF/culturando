@@ -3,10 +3,12 @@
 namespace culturando\Http\Controllers;
 
 use Illuminate\Http\Request;
-
 use culturando\Http\Requests;
+
 use culturando\Models\Cidade;
 use culturando\Models\TipoAtracao;
+use culturando\Models\Destaque;
+use culturando\Models\Slider;
 
 class HomeController extends Controller
 {
@@ -22,13 +24,26 @@ class HomeController extends Controller
         return TipoAtracao::all();
     }
 
-    //popula o menu da página inicial
-    public function criarMenu() {
+    public function listarDestaques() {
+        return Destaque::all();
+    }
 
+    public function listarImagemSlider() {
+        return Slider::all();
+    }
+
+    public function index() {
         $cidadesBaixada = $this->listarCidadeBaixada();
         $cidadesVale = $this->listarCidadeVale();
-        $tipoAtracao = $this->listarAtracoes();        
+        $tipoAtracao = $this->listarAtracoes();
+        $destaques = $this->listarDestaques();
+        $slider = $this->listarImagemSlider();
 
-        return view('/home')->with(array('tipoAtracao' => $tipoAtracao, 'baixada' => $cidadesBaixada, 'vale' => $cidadesVale));
+        return view('/home')->with(array(
+                                        'tipoAtracao' => $tipoAtracao, 
+                                        'baixada' => $cidadesBaixada, 
+                                        'vale' => $cidadesVale, 
+                                        'destaques' => $destaques, 
+                                        'slider' => $slider));
     }
 }

@@ -15,7 +15,7 @@ class Parceiros extends Migration
     {
         Schema::create('parceiros', function(Blueprint $table) {
             $table->increments('id');
-            $table->string('nome');
+            $table->string('nome', 100);
             $table->string('imagem');
             $table->string('link')->nullable();
             $table->timestamps();

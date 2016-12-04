@@ -15,7 +15,7 @@ class Destaques extends Migration
     {
         Schema::create('destaques', function(Blueprint $table) {
             $table->increments('id');
-            $table->string('destaque');
+            $table->string('destaque', 150);
             $table->text('descricao');
             $table->string('imagem');
             $table->string('link')->nullable();

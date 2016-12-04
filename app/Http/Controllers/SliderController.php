@@ -13,6 +13,15 @@ class SliderController extends Controller
         $this->middleware('auth');
     }
 
+    private function validar(Request $req) {
+        $this->validate($req, [
+            'titulo' => 'required|max:70',
+            'mensagem' => 'required|max:255',
+            'imagem' => 'image',
+            'link' => 'max:255',
+        ]);
+    }
+
     public function listarElementos() {
     	
     	$slider = Slider::all();
@@ -25,6 +34,7 @@ class SliderController extends Controller
 
     public function cadastrar(Request $req) {
 
+        $this->validar($req);
         $params = $req->all();
         $slider = new Slider($params);
         
@@ -55,6 +65,7 @@ class SliderController extends Controller
 
     public function alterar($id, Request $req) {
 
+        $this->validar($req);
         $slider = Slider::findOrFail($id);
         $params = $req->all();
 
@@ -63,7 +74,7 @@ class SliderController extends Controller
                $slider->imagem = substr($slider->imagem, 1);
                 unlink($slider->imagem); 
             }
-            $params['imagem'] = $this->subirImagem('destaque');
+            $params['imagem'] = $this->subirImagem('slider');
         }
 
         $slider->fill($params)->save();

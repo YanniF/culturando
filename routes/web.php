@@ -1,6 +1,6 @@
 <?php
 
-Route::get('/', 'HomeController@criarMenu');
+Route::get('/', 'HomeController@index');
 Route::get('/atracoes', 'AtracoesController@criarMenuAtracoes');
 
 /*Admin*/

@@ -13,6 +13,16 @@ class EventosController extends Controller
     public function __construct() {
         $this->middleware('auth');
     }
+
+    private function validar(Request $req) {
+        $this->validate($req, [
+            'titulo' => 'required|max:100',
+            'imagem' => 'image',
+            'descricao' => 'required',
+            'link' => 'max:255',
+            'eventoEm' => 'max:25',
+        ]);
+    }
 	
 	public function listarElementos(Request $req) {
         
@@ -51,6 +61,7 @@ class EventosController extends Controller
 
     public function cadastrar(Request $req) {
 
+        $this->validar($req);
         $params = $req->all();
         $eventos = new Evento($params);
         
@@ -81,6 +92,7 @@ class EventosController extends Controller
 
     public function alterar($id, Request $req) {
 
+        $this->validar($req);
         $evento = Evento::findOrFail($id);
         $params = $req->all();
 
@@ -89,7 +101,7 @@ class EventosController extends Controller
                $evento->imagem = substr($evento->imagem, 1);
                 unlink($evento->imagem); 
             }
-            $params['imagem'] = $this->subirImagem('destaque');
+            $params['imagem'] = $this->subirImagem('evento');
         }
 
         $evento->fill($params)->save();

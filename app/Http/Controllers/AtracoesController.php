@@ -4,7 +4,8 @@ namespace culturando\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
-use Intervention\Image\Facades\Image;
+/*use Intervention\Image\Facades\Image;*/
+use Validator;
 
 use culturando\Http\Requests;
 use culturando\Models\Cidade;
@@ -15,6 +16,19 @@ class AtracoesController extends Controller
 {
     public function __construct() {
         $this->middleware('auth');
+    }
+
+    private function validar(Request $req) {
+        $this->validate($req, [
+            'nome' => 'required|max:255',
+            'tipoAtracao' => 'required|max:30',
+            'endereco' => 'required|max:80',
+            'cidade' => 'required|max:30',
+            'telefone' => 'max:15',
+            'email' => 'max:80',
+            'site' => 'max:255',
+            'foto' => 'image',
+        ]);
     }
 
     public function listarCidadeBaixada() {
@@ -85,6 +99,7 @@ class AtracoesController extends Controller
 
     public function cadastrar(Request $req) {
 
+        $this->validar($req);
         $params = $req->all();
         $atracoes = new Atracao($params);
         
@@ -118,6 +133,8 @@ class AtracoesController extends Controller
     }
 
     public function alterar($id, Request $req) {
+
+        $this->validar($req);
 
         $atracao = Atracao::findOrFail($id);
         $params = $req->all();

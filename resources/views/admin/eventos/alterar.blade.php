@@ -14,7 +14,19 @@
 		            {{ csrf_field() }}
 		        </form>
 			</div>
-
+		</div>
+		<div class="content">
+			@if (count($errors) > 0)
+			    <div class="alert alert-danger">
+			        <ul>
+			            @foreach ($errors->all() as $error)
+			                <li>{{ $error }}</li>
+			            @endforeach
+			        </ul>
+			    </div>
+			@endif
+		</div>
+		<div class="content">
 			<form class="form-horizontal" method="post" role="form" action="{{ action('EventosController@alterar', $e->id) }}" enctype="multipart/form-data">
 				<input type="hidden" name="_token" value="{{ csrf_token() }}">
 				<div class="content">
@@ -30,11 +42,17 @@
 							<select class="form-control" id="eventoEm" name="eventoEm">
 								@if($e->eventoEm == 'Vale do Ribeira')
 									<option selected="selected"  value="Vale do Ribeira">Vale do Ribeira</option>
+									<option value="Baixada Santista">Baixada Santista</option>
+									<option value="São Paulo">São Paulo</option>	
 								@elseif($e->eventoEm == 'São Paulo')
 									<option selected="selected"  value="São Paulo">São Paulo</option>
+									<option value="Baixada Santista">Baixada Santista</option>	
+									<option value="Vale do Ribeira">Vale do Ribeira</option>
 								@else
 									<option selected="selected"  value="Baixada Santista">Baixada Santista</option>	
-								@endif					 		
+									<option value="Vale do Ribeira">Vale do Ribeira</option>
+									<option value="São Paulo">São Paulo</option>
+								@endif	
 							</select>
 						</div>
 					</div>

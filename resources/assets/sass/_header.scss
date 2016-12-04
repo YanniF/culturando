@@ -124,15 +124,15 @@ body {
 		}//container					
 	}//navegacao
 
-	> #slider {
+	#slider {
 		margin-top: 20px;
 		margin-bottom: 60px;
 
-		> #myCarousel {
+		#myCarousel {
 			width: 80%;
 			margin:auto;
 
-			> .carousel-indicators {
+			.carousel-indicators {
 				margin-bottom: 0;
 				bottom: -30px;
 
@@ -147,7 +147,7 @@ body {
 				}
 			}
 
-			> .carousel-inner {
+			.carousel-inner {
 				.item {
 					img {
 						margin: auto;
@@ -162,21 +162,25 @@ body {
 						right: 0;
 						bottom: 5px;
 						
-						a {
-							text-decoration: none;
+						
+						h3, p {							
 							text-align: justify;
 
-							h3, p {
+							a {
+								text-decoration: none;
+
 								font: 600 18px $fonte;
 								color: #FFFFFF;								
 								padding-left: 10px;
 								padding-right: 10px;
 								margin: 5px;
 							}
+						}
 
-							p {
+						p {
+							a {
 								font-weight: 400;
-							}
+							}							
 						}						
 					}//carousel-caption
 				}//item
@@ -190,7 +194,7 @@ body {
 		}//myCarousel
 	}//slider
 
-	> #destaque-titulo {
+	#destaque-titulo {
 		> .container {
 			>.content {
 				h3 {
@@ -202,12 +206,12 @@ body {
 		}//container
 	}//destaque-titulo
 
-	> #destaque {
+	#destaque {
 		background-color: $cor-escura;
 		margin-bottom: 40px;
 		
-		> .container {
-			> .content {
+		.container {
+			.content {
 				.destaque-item {
 					@include make-xs-column(12);
 					@include make-sm-column(4);

@@ -14,6 +14,15 @@ class DestaquesController extends Controller
         $this->middleware('auth');
     }
 
+    private function validar(Request $req) {
+        $this->validate($req, [
+            'destaque' => 'required|max:150',
+            'descricao' => 'required',
+            'imagem' => 'image',
+            'link' => 'max:255',
+        ]);
+    }
+
     public function listarElementos() {
 
     	$destaques = Destaque::all();
@@ -26,6 +35,7 @@ class DestaquesController extends Controller
 
     public function cadastrar(Request $req) {
 
+        $this->validar($req);
         $params = $req->all();
         $destaque = new Destaque($params);
         
@@ -57,6 +67,7 @@ class DestaquesController extends Controller
 
     public function alterar($id, Request $req) {
 
+        $this->validar($req);
         $destaque = Destaque::findOrFail($id);
         $params = $req->all();
 

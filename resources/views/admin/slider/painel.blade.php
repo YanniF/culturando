@@ -35,7 +35,7 @@
 			    <thead>
 			      <tr>
 			        <th>Imagem</th>
-			        <th>Mensagem</th>
+			        <th>Título</th>
 			        <th>Link</th>			        
 			        <th>Exibir</th>
 			        <th>Editar</th>
@@ -46,7 +46,7 @@
 			    	@foreach($slider as $s)
 				    	<tr>
 							<td><img class="img-responsive" src="{{ $s->imagem }}"></td>
-							<td>{{ $s->mensagem }}</td>
+							<td>{{ $s->titulo }}</td>
 							<td><a href="{{ $s->link }}">{{ $s->link }}</a></td>
 							<td><a class="btn btn-primary" href="{{ action('SliderController@exibir', $s->id) }}"><span class='glyphicon glyphicon-search'></span></a></td>
 							<td><a class="btn btn-success" href="{{ action('SliderController@editar', $s->id) }}"><span class='glyphicon glyphicon-pencil'></span></a></td>

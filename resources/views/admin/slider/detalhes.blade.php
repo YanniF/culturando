@@ -16,9 +16,10 @@
 		        </form>
 			</div>
 			<div class="info">
-				<h1>{{ $slider->mensagem }}</h1>
+				<h1>{{ $slider->titulo }}</h1>
 				<img class="img-responsive" src="{{ $slider->imagem }}">
 				<ul>
+					<li><strong>Mensagem: </strong>{{$slider->mensagem}}</li>
 					<li><strong>Link: </strong><a href="{{ $slider->link }}">{{ $slider->link }}</a></li>
 				</ul>
 			</div>			

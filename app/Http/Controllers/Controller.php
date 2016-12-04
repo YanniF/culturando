@@ -13,11 +13,18 @@ class Controller extends BaseController
 
     public function subirImagem($nomeParcial) {
 
-        $ext = strtolower(substr($_FILES['imagem']['name'], -4));//Pegando extensão do arquivo
+    	if($nomeParcial == 'atracao') {//o nome do campo é foto na tabela atrações
+    		$nomeCampo = 'foto';
+    	}
+    	else {
+    		$nomeCampo = 'imagem';//nas outras é imagem
+    	}
+
+        $ext = strtolower(substr($_FILES[$nomeCampo]['name'], -4));//Pegando extensão do arquivo
         $novoNome = $nomeParcial . '-' . date("Y.m.d-H.i.s") . $ext;//Definindo um novo nome para o arquivo
         $dir = 'img/upload/';//Faz o upload do arquivo
         
-        move_uploaded_file($_FILES['imagem']['tmp_name'], $dir . $novoNome);
+        move_uploaded_file($_FILES[$nomeCampo]['tmp_name'], $dir . $novoNome);
         return '/' . $dir . $novoNome;
     }
 }

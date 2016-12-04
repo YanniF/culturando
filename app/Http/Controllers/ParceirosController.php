@@ -13,6 +13,14 @@ class ParceirosController extends Controller
         $this->middleware('auth');
     }
 
+    private function validar(Request $req) {
+        $this->validate($req, [
+            'nome' => 'required|max:100',
+            'imagem' => 'image',
+            'link' => 'max:255',
+        ]);
+    }
+
     public function listarElementos() {
     	
     	$parceiros = Parceiro::all();
@@ -25,6 +33,7 @@ class ParceirosController extends Controller
 
     public function cadastrar(Request $req) {
 
+        $this->validar($req);
         $params = $req->all();
         $parceiro = new Parceiro($params);
         
@@ -55,6 +64,7 @@ class ParceirosController extends Controller
 
     public function alterar($id, Request $req) {
 
+        $this->validar($req);
         $parceiro = Parceiro::findOrFail($id);
         $params = $req->all();
 
