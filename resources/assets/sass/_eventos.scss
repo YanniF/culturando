@@ -17,11 +17,13 @@ body {
 					@include make-md-column(4);
 				}				
 				
-				> .eventos-baixada {
+				.eventos-baixada {
+					@include make-md-column(8);
+
 					.evento-item {
 						// @include make-xs-column(12);
 						// @include make-sm-column(7);
-						@include make-md-column(3);	
+						@include make-md-column(4);	
 						@include make-md-column-offset(1);
 						@include make-md-column-pull(1);
 
@@ -30,7 +32,7 @@ body {
 					}					
 				}
 
-				> #eventos-fora {
+				.eventos-fora {
 					// @include make-xs-column(12);
 					// @include make-sm-column(7);
 					@include make-md-column(4);

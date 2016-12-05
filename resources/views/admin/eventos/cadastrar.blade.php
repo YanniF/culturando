@@ -4,7 +4,7 @@
 	<div class="container" id="cadastro">
 		<div class="content">
 			<div class="logo">
-				<a href="{{ action('AtracoesController@listarElementosPainel') }}"><img src="/img/logo.png" class="img-responsive" alt="Culturando" title="Clique aqui para voltar para o painel"></a>
+				<a href="{{ action('EventosController@listarElementos') }}"><img src="/img/logo.png" class="img-responsive" alt="Culturando" title="Clique aqui para voltar para o painel"></a>
 			</div>
 			<div class="logout">					
 				<a href="{{ url('/logout') }}" class="btn btn-default" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
@@ -51,7 +51,7 @@
 					<div class="form-group">		  			
 				    	<label class="control-label" for="link">Link:</label>
 					    <div class="inputs">
-					    	<input type="url" class="form-control" id="link" name="link" value="{{ old('link') }}" title="Formato: http://www.site.com" required>
+					    	<input type="url" class="form-control" id="link" name="link" value="{{ old('link') }}" title="Formato: http://www.site.com">
 					    </div>
 					</div>
 					<div class="form-group">

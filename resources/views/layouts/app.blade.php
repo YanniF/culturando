@@ -157,7 +157,7 @@
     <div id="destaque-titulo">
         <div class="container">
             <div class="content">
-                <h3 class="titulo"><span class="glyphicon glyphicon-chevron-right"></span> DESTAQUE</h3>
+                <h3 class="titulo"><a href="{{action('HomeController@exibirTodosDestaques')}}"><span class="glyphicon glyphicon-chevron-right"></span> DESTAQUE</a></h3>
             </div>
         </div>
     </div>
@@ -166,7 +166,7 @@
             <div class="content">
             @foreach($destaques as $d)
                 <div class="destaque-item">
-                    <a href="{{$d->link}}"> 
+                    <a href="{{ action('HomeController@exibirDestaque', $d->id) }}"> 
                         <div class="fundo">
                             <img src="{{$d->imagem}}" class="img-responsive" alt="{{$d->destaque}}" title="{{$d->destaque}}">
                             <p>{{$d->destaque}}</p>

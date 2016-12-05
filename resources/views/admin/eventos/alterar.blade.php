@@ -61,7 +61,7 @@
 					<div class="form-group">		  			
 				    	<label class="control-label" for="link">Link:</label>
 					    <div class="inputs">
-					    	<input type="url" class="form-control" id="link" name="link" value="{{ $e->link }}" title="Formato: http://www.site.com" required>
+					    	<input type="url" class="form-control" id="link" name="link" value="{{ $e->link }}" title="Formato: http://www.site.com">
 					    </div>
 					</div>
 					<div class="form-group">
