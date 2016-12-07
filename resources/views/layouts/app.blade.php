@@ -188,7 +188,18 @@
     <footer>
         <div class="container">
             <div class="content">
-                
+                <div class="mapa">
+                    <a href="">NA BAIXADA TEM</a>
+                </div>
+                <div class="mapa">
+                    <a href="">NO VALE TEM</a>
+                </div>
+                <div class="mapa">
+                    <a href="">DESTAQUES</a>
+                </div>
+                <div class="mapa">
+                    <a href="">EVENTOS</a>
+                </div>
             </div>
         </div>
     </footer>

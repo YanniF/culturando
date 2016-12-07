@@ -9,9 +9,11 @@ body {
 		opacity: 0.5;
 		cursor: pointer;
 		display: none;
+		transition: all 0.2s linear;
 
 		&:hover {
 			opacity: 1;
+			transition: all 0.2s linear;
 		}
 		
 		.glyphicon-chevron-up {			
@@ -24,6 +26,24 @@ body {
 
 	> footer {
 		background-color: $cor-media;
-		height: 200px;//tirar
+		
+		.mapa {
+			@include make-md-column(3);
+
+			margin-top: 60px;
+			margin-bottom: 60px;
+			font: bold 20px $fonte;
+
+			a {
+				text-decoration: none;
+				color: $cor-clara;
+				transition: all 0.2s linear;
+
+				&:hover {
+					color: #FFFFFF;
+					transition: all 0.2s linear;
+				}
+			}				
+		}
 	}
 } 

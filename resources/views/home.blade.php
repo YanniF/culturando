@@ -9,58 +9,61 @@
                 <h3 class="titulo" id="evento2"><span class="glyphicon glyphicon-chevron-right"></span> EVENTOS EM SP</h3>
             </div>
             <div class="content">
-                <?php 
-                    //arrumar código
-                    $classe = '<div class="eventos-baixada">';                    
-                    $colunas = 0;
-                    $qtdSp = count($eventosSP);
-                    $qtdBaixada = count($eventosBaixada);
-                    $c = 0;
-                ?>
-                @foreach($eventosBaixada as $eventoB)
-                    <?php echo $classe; ?>
+            <?php 
+                //arrumar código
+                $classe = '<div class="eventos-baixada">';                    
+                $colunas = 0;
+                $qtdSp = count($eventosSP); 
+                $qtdBaixada = count($eventosBaixada);
+                $c = 0;
+                
+                foreach($eventosBaixada as $eventoB) {
+                    echo $classe; 
+            ?>
                     <div class="evento-item">
-                        <a href=""><img src="img/evento1.jpg" class="img-responsive" alt="Evento" title="Evento"></a>
-                        <h3><a href="">{{$eventoB->titulo}}</a></h3>
-                        <p>Mussum Ipsum, cacilds vidis litro abertis. Atirei o pau no gatis, per gatis num morreus. Suco de cevadiss deixa as pessoas mais interessantiss.</p>
-                        <span><a href="">Saiba mais</a></span>
+                        <a href="/eventos/exibir/Baixada Santista/{{$eventoB->id}}"><img src="{{$eventoB->imagem}}" class="img-responsive" alt="{{$eventoB->titulo}}" title="{{$eventoB->titulo}}"></a>
+                        <h3><a href="/eventos/exibir/Baixada Santista/{{$eventoB->id}}">{{$eventoB->titulo}}</a></h3>
+                        <p>{{$eventoB->descricao}}</p>
+                        <span><a href="/eventos/exibir/Baixada Santista/{{$eventoB->id}}">Saiba mais</a></span>
                     </div>
-                    <?php 
-                        $colunas++;
+            <?php 
+                    $colunas++;
 
-                        if($colunas % 2 == 0) {
-                            echo '</div>';//fechando eventos-baixada
+                    if($colunas % 2 == 0) {
+                        echo '</div>';//fechando eventos-baixada
 
-                            if($c < $qtdSp) {
+                        if($c < $qtdSp) {
 
-                    ?>    
-                            <div class="eventos-fora">
-                                <div class="evento-item">
-                                    <a href=""><img src="img/mapCultural.jpg" class="img-responsive" alt="Evento" title="Evento">
-                                    <h3>{{$eventosSP[$c]->titulo}}</h3></a>
-                                    <p>Mussum Ipsum, cacilds vidis litro abertis. Atirei o pau no gatis, per gatis num morreus. Suco de cevadiss deixa as pessoas mais interessantiss.</p>
-                                </div>
-                            </div>
+            ?>    
+                    <div class="eventos-fora">
+                        <div class="evento-item">
+                            <a href="/eventos/exibir/São Paulo/{{$eventosSP[$c]->id}}"><img src="{{$eventosSP[$c]->imagem}}" class="img-responsive" alt="{{$eventosSP[$c]->titulo}}" title="{{$eventosSP[$c]->titulo}}">
+                            <h3>{{$eventosSP[$c]->titulo}}</h3></a>
+                            <p>{{$eventosSP[$c]->descricao}}</p>
+                            <span><a href="/eventos/exibir/São Paulo/{{$eventosSP[$c]->id}">Saiba mais</a></span>
                         </div>
-                    <?php
+                    </div>
+                </div>
+
+            <?php
                             $c++;
                         }
-                            if($c == $qtdSp && $colunas > $qtdBaixada) {
-                                echo '';
-                            }
-                            else {
-                                echo '<div class="content">'; 
-                            }
-                            
-                            $classe = '<div class="eventos-baixada">';                            
+                        if($c >= $qtdSp && $colunas >= $qtdBaixada) {
+                            echo '</div> ';
                         }
                         else {
-                            $classe = ''; 
+                            echo '<div class="content">'; 
                         }
-                    ?>
-                @endforeach                
-                </div> 
-                 </div>  
+                        
+                        $classe = '<div class="eventos-baixada">';                            
+                    }
+                    else {
+                        $classe = ''; 
+                    }                    
+                }   
+            ?>             
+                    
+                </div>  
             </div> 
         </div>          
     </div>
