@@ -2,10 +2,8 @@
 
 Route::get('/', 'HomeController@index');
 /*Route::get('/atracoes', 'AtracoesController@criarMenuAtracoes');*/
-Route::get('/destaques/', 'HomeController@exibirTodosDestaques');
-Route::get('/destaques/exibir/{id}', 'HomeController@exibirDestaque');
-Route::get('/eventos/{eventoEm}', 'HomeController@exibirTodosEventos');
-Route::get('/eventos/exibir/{eventoEm}/{id}', 'HomeController@exibirEvento');
+Route::get('/destaques/{id?}', 'HomeController@exibirDestaques');
+Route::get('/eventos/{eventoEm}/{id?}', 'HomeController@exibirEventos');
 
 /*Admin*/
 Route::get('/admin/', 'PainelController@chamarPainel');

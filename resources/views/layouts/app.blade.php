@@ -10,7 +10,7 @@
 
     <title>{{ config('app.name', 'Laravel') }} - @yield('title')</title>
 
-    <!-- Styles -->
+    <link href="https://fonts.googleapis.com/css?family=Merriweather" rel="stylesheet"> 
     <link href="{{ asset('img/icon.png') }}" rel="shortcut icon">
     <link rel="stylesheet" href="/css/plugins/plugins.css">  
     <link rel="stylesheet" href="/css/style.css">
@@ -29,9 +29,9 @@
             <div class="content">
                 <div class="logo">
                     <a href="{{ action('HomeController@index') }}">
-                        <img src="img/logo.png" class="img-responsive" alt="Culturando" title="Culturando">
+                        <img src="{{asset('/img/logo.png')}}" class="img-responsive" alt="Culturando" title="Culturando">
                     </a>
-                </div><!-- logo -->
+                </div>
                 <nav class="navbar navbar-default" id="menu1">
 
                     <div class="navbar-header">
@@ -59,8 +59,8 @@
                         </ul>
                     </div><!-- /.navbar-collapse -->
                 </nav>
-            </div><!-- content -->
-        </div><!-- container -->
+            </div>
+        </div>
     </header>   
 
     <!-- Menu -->
@@ -105,82 +105,15 @@
                                 @endforeach
 
                             </ul>
-                        </div><!-- /.navbar-collapse -->
-                    </nav><!-- navbar-default -->
-                </div><!-- menu2 -->                    
-            </div><!-- content -->
-        </div><!-- container -->            
-    </div><!-- navegacao -->
-
-    <!-- Slider -->
-    <div id="slider">
-        <div id="myCarousel" class="carousel slide" data-ride="carousel">
-          <!-- Indicators -->
-            <ol class="carousel-indicators">
-                <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-                <li data-target="#myCarousel" data-slide-to="1"></li>
-                <li data-target="#myCarousel" data-slide-to="2"></li>
-            </ol>
-
-            <!-- Wrapper for slides -->
-            <div class="carousel-inner" role="listbox">
-                <?php $c = 0; ?>
-            @foreach($slider as $s)
-                @if($c == 0)
-                    <div class="item active">
-                @else
-                    <div class="item">
-                @endif
-                    <a href="{{$s->link}}"><img src="{{$s->imagem}}" alt="{{$s->titulo}}" title="{{$s->titulo}}"></a>
-                    <div class="carousel-caption">                        
-                        <h3><a href="{{$s->link}}">{{$s->titulo}}</a></h3>
-                        <p><a href="{{$s->link}}">{{$s->mensagem}}</a></p>                        
-                    </div>
-                </div>
-                <?php $c++; ?>
-            @endforeach                
-            </div>  
-
-            <!-- Left and right controls -->
-            <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
-                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-                <span class="sr-only">Previous</span>
-            </a>
-            <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
-                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-                <span class="sr-only">Next</span>
-            </a>
-        </div>
-    </div>
-
-    <!-- Destaque -->
-    <div id="destaque-titulo">
-        <div class="container">
-            <div class="content">
-                <h3 class="titulo"><a href="{{action('HomeController@exibirTodosDestaques')}}"><span class="glyphicon glyphicon-chevron-right"></span> DESTAQUE</a></h3>
-            </div>
-        </div>
-    </div>
-    <div id="destaque">
-        <div class="container">
-            <div class="content">
-            @foreach($destaques as $d)
-                <div class="destaque-item">
-                    <a href="{{ action('HomeController@exibirDestaque', $d->id) }}"> 
-                        <div class="fundo">
-                            <img src="{{$d->imagem}}" class="img-responsive" alt="{{$d->destaque}}" title="{{$d->destaque}}">
-                            <p>{{$d->destaque}}</p>
                         </div>
-                    </a>
+                    </nav>
                 </div>
-            @endforeach
             </div>
-        </div>      
+        </div>           
     </div>
 
     @yield('content')
 
-    <!-- Scripts -->
     <div class="scroll-top">
         <span class="glyphicon glyphicon-chevron-up"></span>
     </div>
@@ -195,10 +128,10 @@
                     <a href="">NO VALE TEM</a>
                 </div>
                 <div class="mapa">
-                    <a href="">DESTAQUES</a>
+                    <a href="{{action('HomeController@exibirDestaques')}}">DESTAQUES</a>
                 </div>
                 <div class="mapa">
-                    <a href="">EVENTOS</a>
+                    <a href="{{action('HomeController@exibirEventos', 'Baixada Santista')}}">EVENTOS</a>
                 </div>
             </div>
         </div>

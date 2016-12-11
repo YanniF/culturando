@@ -35,8 +35,8 @@
 			    <thead>
 			      <tr>
 			        <th>Imagem</th>
-			        <th>Texto Destaque</th>
-			        <th>Texto Completo</th>
+			        <th>Título</th>
+			        <th>Descrição</th>
 			        <th>Link</th>
 			        <th>Exibir</th>
 			        <th>Editar</th>

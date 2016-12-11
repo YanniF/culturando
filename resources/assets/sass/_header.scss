@@ -129,8 +129,7 @@ body {
 		margin-bottom: 60px;
 
 		#myCarousel {
-			width: 80%;
-			margin:auto;
+			@include make-md-column(12);
 
 			.carousel-indicators {
 				margin-bottom: 0;
@@ -155,20 +154,18 @@ body {
 
 					.carousel-caption {
 						background-color: rgba(0,0,0,0.5);
-						padding: 5px 0;
-						width: 85%;						
-						margin: auto;
+						padding: 5px;
+						width: 84%;						
+						margin: 0 auto;
 						left: 0;
 						right: 0;
 						bottom: 5px;
-						
 						
 						h3, p {							
 							text-align: justify;
 
 							a {
 								text-decoration: none;
-
 								font: 600 18px $fonte;
 								color: #FFFFFF;								
 								padding-left: 10px;
@@ -243,7 +240,6 @@ body {
 					}
 				}//destaque-item	
 			}//content
-		}//container
-							
+		}//container							
 	}//destaque
 }

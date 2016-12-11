@@ -61,33 +61,40 @@ class HomeController extends Controller
                                         'eventosSP' => $eventosSP));
     }
 
-    //destaques
-    public function exibirTodosDestaques() {
-        
-        return 'miau';
-        //$destaques = Destaque::all();
-        //return view('/destaques')->with('destaques', $destaques);
+    public function exibirDestaques($id = null) {
+        if($id == null) {
+            $destaques = Destaque::all();
+        }
+        else {
+            $destaques = Destaque::find($id);
+        }
+
+        $cidadesBaixada = $this->listarCidadeBaixada();
+        $cidadesVale = $this->listarCidadeVale();
+        $tipoAtracao = $this->listarAtracoes();
+
+        return view('/destaques')->with(array('destaques' => $destaques, 'tipoAtracao' => $tipoAtracao, 'baixada' => $cidadesBaixada, 'vale' => $cidadesVale, ));
     }
 
-    public function exibirDestaque($id) {
-        
-        return 'lala';
-        //$destaque = Destaque::find($id);
-        //return view('/destaques/exibir')->with('destaque', $destaque);
-    }
 
-    //eventos
-    public function exibirTodosEventos($eventoEm) {
+    public function exibirEventos($eventoEm, $id = null) {
         
-        return 'miauu';
-        //$eventos = Destaque::all();
-        //return view('/eventos')->with('eventos', $eventos);
-    }
+        if($id == null) {
+            if($eventoEm == 'São Paulo') {
+                $eventos = $this->listarEventosSP();
+            }
+            else {
+                $eventos = $this->listarEventosBaixada();
+            }    
+        }
+        else {            
+            $eventos = Evento::find($id);
+        }
 
-    public function exibirEvento($eventoEm, $id) {
-        
-        return 'lalala';
-        //$evento = evento::find($id);
-        //return view('/eventos/exibir')->with('evento', $evento);
+        $cidadesBaixada = $this->listarCidadeBaixada();
+        $cidadesVale = $this->listarCidadeVale();
+        $tipoAtracao = $this->listarAtracoes();
+
+        return view('/eventos')->with(array('eventos' => $eventos, 'tipoAtracao' => $tipoAtracao, 'baixada' => $cidadesBaixada, 'vale' => $cidadesVale, ));
     }
 }
