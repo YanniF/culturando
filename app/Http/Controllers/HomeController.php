@@ -10,6 +10,8 @@ use culturando\Models\TipoAtracao;
 use culturando\Models\Destaque;
 use culturando\Models\Slider;
 use culturando\Models\Evento;
+use culturando\Models\Parceiro;
+use culturando\Models\Atracao;
 
 class HomeController extends Controller
 {
@@ -76,7 +78,6 @@ class HomeController extends Controller
         return view('/destaques')->with(array('destaques' => $destaques, 'tipoAtracao' => $tipoAtracao, 'baixada' => $cidadesBaixada, 'vale' => $cidadesVale, ));
     }
 
-
     public function exibirEventos($eventoEm, $id = null) {
         
         if($id == null) {
@@ -96,5 +97,25 @@ class HomeController extends Controller
         $tipoAtracao = $this->listarAtracoes();
 
         return view('/eventos')->with(array('eventos' => $eventos, 'tipoAtracao' => $tipoAtracao, 'baixada' => $cidadesBaixada, 'vale' => $cidadesVale, ));
+    }
+
+    public function exibirParceiros() {
+        $parceiros = Parceiro::all();
+
+        $cidadesBaixada = $this->listarCidadeBaixada();
+        $cidadesVale = $this->listarCidadeVale();
+        $tipoAtracao = $this->listarAtracoes();
+
+        return view('/parceiros')->with(array('parceiros' => $parceiros, 'tipoAtracao' => $tipoAtracao, 'baixada' => $cidadesBaixada, 'vale' => $cidadesVale, ));
+    }
+
+    public function exibirAtracoes($tipo, $cidade) {
+        $cidadesBaixada = $this->listarCidadeBaixada();
+        $cidadesVale = $this->listarCidadeVale();
+        $tipoAtracao = $this->listarAtracoes();
+
+        $atracoes = Atracao::select('*')->where('tipoAtracao', '=', $tipo)->where('cidade', '=', $cidade)->get();
+
+        return view('/atracoes')->with(array('atr' => $atracoes, 'tipoAtracao' => $tipoAtracao, 'baixada' => $cidadesBaixada, 'vale' => $cidadesVale, ));
     }
 }

@@ -9,12 +9,12 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>{{ config('app.name', 'Laravel') }} - @yield('title')</title>
-
-    <link href="https://fonts.googleapis.com/css?family=Merriweather" rel="stylesheet"> 
-    <link href="{{ asset('img/icon.png') }}" rel="shortcut icon">
-    <link rel="stylesheet" href="/css/plugins/plugins.css">  
-    <link rel="stylesheet" href="/css/style.css">
-    <link rel="stylesheet" href="/css/responsive.css">
+    
+    <link rel="shortcut icon" href="{{ asset('img/icon.png') }}" >
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Merriweather" > 
+    <link rel="stylesheet" href="{{ asset('/css/plugins/plugins.css') }}">  
+    <link rel="stylesheet" href="{{ asset('/css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('/css/responsive.css') }}">
 
     <!-- Scripts -->
     <script>
@@ -23,7 +23,7 @@
         ]); ?>
     </script>
 </head>
-<body>
+<body>    
     <header>
         <div class="container">
             <div class="content">
@@ -47,7 +47,7 @@
                         <ul class="nav navbar-nav">
                             <li><a href="#">NA BAIXADA TEM</a></li>
                             <li><a href="#">NO VALE TEM</a></li>
-                            <li><a href="#">PARCEIROS</a></li>
+                            <li><a href="/parceiros">PARCEIROS</a></li>
                             <li><a href="#">GALERIA</a></li>
                             <li class="dropdown">
                               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">CONTATO <span class="caret"></span></a>
@@ -85,21 +85,19 @@
                                 
                                 @foreach($tipoAtracao as $atracao)
                                     <li class="dropdown">
-                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{ mb_strtoupper($atracao->tipo) }} <span class="caret"></span></a>
+                                        <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{ mb_strtoupper($atracao->tipo) }} <span class="caret"></span></a>
                                         <ul class="dropdown-menu">
                                             <li class="dropdown-header">Baixada Santista</li>
-
-                                            @foreach ($baixada as $cityB) 
-                                                <li><a href="?p=atracoes&a={{ $atracao->tipo }}&c={{ $cityB->nome }}">{{ $cityB->nome }}</a></li>
+                                            @foreach ($baixada as $cityB)
+                                                <li><a href="{{ url('atracoes', ['tipo' => $atracao->tipo,'cidade' => $cityB->nome]) }}">{{ $cityB->nome }}</a></li>
                                             @endforeach
 
                                             <li role="separator" class="divider"></li>
                                             <li class="dropdown-header">Vale do Ribeira</li>
 
                                             @foreach ($vale as $cityV)
-                                                <li><a href="?p=atracoes&a={{ $atracao->tipo }}&c={{ $cityV->nome }}">{{ $cityV->nome }}</a></li>
-                                            @endforeach
-                                        
+                                                <li><a href="{{ action('HomeController@exibirAtracoes', ['tipo' => $atracao->tipo,'cidade' => $cityV->nome]) }}">{{ $cityV->nome }}</a></li>
+                                            @endforeach                                        
                                         </ul>
                                     </li>
                                 @endforeach
@@ -122,10 +120,10 @@
         <div class="container">
             <div class="content">
                 <div class="mapa">
-                    <a href="">NA BAIXADA TEM</a>
+                    <a href="#">NA BAIXADA TEM</a>
                 </div>
                 <div class="mapa">
-                    <a href="">NO VALE TEM</a>
+                    <a href="#">NO VALE TEM</a>
                 </div>
                 <div class="mapa">
                     <a href="{{action('HomeController@exibirDestaques')}}">DESTAQUES</a>
@@ -137,8 +135,8 @@
         </div>
     </footer>
 
-    <script src="js/plugins/jquery/jquery-2.2.3.min.js"></script>
-    <script src="js/plugins/bootstrap/bootstrap.min.js"></script>
-    <script src="js/main.js"></script>
+    <script src="{{ asset('/js/plugins/jquery/jquery-2.2.3.min.js') }}"></script>
+    <script src="{{ asset('/js/plugins/bootstrap/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('/js/main.js') }}"></script>
 </body>
 </html>

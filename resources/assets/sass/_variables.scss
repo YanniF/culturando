@@ -1,4 +1,8 @@
-$fonte: 'Times New Roman';
+$resolucao-xs: 300px;
+$resolucao-sm: 768px;
+$resolucao-md: 992px;
+
+/* $fonte: 'Times New Roman'; */
 $cor-muy-clara: #F9F9F9;
 $cor-clara: #C6C6C6;
 $cor-media: #515151;
@@ -7,10 +11,11 @@ $cor-muy-escura: #292929;
 $azul: #2384BE;
 
 //azul
-/* 
-$fonte: 'Merriweather';//'Merriweather', serif;
+
+$fonte: 'Merriweather', serif;
+/* $cor-muy-clara: #F9F9F9;
 $cor-clara: #CCD4DF;
-$cor-media: #295998;
-$cor-escura: #3A69AA;
+$cor-media: #3A69AA;
+$cor-escura: #295998;
 $cor-muy-escura: #295998;
 $azul: #2384BE; */

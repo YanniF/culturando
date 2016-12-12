@@ -19,12 +19,12 @@
 					<?php
                         $grande = false;
 
-                        if(strlen($e->descricao) > 900) {
+                        if(strlen($e->descricao) > 500) {
                             $grande = true;
-                            $diminuido = substr($e->descricao, 0, 400);                               
+                            $diminuido = substr($e->descricao, 0, 500);                               
                             $e->descricao = substr($diminuido, 0, strrpos($diminuido, ' ')) . '...';
                         }
-                        echo $e->descricao;
+                        echo "<p>$e->descricao</p>";
 
                         if($grande)  {
                             echo "<span><a href='/eventos/$e->eventoEm/$e->id'>Continue lendo...</a></span>";                         

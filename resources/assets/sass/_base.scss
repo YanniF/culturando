@@ -1,55 +1,44 @@
-a {
-	outline: none !important;
-	img {
-		border: none;
+.container {
+	font-family: $fonte;
+	font-size: 16px;
+
+	@media screen and (max-width: $resolucao-md) {
+		font-size: 14px;
 	}
+
+	a {
+		outline: none;
+		text-decoration: none;
+
+		img {
+			border: none;
+		}
+	}
+}
+.titulo {
+	a {
+		font-size: 22px;
+		color: $cor-escura;
+		margin-bottom: 20px;
+		border-bottom: 0 solid $cor-escura;
+		transition: border-width 0.1s ease;				
+	}
+	span {
+		color: $cor-escura;
+		font-size: 18px;
+	}
+}
+
+.titulo a:hover {
+	border-width: 3px;
+	transition: border-width 0.1s ease;
 }
 
 .content {
 	@include make-row();			
 }
 
-.container {
-	>.content {
-
-		> .titulo {	
-			font: 600 22px $fonte;
-			color: $cor-escura;
-			margin-top: 0;
-			margin-bottom: 20px;	
-
-			span {
-				font-size: 18px;
-			}
-		}		
-	}
-}
-
-#eventos {
-	font: 300 16px $fonte;
-	
-	a {
-		text-decoration: none;
-
-		> img {
-			margin: 10px auto;
-		}
-
-		> h3 {
-			font-size: 20px;
-			font-weight: bold;
-			color: $azul;	
-			text-align: center;								
-			margin-bottom: 0;
-		}	
-	}						
-
-	p {
-		text-align: justify;
-	}	
-}
-
-//botões da área administrativa terão este efeito
+//estilo dos botões da área administrativa
 .btn-default {
 	font: bold 16px $fonte;
 	border: 2px solid $cor-escura;
@@ -57,5 +46,5 @@ a {
 	&:hover {
 		background-color: $cor-muy-clara;
 		border: 2px solid $cor-escura;
-	}			
+	}
 }

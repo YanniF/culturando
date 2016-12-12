@@ -19,12 +19,12 @@
 					<?php
                         $grande = false;
 
-                        if(strlen($d->descricao) > 900) {
+                        if(strlen($d->descricao) > 800) {
                             $grande = true;
-                            $diminuido = substr($d->descricao, 0, 900);                               
-                            $d->descricao = substr($diminuido, 0, strrpos($diminuido, ' ')) . '...';
+                            $cortado = substr($d->descricao, 0, 800);                               
+                            $d->descricao = substr($cortado, 0, strrpos($cortado, ' ')) . '...';
                         }
-                        echo $d->descricao;
+                        echo "<p>$d->descricao</p>";
 
                         if($grande)  {
                             echo "<span><a href='" . action('HomeController@exibirDestaques', $d->id) . "'>Continue lendo...</a></span>";                         

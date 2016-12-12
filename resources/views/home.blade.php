@@ -45,7 +45,7 @@
     <div id="destaque-titulo">
         <div class="container">
             <div class="content">
-                <h3 class="titulo"><a href="{{action('HomeController@exibirDestaques')}}"><span class="glyphicon glyphicon-chevron-right"></span> DESTAQUE</a></h3>
+                <h3 class="titulo"><span class="glyphicon glyphicon-chevron-right"></span> <a href="{{action('HomeController@exibirDestaques')}}">DESTAQUE</a></h3>
             </div>
         </div>
     </div>
@@ -70,8 +70,8 @@
     <div id="eventos">
         <div class="container">
             <div class="content">
-                <h3 class="titulo" id="evento1"><a href="{{action('HomeController@exibirEventos', 'Baixada Santista')}}"><span class="glyphicon glyphicon-chevron-right"></span> EVENTOS NA BAIXADA E VALE</a></h3>
-                <h3 class="titulo" id="evento2"><a href="{{action('HomeController@exibirEventos', 'São Paulo')}}"><span class="glyphicon glyphicon-chevron-right"></span> EVENTOS EM SP</a></h3>
+                <h3 class="titulo evento1"><span class="glyphicon glyphicon-chevron-right"></span> <a href="{{action('HomeController@exibirEventos', 'Baixada Santista')}}">GALERIA DE EVENTOS</a></h3>
+                <h3 class="titulo evento2"><span class="glyphicon glyphicon-chevron-right"></span> <a  href="{{action('HomeController@exibirEventos', 'São Paulo')}}">EVENTOS ESTADUAIS</a></h3>
             </div>
             <div class="content">
             <?php 
@@ -88,7 +88,8 @@
                     <div class="evento-item">
                         <a href="/eventos/Baixada Santista/{{$eventoB->id}}"><img src="{{$eventoB->imagem}}" class="img-responsive" alt="{{$eventoB->titulo}}" title="{{$eventoB->titulo}}"></a>
                         <h3><a href="/eventos/Baixada Santista/{{$eventoB->id}}">{{$eventoB->titulo}}</a></h3>
-                        <p>{{$eventoB->descricao}}</p>
+                        
+                        <?php echo "<p>" . cortarTexto($eventoB->descricao, 150) . "</p>";//não exibirá o resto do texto ?>
                         <span><a href="/eventos/Baixada Santista/{{$eventoB->id}}">Saiba mais</a></span>
                     </div>
             <?php 
@@ -98,13 +99,13 @@
                         echo '</div>';//fechando eventos-baixada
 
                         if($c < $qtdSp) {
-
             ?>    
                     <div class="eventos-fora">
                         <div class="evento-item">
                             <a href="/eventos/São Paulo/{{$eventosSP[$c]->id}}"><img src="{{$eventosSP[$c]->imagem}}" class="img-responsive" alt="{{$eventosSP[$c]->titulo}}" title="{{$eventosSP[$c]->titulo}}">
                             <h3>{{$eventosSP[$c]->titulo}}</h3></a>
-                            <p>{{$eventosSP[$c]->descricao}}</p>
+
+                            <?php echo "<p>" . cortarTexto($eventosSP[$c]->descricao, 200) . "</p>"; ?>
                             <span><a href="/eventos/São Paulo/{{$eventosSP[$c]->id}">Saiba mais</a></span>
                         </div>
                     </div>
@@ -132,4 +133,17 @@
             </div> 
         </div>          
     </div>
+
+    <?php 
+        function cortarTexto($texto, $tamanho) {
+            $grande = false;
+
+            if(strlen($texto) > $tamanho) {
+                $grande = true;
+                $diminuido = substr($texto, 0, $tamanho);                               
+                $texto = substr($diminuido, 0, strrpos($diminuido, ' ')) . '...';
+            }
+            return $texto;
+        }
+    ?>
 @endsection
