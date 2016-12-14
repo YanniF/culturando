@@ -12,9 +12,9 @@
     
     <link rel="shortcut icon" href="{{ asset('img/icon.png') }}" >
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Merriweather" > 
-    <link rel="stylesheet" href="{{ asset('/css/plugins/plugins.css') }}">  
-    <link rel="stylesheet" href="{{ asset('/css/style.css') }}">
-    <link rel="stylesheet" href="{{ asset('/css/responsive.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/plugins/plugins.css') }}">  
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/responsive.css') }}">
 
     <!-- Scripts -->
     <script>

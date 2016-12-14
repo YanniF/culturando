@@ -1,3 +1,13 @@
+//sticky footer
+html {
+  position: relative;
+  min-height: 100%;
+}
+body {  
+  margin-bottom: 200px;//Margin bottom by footer height
+}
+//
+
 header {
 	margin-top: 20px;
 	margin-bottom: 20px;
@@ -89,6 +99,59 @@ header {
 		}
 	}//menu2						
 }//navegacao
+
+.scroll-top {		
+	position: fixed;
+	width: 40px;
+	height: 40px;
+	right: 8%;
+	bottom: 3%;
+	background-color: $cor-media;
+	opacity: 0.5;
+	cursor: pointer;
+	display: none;
+	transition: all 0.2s linear;
+	z-index: 999;
+
+	&:hover {
+		opacity: 1;
+		transition: all 0.2s linear;
+	}
+	
+	.glyphicon-chevron-up {			
+		font-size: 18px;
+		color: #FFFFFF;
+		top: 25%;
+		left: 28%;
+	}
+}
+
+footer {
+	background-color: $cor-media;
+	//deixar o footer sempre no final da página
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	
+	.mapa {
+		@include make-md-column(3);
+
+		margin-top: 60px;
+		margin-bottom: 60px;
+		font: bold 20px $fonte;
+
+		a {
+			text-decoration: none;
+			color: $cor-clara;
+			transition: all 0.2s linear;
+
+			&:hover {
+				color: #FFFFFF;
+				transition: all 0.2s linear;
+			}
+		}				
+	}
+}
 
 @media screen and (max-width: $resolucao-md) {
 

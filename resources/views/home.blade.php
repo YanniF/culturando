@@ -106,7 +106,7 @@
                             <h3>{{$eventosSP[$c]->titulo}}</h3></a>
 
                             <?php echo "<p>" . cortarTexto($eventosSP[$c]->descricao, 200) . "</p>"; ?>
-                            <span><a href="/eventos/São Paulo/{{$eventosSP[$c]->id}">Saiba mais</a></span>
+                            <span><a href="/eventos/São Paulo/{{$eventosSP[$c]->id}}">Saiba mais</a></span>
                         </div>
                     </div>
                 </div>

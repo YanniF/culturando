@@ -9,10 +9,6 @@
 	a {
 		outline: none;
 		text-decoration: none;
-
-		img {
-			border: none;
-		}
 	}
 }
 .titulo {
@@ -23,9 +19,10 @@
 		border-bottom: 0 solid $cor-escura;
 		transition: border-width 0.1s ease;				
 	}
-	span {
+	.glyphicon {
 		color: $cor-escura;
 		font-size: 18px;
+		vertical-align: text-top;
 	}
 }
 

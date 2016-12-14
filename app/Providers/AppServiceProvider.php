@@ -13,7 +13,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        \Blade::setEchoFormat('nl2br(e(%s))');//define my own "echo format", texto sem nl2br usar {{{}}} (3)
     }
 
     /**
