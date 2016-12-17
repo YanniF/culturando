@@ -74,34 +74,37 @@
 
 		<div class="content">
 			<h3>Lista das atrações:</h3>
-			<table class="table table-striped">
-			    <thead>
-			      <tr>
-			        <th>Foto</th>
-			        <th>Nome</th>
-			        <th>Tipo</th>
-			        <th>Telefone</th>
-			        <th>Cidade</th>
-			        <th>Exibir</th>
-			        <th>Editar</th>
-			        <th>Excluir</th>
-			      </tr>
-			    </thead>
-			    <tbody>
-			    	@foreach($atracoes as $a)
-				    	<tr>
-							<td><img class="img-responsive" src="{{ $a->foto }}" alt="{{ $a->nome }}" title="{{ $a->nome }}"></td>
-							<td>{{ $a->nome }}</td>
-							<td>{{ $a->tipoAtracao }}</td>
-							<td>{{ $a->telefone }}</td>
-							<td>{{ $a->cidade }}</td>
-							<td><a class="btn btn-primary" href="{{ action('AtracoesController@exibir', $a->id) }}"><span class='glyphicon glyphicon-search'></span></a></td>
-							<td><a class="btn btn-success" href="{{ action('AtracoesController@editar', $a->id) }}"><span class='glyphicon glyphicon-pencil'></span></a></td>
-							<td><a class="btn btn-danger apagar" href="#" data-nome="atracoes-{{ $a->nome }}" data-id="{{ $a->id}}"><span class='glyphicon glyphicon-remove'></span></a></td>
-						</tr>
-					@endforeach
-			    </tbody>
-			</table>
+			<div class="table-responsive">
+				<table class="table table-striped">
+				    <thead>
+				      <tr>
+				        <th>Foto</th>
+				        <th>Nome</th>
+				        <th>Tipo</th>
+				        <th>Telefone</th>
+				        <th>Cidade</th>
+				        <th>Exibir</th>
+				        <th>Editar</th>
+				        <th>Excluir</th>
+				      </tr>
+				    </thead>
+				    <tbody>
+				    	@foreach($atracoes as $a)
+					    	<tr>
+								<td><img class="img-responsive" src="{{ $a->foto }}" alt="{{ $a->nome }}" title="{{ $a->nome }}"></td>
+								<td>{{ $a->nome }}</td>
+								<td>{{ $a->tipoAtracao }}</td>
+								<td>{{ $a->telefone }}</td>
+								<td>{{ $a->cidade }}</td>
+								<td><a class="btn btn-primary" href="{{ action('AtracoesController@exibir', $a->id) }}"><span class='glyphicon glyphicon-search'></span></a></td>
+								<td><a class="btn btn-success" href="{{ action('AtracoesController@editar', $a->id) }}"><span class='glyphicon glyphicon-pencil'></span></a></td>
+								<td><a class="btn btn-danger apagar" href="#" data-nome="atracoes-{{ $a->nome }}" data-id="{{ $a->id}}"><span class='glyphicon glyphicon-remove'></span></a></td>
+							</tr>
+						@endforeach
+				    </tbody>
+				</table>
+			</div>
+				
 		</div>
 		<div id="apagarModal" class="modal fade" role="dialog">
 			<div class="modal-dialog modal-sm">

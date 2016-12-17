@@ -23,7 +23,7 @@
 		line-height: 30px;
 	}
 
-	h2 {
+	h2, h3 {
 		margin-bottom: 0;
 	}
 
@@ -33,6 +33,10 @@
 
 	li {
 		list-style: none;
+
+		span {
+			font-size: 14px;
+		}
 	}
 
 	.mais-informacoes {

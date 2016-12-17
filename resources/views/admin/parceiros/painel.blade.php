@@ -28,33 +28,34 @@
 				<h3>Lista dos parceiros:</h3>
 				<div class="botao">
 					<a href="{{ action('ParceirosController@novo') }}"class="btn btn-default" title="Clique para cadastrar um novo item"><span class="glyphicon glyphicon-plus"></span> Cadastrar</a>
-				</div>
-				
-			</div>			
-			<table class="table table-striped">
-			    <thead>
-			      <tr>
-			        <th>Imagem</th>
-			        <th>Parceiro</th>
-			        <th>Link</th>			        
-			        <th>Exibir</th>
-			        <th>Editar</th>
-			        <th>Apagar</th>
-			      </tr>
-			    </thead>
-			    <tbody>
-			    	@foreach($parceiros as $p)
-				    	<tr>
-							<td><img class="img-responsive" src="{{ $p->imagem }}"></td>
-							<td>{{ $p->nome }}</td>
-							<td><a href="{{ $p->link }}">{{ $p->link }}</a></td>
-							<td><a class="btn btn-primary" href="{{ action('ParceirosController@exibir', $p->id) }}"><span class='glyphicon glyphicon-search'></span></a></td>
-							<td><a class="btn btn-success" href="{{ action('ParceirosController@editar', $p->id) }}"><span class='glyphicon glyphicon-pencil'></span></a></td>
-							<td><a class="btn btn-danger apagar" href="#" data-nome="parceiros-{{ $p->nome }}" data-id="{{ $p->id}}"><span class='glyphicon glyphicon-remove'></span></a></td>
-						</tr>
-					@endforeach
-			    </tbody>
-			</table>
+				</div>				
+			</div>	
+			<div class="table-responsive">
+				<table class="table table-striped">
+				    <thead>
+				      <tr>
+				        <th>Imagem</th>
+				        <th>Parceiro</th>
+				        <th>Link</th>			        
+				        <th>Exibir</th>
+				        <th>Editar</th>
+				        <th>Apagar</th>
+				      </tr>
+				    </thead>
+				    <tbody>
+				    	@foreach($parceiros as $p)
+					    	<tr>
+								<td><img class="img-responsive" src="{{ $p->imagem }}"></td>
+								<td>{{ $p->nome }}</td>
+								<td><a href="{{ $p->link }}">{{ $p->link }}</a></td>
+								<td><a class="btn btn-primary" href="{{ action('ParceirosController@exibir', $p->id) }}"><span class='glyphicon glyphicon-search'></span></a></td>
+								<td><a class="btn btn-success" href="{{ action('ParceirosController@editar', $p->id) }}"><span class='glyphicon glyphicon-pencil'></span></a></td>
+								<td><a class="btn btn-danger apagar" href="#" data-nome="parceiros-{{ $p->nome }}" data-id="{{ $p->id}}"><span class='glyphicon glyphicon-remove'></span></a></td>
+							</tr>
+						@endforeach
+				    </tbody>
+				</table>
+			</div>				
 		</div>
 		<div id="apagarModal" class="modal fade" role="dialog">
 			<div class="modal-dialog modal-sm">

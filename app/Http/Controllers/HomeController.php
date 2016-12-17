@@ -109,13 +109,41 @@ class HomeController extends Controller
         return view('/parceiros')->with(array('parceiros' => $parceiros, 'tipoAtracao' => $tipoAtracao, 'baixada' => $cidadesBaixada, 'vale' => $cidadesVale, ));
     }
 
-    public function exibirAtracoes($tipo, $cidade) {
+    public function exibirAtracoes($tipo, $cidade, $id = null) {
+
+        if($id == null) {
+            $atr = Atracao::select('*')->where('tipoAtracao', '=', $tipo)->where('cidade', '=', $cidade)->get();
+        }
+        else {
+            $atr = Atracao::select('*')->where('id', '=', $id)->get();
+        }
+
         $cidadesBaixada = $this->listarCidadeBaixada();
         $cidadesVale = $this->listarCidadeVale();
         $tipoAtracao = $this->listarAtracoes();
 
-        $atracoes = Atracao::select('*')->where('tipoAtracao', '=', $tipo)->where('cidade', '=', $cidade)->get();
+        return view('/atracoes')->with(array('atr' => $atr, 'tipoAtracao' => $tipoAtracao, 'baixada' => $cidadesBaixada, 'vale' => $cidadesVale, ));
+    }
 
-        return view('/atracoes')->with(array('atr' => $atracoes, 'tipoAtracao' => $tipoAtracao, 'baixada' => $cidadesBaixada, 'vale' => $cidadesVale, ));
+    public function baixadaTem() {
+
+        $cidadesBaixada = $this->listarCidadeBaixada();
+        $cidadesVale = $this->listarCidadeVale();
+        $tipoAtracao = $this->listarAtracoes();
+
+        $baixadaTem = Atracao::select('*')->whereIn('cidade', $cidadesBaixada)->orderBy('tipoAtracao')->get();
+
+        return view('/baixada')->with(array('baixadaTem' => $baixadaTem, 'tipoAtracao' => $tipoAtracao, 'baixada' => $cidadesBaixada, 'vale' => $cidadesVale, ));
+    }
+
+     public function valeTem() {
+
+        $cidadesBaixada = $this->listarCidadeBaixada();
+        $cidadesVale = $this->listarCidadeVale();
+        $tipoAtracao = $this->listarAtracoes();
+
+        $valeTem = Atracao::select('*')->whereIn('cidade', $cidadesVale)->orderBy('tipoAtracao')->get();
+
+        return view('/vale')->with(array('valeTem' => $valeTem, 'tipoAtracao' => $tipoAtracao, 'baixada' => $cidadesBaixada, 'vale' => $cidadesVale, ));
     }
 }

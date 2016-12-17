@@ -1,10 +1,12 @@
 <?php
 
 Route::get('/', 'HomeController@index');
-Route::get('/atracoes/{tipo}/{cidade}', 'HomeController@exibirAtracoes');
+Route::get('/atracoes/{tipo}/{cidade}/{id?}', 'HomeController@exibirAtracoes');
 Route::get('/destaques/{id?}', 'HomeController@exibirDestaques');
 Route::get('/eventos/{eventoEm}/{id?}', 'HomeController@exibirEventos');
 Route::get('/parceiros', 'HomeController@exibirParceiros');
+Route::get('/baixada', 'HomeController@baixadaTem');
+Route::get('/vale', 'HomeController@valeTem');
 
 /*Admin*/
 Route::get('/admin/', 'PainelController@chamarPainel');

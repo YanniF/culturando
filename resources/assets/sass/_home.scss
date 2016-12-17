@@ -169,6 +169,17 @@
 	#slider {
 		#myCarousel {
 			@include make-sm-column(12);
+
+			width: 100%;
+			margin:auto;
+
+			.carousel-inner {
+				.item {
+					img {
+						margin: auto;
+					}
+				}//item
+			}//carousel-inner
 		}
 	}
 }

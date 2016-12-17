@@ -1,0 +1,188 @@
+#painelAtracoes,	
+#painelDestaques,
+#painelParceiros,
+#painelEventos, 
+#painelSlider {	
+	h3 {
+		@include make-md-column(12);
+		
+		margin-top: 0;
+		font-size: 20px;
+	}
+	
+	.btn-default {
+		span {
+			font-size: 14px;
+		}
+	}
+
+	.form-horizontal {//atrações e eventos
+		margin-bottom: 30px;
+
+		.content {
+			margin: 0;
+		}
+
+		.form-group {
+			@include make-md-column(6);
+
+			margin: 0;
+			padding: 5px 0;
+			font-weight: 600;
+			font-size: 20px;
+
+			.control-label {
+				@include make-md-column(2);				
+			}
+
+			.inputs {
+				@include make-md-column(10);
+
+				.form-control {					
+					font-size: 18px;							
+				}
+			}
+
+			.botao {
+				@include make-md-column(12);
+
+				text-align: center;
+				
+				.btn-default {
+					span {
+						font-size: 13px;																
+					}
+				}						
+			}
+		}					
+	}//form
+
+	.table-responsive {
+		@include make-md-column(12);
+	}
+
+	.table-striped {
+		
+		thead {
+			font-size: 18px;
+		}
+
+		tbody {
+			img {
+				max-width: 200px;
+			}
+
+			.btn {
+				span {
+					font-size: 14px;
+				}
+			}
+		}				
+	}			
+	//painel destaques, eventos, slider
+	.cabec {
+		h3 {
+			@include make-md-column(10);
+			margin-bottom: 40px;					
+		}
+
+		.botao {
+			@include make-md-column(2);
+			text-align: right;
+		}
+	}	
+
+	.modal {		
+		.modal-title {
+			font-size: 20px;
+		}
+		.modal-body {
+			p {
+				font-size: 18px;
+			}
+		}
+		.modal-footer {
+			.btn-default:nth-child(2) {
+				margin-left: 30px;
+			}
+		}
+	}
+}//painel
+
+.cadastro,
+.alterar {
+	.form-horizontal {
+		@include make-md-column(12);
+	}	
+	.form-group {
+		@include make-md-column(6);
+
+		padding: 10px 20px;
+		font-weight: 600;
+	}
+	.control-label {
+		@include make-md-column(2);
+	}
+
+	.inputs {
+		@include make-md-column(10);
+	}
+
+	.botao {
+		@include make-md-column(12);
+		text-align: center;
+		
+		.btn-default {
+			span {
+				font-size: 14px;	
+			}
+		}						
+	}
+
+	.baixo {//text-area
+		@include make-md-column(12);
+
+		.control-label {
+			@include make-md-column(1);				
+		}
+
+		.inputs {
+			@include make-md-column(11);
+		}
+	}
+}//cadastro
+
+.detalhes {			
+	h1 {
+		margin-top: 40px;
+		font-size: 30px;
+	}
+	ul {
+		padding: 0;
+		list-style: none;
+
+		li {
+			padding-bottom: 20px;
+			font-size: 20px;
+			text-align: justify;
+		}
+	}
+}//detalhes
+
+.slider {
+	.form-horizontal {
+		@include make-md-column(12);		
+	}
+	.form-group {
+		@include make-md-column(12);
+	}
+	.control-label {
+		@include make-md-column(2);
+	}
+	.inputs {
+		@include make-md-column(10);
+	}
+	.botao {
+		@include make-md-column(6);
+	}
+}

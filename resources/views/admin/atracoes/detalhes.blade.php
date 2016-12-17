@@ -2,7 +2,7 @@
 
 @section('content')
 
-	<div class="container" id="detalhes">
+	<div class="container detalhes">
 		<div class="content">
 			<div class="logo">
 				<a href="{{ action('AtracoesController@listarElementosPainel') }}"><img src="/img/logo.png" class="img-responsive" alt="Culturando" title="Clique aqui para voltar para o painel"></a>

@@ -14,7 +14,6 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Merriweather" > 
     <link rel="stylesheet" href="{{ asset('css/plugins/plugins.css') }}">  
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/responsive.css') }}">
 
     <!-- Scripts -->
     <script>
@@ -45,9 +44,9 @@
                     
                     <div class="collapse navbar-collapse" id="navbar-collapse-1">
                         <ul class="nav navbar-nav">
-                            <li><a href="#">NA BAIXADA TEM</a></li>
-                            <li><a href="#">NO VALE TEM</a></li>
-                            <li><a href="/parceiros">PARCEIROS</a></li>
+                            <li><a href="{{action('HomeController@baixadaTem')}}">NA BAIXADA TEM</a></li>
+                            <li><a href="{{action('HomeController@valeTem')}}">NO VALE TEM</a></li>
+                            <li><a href="{{action('HomeController@exibirParceiros')}}">PARCEIROS</a></li>
                             <li><a href="#">GALERIA</a></li>
                             <li class="dropdown">
                               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">CONTATO <span class="caret"></span></a>
@@ -120,10 +119,10 @@
         <div class="container">
             <div class="content">
                 <div class="mapa">
-                    <a href="#">NA BAIXADA TEM</a>
+                    <a href="{{action('HomeController@baixadaTem')}}">NA BAIXADA TEM</a>
                 </div>
                 <div class="mapa">
-                    <a href="#">NO VALE TEM</a>
+                    <a href="{{action('HomeController@valeTem')}}">NO VALE TEM</a>
                 </div>
                 <div class="mapa">
                     <a href="{{action('HomeController@exibirDestaques')}}">DESTAQUES</a>

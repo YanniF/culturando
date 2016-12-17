@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('content')
-	<div class="container" id="alterar">
+	<div class="container alterar slider">
 		<div class="content">
 			<div class="logo">
 				<a href="{{ action('SliderController@listarElementos') }}"><img src="/img/logo.png" class="img-responsive" alt="Culturando" title="Clique aqui para voltar para o painel"></a>
@@ -33,7 +33,7 @@
 					<div class="form-group">		  			
 				    	<label class="control-label" for="titulo">Título:</label>
 					    <div class="inputs">
-					    	<input type="text" class="form-control" id="titulo" name="titulo" value="{{ old('titulo') }}">
+					    	<input type="text" class="form-control" id="titulo" name="titulo" value="{{ $s->titulo }}">
 					    </div>
 					 </div>	
 				</div>		
@@ -45,6 +45,14 @@
 					    </div>
 				  	</div>
 				</div>
+				<div class="content">  	
+				  	<div class="form-group">
+				    	<label class="control-label" for="link">Link:</label>
+					    <div class="inputs">
+					    	<input type="url" class="form-control" id="link" name="link" value="{{ $s->link }}" title="Formato: http://www.site.com">
+					    </div>
+					</div>
+				</div>
 				<div class="content">
 					<div class="form-group">
 				    	<label class="control-label" for="imagem">Imagem:</label>
@@ -54,22 +62,12 @@
 					    </div>
 				  	</div>
 				</div>	
-				<div class="content">  	
-				  	<div class="form-group">		  			
-				    	<label class="control-label" for="link">Link:</label>
-					    <div class="inputs">
-					    	<input type="url" class="form-control" id="link" name="link" value="{{ $s->link }}" title="Formato: http://www.site.com">
-					    </div>
-					</div>
-				</div>
 				<div class="content">
 					<div class="form-group">
 						<div class="botao">
 					    	<button type="submit" name="salvar" class="btn btn-default" title="Clique aqui para salvar as informações"><span class="glyphicon glyphicon-floppy-disk"></span> Salvar</button>
-					    </div>					    
-					</div>
-					<div class="form-group">
-						<div class="botao">
+					    </div>
+					    <div class="botao">
 					    	<button type="reset" name="limpar" class="btn btn-default" title="Clique aqui para apagar as informações digitadas"><span class="glyphicon glyphicon-erase"></span> Limpar</button>
 					    </div>
 					</div>

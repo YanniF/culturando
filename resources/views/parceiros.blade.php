@@ -3,7 +3,10 @@
 @section('content')
 
 <div class="container detalhes">
-<?php $c = 0; ?>
+	<?php 
+		$c = 0; 
+		$qtd = count($parceiros); 
+	?>
 	<div class="content">
 		<div class="parceiros-info">	
 	@foreach($parceiros as $p)		
@@ -12,11 +15,13 @@
 				<a href="{{$p->link}}" target="_blank"><img class="img-responsive img-thumbnail" src="{{$p->imagem}}" alt="{{$p->nome}}" title="{{$p->nome}}"></a>
 			</div>
 		<?php $c++; ?>
-		@if($c %2 == 0)
+		@if($c % 2 == 0)			
 			</div>
 		</div>
-		<div class="content">
-			<div class="parceiros-info">
+			@if($c < $qtd)
+				<div class="content">
+					<div class="parceiros-info">
+			@endif
 		@endif
 		
 	@endforeach	

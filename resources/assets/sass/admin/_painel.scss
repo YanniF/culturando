@@ -1,42 +1,47 @@
-body {
-	.logo {
+.logo {
+	@include make-md-column(12);
+
+	a {					
+		img {
+			margin: 20px auto;
+		}
+	}
+}
+
+.logout {
+	@include make-md-column(12);
+
+	text-align: right;
+	margin-bottom: 20px;
+
+	span {
+		font-size: 14px;
+	}
+}
+
+#painel {		
+	h3 {
+		@include make-md-column(12);
+			
+		font-weight: 24px;	
+	}
+
+	.botoes {
 		@include make-md-column(12);
 
-		> a {					
-			> img {
-				margin: 20px auto;
+		margin: 60px 0;
+
+		.btn {
+			@include make-md-column(2);
+			@include make-md-column-offset(2);
+			@include make-md-column-pull(1);
+
+			font-weight: bold;
+			font-size: 22px;
+
+			span {
+				font-size: 20px;
 			}
 		}
 	}
-
-	.logout {
-		@include make-md-column(12);
-
-		text-align: right;
-		margin-bottom: 20px;
-	}
-	
-	> #painel {
-		> .content {			
-			h3 {
-				@include make-md-column(12);
-					
-				font: 600 24px $fonte;	
-			}
-
-			.botoes {
-				@include make-md-column(12);
-
-				margin: 60px 0;
-
-				.btn {
-					@include make-md-column(2);
-					@include make-md-column-offset(2);
-					@include make-md-column-pull(1);
-
-					font: bold 22px $fonte;
-				}
-			}
-		}
-	}//painel
 }

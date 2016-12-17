@@ -29,32 +29,33 @@
 				<div class="botao">
 					<a href="{{ action('SliderController@novo') }}"class="btn btn-default" title="Clique para cadastrar um novo item"><span class="glyphicon glyphicon-plus"></span> Cadastrar</a>
 				</div>
-				
-			</div>			
-			<table class="table table-striped">
-			    <thead>
-			      <tr>
-			        <th>Imagem</th>
-			        <th>Título</th>
-			        <th>Link</th>			        
-			        <th>Exibir</th>
-			        <th>Editar</th>
-			        <th>Apagar</th>
-			      </tr>
-			    </thead>
-			    <tbody>
-			    	@foreach($slider as $s)
-				    	<tr>
-							<td><img class="img-responsive" src="{{ $s->imagem }}"></td>
-							<td>{{ $s->titulo }}</td>
-							<td><a href="{{ $s->link }}">{{ $s->link }}</a></td>
-							<td><a class="btn btn-primary" href="{{ action('SliderController@exibir', $s->id) }}"><span class='glyphicon glyphicon-search'></span></a></td>
-							<td><a class="btn btn-success" href="{{ action('SliderController@editar', $s->id) }}"><span class='glyphicon glyphicon-pencil'></span></a></td>
-							<td><a class="btn btn-danger apagar" href="#" data-nome="slider-{{ $s->id }}" data-id="{{ $s->id}}"><span class='glyphicon glyphicon-remove'></span></a></td>
-						</tr>
-					@endforeach
-			    </tbody>
-			</table>
+			</div>	
+			<div class="table-responsive">
+				<table class="table table-striped">
+				    <thead>
+				      <tr>
+				        <th>Imagem</th>
+				        <th>Título</th>
+				        <th>Link</th>			        
+				        <th>Exibir</th>
+				        <th>Editar</th>
+				        <th>Apagar</th>
+				      </tr>
+				    </thead>
+				    <tbody>
+				    	@foreach($slider as $s)
+					    	<tr>
+								<td><img class="img-responsive" src="{{ $s->imagem }}"></td>
+								<td>{{ $s->titulo }}</td>
+								<td><a href="{{ $s->link }}">{{ $s->link }}</a></td>
+								<td><a class="btn btn-primary" href="{{ action('SliderController@exibir', $s->id) }}"><span class='glyphicon glyphicon-search'></span></a></td>
+								<td><a class="btn btn-success" href="{{ action('SliderController@editar', $s->id) }}"><span class='glyphicon glyphicon-pencil'></span></a></td>
+								<td><a class="btn btn-danger apagar" href="#" data-nome="slider-{{ $s->id }}" data-id="{{ $s->id}}"><span class='glyphicon glyphicon-remove'></span></a></td>
+							</tr>
+						@endforeach
+				    </tbody>
+				</table>
+			</div>				
 		</div>
 		<div id="apagarModal" class="modal fade" role="dialog">
 			<div class="modal-dialog modal-sm">

@@ -56,30 +56,33 @@
 
 		<div class="content">
 			<h3>Lista dos eventos:</h3>
-			<table class="table table-striped">
-			    <thead>
-			      <tr>
-			        <th>Foto</th>
-			        <th>Título</th>
-			        <th>Evento em:</th>
-			        <th>Exibir</th>
-			        <th>Editar</th>
-			        <th>Excluir</th>
-			      </tr>
-			    </thead>
-			    <tbody>
-			    	@foreach($eventos as $e)
-				    	<tr>
-							<td><img class="img-responsive" src="{{ $e->imagem }}" alt="{{ $e->titulo }}" title="{{ $e->titulo }}"></td>
-							<td>{{ $e->titulo }}</td>							
-							<td>{{ $e->eventoEm }}</td>
-							<td><a class="btn btn-primary" href="{{ action('EventosController@exibir', $e->id) }}"><span class='glyphicon glyphicon-search'></span></a></td>
-							<td><a class="btn btn-success" href="{{ action('EventosController@editar', $e->id) }}"><span class='glyphicon glyphicon-pencil'></span></a></td>
-							<td><a class="btn btn-danger apagar" href="#" data-nome="eventos-{{ $e->nome }}" data-id="{{ $e->id}}"><span class='glyphicon glyphicon-remove'></span></a></td>
-						</tr>
-					@endforeach
-			    </tbody>
-			</table>
+			<div class="table-responsive">
+				<table class="table table-striped">
+				    <thead>
+				      <tr>
+				        <th>Foto</th>
+				        <th>Título</th>
+				        <th>Evento em:</th>
+				        <th>Exibir</th>
+				        <th>Editar</th>
+				        <th>Excluir</th>
+				      </tr>
+				    </thead>
+				    <tbody>
+				    	@foreach($eventos as $e)
+					    	<tr>
+								<td><img class="img-responsive" src="{{ $e->imagem }}" alt="{{ $e->titulo }}" title="{{ $e->titulo }}"></td>
+								<td>{{ $e->titulo }}</td>							
+								<td>{{ $e->eventoEm }}</td>
+								<td><a class="btn btn-primary" href="{{ action('EventosController@exibir', $e->id) }}"><span class='glyphicon glyphicon-search'></span></a></td>
+								<td><a class="btn btn-success" href="{{ action('EventosController@editar', $e->id) }}"><span class='glyphicon glyphicon-pencil'></span></a></td>
+								<td><a class="btn btn-danger apagar" href="#" data-nome="eventos-{{ $e->nome }}" data-id="{{ $e->id}}"><span class='glyphicon glyphicon-remove'></span></a></td>
+							</tr>
+						@endforeach
+				    </tbody>
+				</table>
+			</div>
+				
 		</div>
 		<div id="apagarModal" class="modal fade" role="dialog">
 			<div class="modal-dialog modal-sm">

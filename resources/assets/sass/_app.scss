@@ -139,6 +139,7 @@ footer {
 		margin-top: 60px;
 		margin-bottom: 60px;
 		font: bold 20px $fonte;
+		text-align: center;
 
 		a {
 			text-decoration: none;
@@ -161,12 +162,40 @@ footer {
 		}
 		#menu1 {
 			@include make-sm-column(9);
+
+			padding-right: 0;
+			margin-bottom: 0;
+
+			.navbar-nav {
+				float: left;
+
+				li {
+					a {
+						font-size: 12px;
+					}
+				}
+			}
 		}
 	}
 
 	#navegacao {
 		#menu2 {
 			@include make-sm-column(12);
+
+			.navbar-collapse {
+				border: none;
+				box-shadow: none;
+
+				.navbar-nav {	
+					margin: 0;								
+
+					li {
+						a {
+							padding-left: 10px;
+						}
+					}
+				}
+			}
 		}
 	}	
 }
@@ -179,6 +208,24 @@ footer {
 		}
 		#menu1 {
 			@include make-xs-column(4);
+
+			padding-left: 0;
+			padding-right: 0;
+
+			.navbar-collapse {
+				padding-left: 0;
+				padding-right: 0;
+
+				.navbar-nav {
+					li {
+						a {
+							font-size: 14px;
+							padding-left: 10px;
+							padding-right: 10px;
+						}
+					}
+				}//navbar					
+			}//navbar-collapse
 		}
 	}
 

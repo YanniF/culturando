@@ -30,33 +30,33 @@
 					<a href="{{ action('DestaquesController@novo') }}"class="btn btn-default" title="Clique para cadastrar um novo item"><span class="glyphicon glyphicon-plus"></span> Cadastrar</a>
 				</div>
 				
-			</div>			
-			<table class="table table-striped">
-			    <thead>
-			      <tr>
-			        <th>Imagem</th>
-			        <th>Título</th>
-			        <th>Descrição</th>
-			        <th>Link</th>
-			        <th>Exibir</th>
-			        <th>Editar</th>
-			        <th>Apagar</th>
-			      </tr>
-			    </thead>
-			    <tbody>
-			    	@foreach($destaques as $d)
-				    	<tr>
-							<td><img class="img-responsive" src="{{ $d->imagem }}"></td>
-							<td>{{ $d->destaque }}</td>
-							<td>{{ $d->descricao }}</td>
-							<td><a href="{{ $d->link }}">{{ $d->link }}</a></td>
-							<td><a class="btn btn-primary" href="{{ action('DestaquesController@exibir', $d->id) }}"><span class='glyphicon glyphicon-search'></span></a></td>
-							<td><a class="btn btn-success" href="{{ action('DestaquesController@editar', $d->id) }}"><span class='glyphicon glyphicon-pencil'></span></a></td>
-							<td><a class="btn btn-danger apagar" href="#" data-nome="destaques-{{ $d->destaque }}" data-id="{{ $d->id}}"><span class='glyphicon glyphicon-remove'></span></a></td>
-						</tr>
-					@endforeach
-			    </tbody>
-			</table>
+			</div>
+			<div class="table-responsive">
+				<table class="table table-striped">
+				    <thead>
+				      <tr>
+				        <th>Imagem</th>
+				        <th>Título</th>
+				        <th>Descrição</th>
+				        <th>Exibir</th>
+				        <th>Editar</th>
+				        <th>Apagar</th>
+				      </tr>
+				    </thead>
+				    <tbody>
+				    	@foreach($destaques as $d)
+					    	<tr>
+								<td><img class="img-responsive" src="{{ $d->imagem }}"></td>
+								<td>{{ $d->destaque }}</td>
+								<td>{{ $d->descricao }}</td>
+								<td><a class="btn btn-primary" href="{{ action('DestaquesController@exibir', $d->id) }}"><span class='glyphicon glyphicon-search'></span></a></td>
+								<td><a class="btn btn-success" href="{{ action('DestaquesController@editar', $d->id) }}"><span class='glyphicon glyphicon-pencil'></span></a></td>
+								<td><a class="btn btn-danger apagar" href="#" data-nome="destaques-{{ $d->destaque }}" data-id="{{ $d->id}}"><span class='glyphicon glyphicon-remove'></span></a></td>
+							</tr>
+						@endforeach
+				    </tbody>
+				</table>
+			</div>				
 		</div>
 		<div id="apagarModal" class="modal fade" role="dialog">
 			<div class="modal-dialog modal-sm">

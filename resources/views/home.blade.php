@@ -136,10 +136,8 @@
 
     <?php 
         function cortarTexto($texto, $tamanho) {
-            $grande = false;
 
             if(strlen($texto) > $tamanho) {
-                $grande = true;
                 $diminuido = substr($texto, 0, $tamanho);                               
                 $texto = substr($diminuido, 0, strrpos($diminuido, ' ')) . '...';
             }
