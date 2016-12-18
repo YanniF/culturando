@@ -1,16 +1,18 @@
-//sticky footer
-html {
-  position: relative;
-  min-height: 100%;
+//sticky
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
 }
-body {  
-  margin-bottom: 200px;//Margin bottom by footer height
+
+.container {
+  flex: 1;
 }
-//
+//footer
 
 header {
-	margin-top: 20px;
-	margin-bottom: 20px;
+	margin-top: 1.428em;
+	margin-bottom: 1.428em;
 		
 	.logo {
 		@include make-md-column(3);
@@ -19,9 +21,9 @@ header {
 	#menu1 {
 		@include make-md-column(9);
 
-		margin-top: 30px;
+		margin-top: 1.875em;
 		background-color: #FFFFFF;
-		border:none;
+		border: none;
 		
 		.navbar-nav {
 			float: right;
@@ -29,7 +31,7 @@ header {
 			a {
 				font-weight: 500;
 				color: $cor-media;
-				padding-bottom: 5px;
+				padding-bottom: 0.312em;
 				transition: all 0.2s linear;						
 
 				&:visited, &:link {
@@ -44,7 +46,7 @@ header {
 
 			ul {
 				li {
-					padding: 10px 0;
+					padding: 0.625em 0;
 				}
 			}
 		}//navbar-nav		
@@ -128,17 +130,14 @@ header {
 
 footer {
 	background-color: $cor-media;
-	//deixar o footer sempre no final da página
-	position: absolute;
-	bottom: 0;
-	width: 100%;
 	
 	.mapa {
 		@include make-md-column(3);
 
-		margin-top: 60px;
-		margin-bottom: 60px;
-		font: bold 20px $fonte;
+		margin-top: 3.75em;
+		margin-bottom: 3.75em;
+		font-weight: bold;
+		font-size: 1.25em;
 		text-align: center;
 
 		a {
@@ -171,7 +170,7 @@ footer {
 
 				li {
 					a {
-						font-size: 12px;
+						font-size: 0.857em;
 					}
 				}
 			}
@@ -187,13 +186,7 @@ footer {
 				box-shadow: none;
 
 				.navbar-nav {	
-					margin: 0;								
-
-					li {
-						a {
-							padding-left: 10px;
-						}
-					}
+					margin: 0;					
 				}
 			}
 		}
@@ -211,21 +204,6 @@ footer {
 
 			padding-left: 0;
 			padding-right: 0;
-
-			.navbar-collapse {
-				padding-left: 0;
-				padding-right: 0;
-
-				.navbar-nav {
-					li {
-						a {
-							font-size: 14px;
-							padding-left: 10px;
-							padding-right: 10px;
-						}
-					}
-				}//navbar					
-			}//navbar-collapse
 		}
 	}
 

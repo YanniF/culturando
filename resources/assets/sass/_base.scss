@@ -11,17 +11,18 @@
 		text-decoration: none;
 	}
 }
+
 .titulo {
 	a {
-		font-size: 22px;
+		font-size: 1.222em;
 		color: $cor-escura;
-		margin-bottom: 20px;
+		margin-bottom: 1.25em;
 		border-bottom: 0 solid $cor-escura;
 		transition: border-width 0.1s ease;				
 	}
 	.glyphicon {
 		color: $cor-escura;
-		font-size: 18px;
+		font-size: 1em;
 		vertical-align: text-top;
 	}
 }
@@ -37,7 +38,7 @@
 
 //estilo dos botões da área administrativa
 .btn-default {
-	font: bold 16px $fonte;
+	font-weight: bold;
 	border: 2px solid $cor-escura;
 
 	&:hover {

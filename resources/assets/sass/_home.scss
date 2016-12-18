@@ -1,6 +1,6 @@
 #slider {
-	margin-top: 20px;
-	margin-bottom: 60px;
+	margin-top: 1.25em;
+	margin-bottom: 3.75em;
 
 	#myCarousel {
 		@include make-md-column(12);
@@ -28,7 +28,7 @@
 
 		.carousel-caption {
 			background-color: rgba(0,0,0,0.5);
-			padding: 5px;
+			padding: 0.312em;
 			width: 84%;						
 			margin: 0 auto;
 			left: 0;
@@ -40,12 +40,12 @@
 				margin: 10px;
 			}
 			a {
-				font-size: 14px;
+				font-size: 0.777em;
 				font-weight: 600;
 				color: #FFFFFF;								
-				padding-left: 10px;
-				padding-right: 10px;
-				margin: 5px;
+				padding-left: 0.625em;
+				padding-right: 0.625em;
+				margin: 0.312em;
 			}
 
 			p {
@@ -59,7 +59,7 @@
 	.carousel-control {				
 		color: $cor-muy-escura;
 		background-image: none;	
-		width: 40px;									
+		width: 50px;									
 	}
 }
 
@@ -69,18 +69,18 @@
 		@include make-sm-column(12);*/
 		@include make-md-column(12);					
 	}
-}//destaque-titulo
+}
 
 #destaque {
 	background-color: $cor-escura;
-	margin-bottom: 40px;
+	margin-bottom: 2.5em;
 	
 	.destaque-item {
 		/* @include make-xs-column(12);
 		@include make-sm-column(4); */
 		@include make-md-column(4);
 
-		margin: 30px 0;							
+		margin: 1.875em 0;							
 
 		.fundo {
 			background-color: $cor-media;
@@ -93,7 +93,7 @@
 			}
 
 			p {
-				padding: 20px;
+				padding: 1.25em;
 				margin: 0;
 				font-weight: 600;
 				color: #FFFFFF;
@@ -104,7 +104,7 @@
 }
 
 #eventos {
-	margin-bottom: 40px;
+	margin-bottom: 2.85em;
 
 	.evento1 {
 		// @include make-xs-column(8);
@@ -128,19 +128,17 @@
 			@include make-md-column-offset(2);	
 			@include make-md-column-pull(2);
 
-			font: 300 16px $fonte;
-			margin-bottom: 30px;
+			margin-bottom: 1.875em;
 		}					
 	}
 	
 	h3:not(.titulo) {
-		font-size: 18px;
-		font-weight: bold;			
+		font-size: 1.125em;		
 		text-align: center;								
 		margin-bottom: 0;
 	}
 	img {
-		margin: 10px auto;
+		margin: 0.625em auto;
 		max-height: 120px;
 	}
 
@@ -150,17 +148,13 @@
 	}
 
 	span:not(.glyphicon) {
-		font-size: 14px;
+		font-size: 0.875em;
 	}
 
 	.eventos-fora {
 		// @include make-xs-column(12);
 		// @include make-sm-column(7);
 		@include make-md-column(4);
-
-		.evento-item {
-			
-		}
 	}			
 }
 

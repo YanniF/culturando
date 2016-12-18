@@ -45,7 +45,7 @@
 						            echo "<span><a href=/atracoes/$a->tipoAtracao/$a->cidade/$a->id> Continue lendo </a></span>";
 					            }
 					            else {
-					            	echo $a->descricao;
+					            	echo nl2br(e($a->descricao));
 					            }
 							?>							
 							</li>  

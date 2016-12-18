@@ -1,26 +1,29 @@
 .detalhes {	
-	margin-bottom: 60px;
+	margin-bottom: 3.75em;
 }
 
 .destaque-info,
 .evento-info,
 .atracoes-info,
-.parceiros-info {	
+.parceiros-info,
+.baixada-info,
+.vale-info {	
 	@include make-md-column(12);
 
-	margin: 20px 20px 0;
+	margin: 1.25em 1.25em 0;
 	
 	img {
-		margin-top: 15px;
-		margin-right: 30px;
+		margin-top: 0.937em;
+		margin-right: 1.875em;
 		float:left;
+		max-width: 500px;
 	}
 
 	p, ul {
 		margin-top: 0;
-		padding-top: 20px;
+		padding-top: 1.25em;
 		text-align: justify;
-		line-height: 30px;
+		line-height: 1.875em;
 	}
 
 	h2, h3 {
@@ -35,7 +38,7 @@
 		list-style: none;
 
 		span {
-			font-size: 14px;
+			font-size: 0.875em;
 		}
 	}
 
@@ -48,6 +51,6 @@
 		@include make-md-column-offset(1);
 		@include make-md-column-pull(1);
 
-		margin-bottom: 20px;
+		margin-bottom: 1.25em;
 	}
 }
