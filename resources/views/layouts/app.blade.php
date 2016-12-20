@@ -5,11 +5,23 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    <title>{{ config('app.name', 'Laravel') }} - @yield('title')</title>
+    
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }} - @yield('title')</title>
-    
+    <meta name="description" content="Culturando - O que fazer na Baixada Santista e Vale do Ribeira">
+    <meta name="keywords" content="Culturando, Baixada Santista, Vale do Ribeira, Santos, São Vicente, Praia Grande,
+    cultura, lazer, teatro, cultura na rua, galeria de arte, turismo, museu, biblioteca">
+    <meta name="author" content="Yanni Fraga">
+    <meta name="robots" content="index, follow">
+
+    <meta property="og:url"  content="https://culturando.com.br" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Culturando" />
+    <meta property="og:image" content="" />
+    <meta property="og:description" content="Culturando - O que fazer na Baixada Santista e Vale do Ribeira"/>
+
     <link rel="shortcut icon" href="{{ asset('img/icon.png') }}" >
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Merriweather" > 
     <link rel="stylesheet" href="{{ asset('css/plugins/plugins.css') }}">  

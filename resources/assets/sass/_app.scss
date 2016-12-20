@@ -1,14 +1,21 @@
 //sticky
 body {
-  display: flex;
-  min-height: 100vh;
-  flex-direction: column;
+	display: flex;
+	min-height: 100vh;
+	flex-direction: column;
 }
 
 .container {
-  flex: 1;
+	flex: 1;
 }
 //footer
+
+//o sticky footer com flexbox não funcionou para IE 
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+	body {
+		display: block;
+	}	
+}
 
 header {
 	margin-top: 1.428em;

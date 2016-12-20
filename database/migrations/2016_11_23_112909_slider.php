@@ -15,7 +15,7 @@ class Slider extends Migration
     {
         Schema::create('slider', function(Blueprint $table) {
             $table->increments('id');
-            $table->string('mensagem', 70);
+            $table->string('titulo', 70);
             $table->string('mensagem');
             $table->string('imagem');
             $table->string('link')->nullable();
