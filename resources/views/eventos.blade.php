@@ -7,7 +7,7 @@
 		<div class="content">
 			<div class="evento-info">
 				<h3 class="titulo"><span class="glyphicon glyphicon-chevron-right"></span> <a href="/eventos/{{$eventos->eventoEm}}/{{$eventos->id}}">{{$eventos->titulo}}</a></h3>
-				<a href="/eventos/{{$eventos->eventoEm}}/{{$eventos->id}}"><img class="img-responsive img-thumbnail" src="{{asset($eventos->imagem)}}" alt="{{$eventos->titulo}}"></a>
+				<a href="eventos/{{$eventos->eventoEm}}/{{$eventos->id}}"><img class="img-responsive img-thumbnail" src="{{asset($eventos->imagem)}}" alt="{{$eventos->titulo}}"></a>
 				<p>{{$eventos->descricao}}</p>
 				@if($eventos->link != null)
 					<p><strong>Mais informações: </strong> <a href="{{$eventos->link}}">{{$eventos->link}}</a></p>

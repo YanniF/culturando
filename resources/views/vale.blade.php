@@ -7,7 +7,7 @@
 		<div class="content">
 			<div class="vale-info">
 				<h3 class="titulo"><span class="glyphicon glyphicon-chevron-right"></span> <a href="/atracoes/{{$vt->tipoAtracao}}/{{$vt->cidade}}/{{$vt->id}}">{{$vt->nome}}</a></h3>
-				@if($vt->foto != null)<img class="img-responsive img-thumbnail imagemModal" src="{{$vt->foto}}" data-image="{{$vt->foto}}" data-toggle="modal" data-target="#modalImagem">@endif
+				@if($vt->foto != null)<img class="img-responsive img-thumbnail imagemModal" src="{{asset($vt->foto)}}" data-image="{{$vt->foto}}" data-toggle="modal" data-target="#modalImagem">@endif
 				<ul>
 					@if($vt->endereco != null)<li><strong>Endereço: </strong> {{$vt->endereco}}</li>@endif
 					<li><strong>Cidade: </strong>{{$vt->cidade}}</li>

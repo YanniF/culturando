@@ -137,10 +137,10 @@
                     <a href="{{action('HomeController@valeTem')}}">NO VALE TEM</a>
                 </div>
                 <div class="mapa">
-                    <a href="{{action('HomeController@exibirDestaques')}}">DESTAQUES</a>
+                    <a href="{{action('HomeController@exibirParceiros')}}">PARCEIROS</a>
                 </div>
                 <div class="mapa">
-                    <a href="{{action('HomeController@exibirEventos', 'Baixada Santista')}}">EVENTOS</a>
+                    <a href="">CONTATO</a>
                 </div>
             </div>
         </div>

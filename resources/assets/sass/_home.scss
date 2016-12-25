@@ -65,19 +65,16 @@
 
 #destaque-titulo {
 	h3 {
-		/* @include make-xs-column(12);
-		@include make-sm-column(12);*/
 		@include make-md-column(12);					
 	}
 }
 
 #destaque {
-	background-color: $cor-escura;
 	margin-bottom: 2.5em;
+	background-color: $cor-escura;
+	border-bottom: 5px solid $cor-clara;
 	
 	.destaque-item {
-		/* @include make-xs-column(12);
-		@include make-sm-column(4); */
 		@include make-md-column(4);
 
 		margin: 1.875em 0;							
@@ -86,6 +83,7 @@
 			background-color: $cor-media;
 			width: 70%;
 			margin: auto;
+			max-width: 250px;
 
 			img {
 				margin: auto;
@@ -100,21 +98,21 @@
 				text-align: justify;							
 			}
 		}
-	}						
+	}
 }
 
 #eventos {
 	margin-bottom: 2.85em;
 
+	.content {
+		margin-bottom: 1.25em;
+	}
+
 	.evento1 {
-		// @include make-xs-column(8);
-		// @include make-sm-column(8);
 		@include make-md-column(8);	
 	}
 
-	.evento2 { 
-		// @include make-xs-column(4);
-		// @include make-sm-column(4);
+	.evento2 {
 		@include make-md-column(4);
 	}				
 	
@@ -122,8 +120,6 @@
 		@include make-md-column(8);
 
 		.evento-item {
-			// @include make-xs-column(12);
-			// @include make-sm-column(7);
 			@include make-md-column(4);	
 			@include make-md-column-offset(2);	
 			@include make-md-column-pull(2);
@@ -152,8 +148,6 @@
 	}
 
 	.eventos-fora {
-		// @include make-xs-column(12);
-		// @include make-sm-column(7);
 		@include make-md-column(4);
 	}			
 }
@@ -176,6 +170,38 @@
 			}//carousel-inner
 		}
 	}
+
+	#destaque-titulo {
+		h3 {
+			@include make-sm-column(12);					
+		}
+	}
+
+	#destaque {		
+		.destaque-item {			
+			@include make-sm-column(4);			
+		}
+	}
+
+	#eventos {
+		.evento1 {
+			@include make-sm-column(7);
+		}
+
+		.evento2 {
+			@include make-sm-column(5);
+		}				
+		
+		.eventos-baixada {
+			@include make-sm-column(6);
+			@include make-sm-column-offset(1);
+			@include make-sm-column-pull(1);
+		}
+		
+		.eventos-fora {
+			@include make-sm-column(5);
+		}
+	}	
 }
 
 @media screen and (min-width: $resolucao-xs) and (max-width: $resolucao-sm) {
@@ -187,5 +213,40 @@
 		.carousel-caption {
 			display: none;
 		}
+	}
+
+	#destaque-titulo {
+		h3 {
+			@include make-xs-column(12);					
+		}
+	}
+
+	#destaque {		
+		.destaque-item {			
+			@include make-xs-column(12);
+		}
+	}
+
+	#eventos {
+		.evento1 {
+			@include make-xs-column(12);	
+		}
+
+		.evento2 { 
+			@include make-xs-column(12);
+		}				
+		
+		.eventos-baixada {
+			@include make-xs-column(12);
+		}
+
+		.eventos-fora {
+			@include make-xs-column(12);
+		}
+
+		.evento-item {
+			padding-left: 1.4285em;
+			padding-right: 1.4285em;
+		}			
 	}
 }

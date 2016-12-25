@@ -24,10 +24,10 @@
 	margin: 1.25em 1.25em 0;
 	
 	img {
+		float:left;
 		margin-top: 0.937em;
 		margin-right: 1.875em;
-		float:left;
-		max-width: 500px;
+		max-width: 25em;		
 		cursor: pointer;
 	}
 
@@ -64,5 +64,51 @@
 		@include make-md-column-pull(1);
 
 		margin-bottom: 1.25em;
+	}
+}
+
+@media screen and (max-width: $resolucao-md) {
+	
+	.detalhes {
+		.destaque-info,
+		.evento-info,
+		.atracoes-info,
+		.parceiros-info,
+		.baixada-info,
+		.vale-info {	
+			@include make-sm-column(12);
+
+			img {
+			    float: none;
+				margin-right: 0;
+				padding-right: 0;
+			}
+
+			.parceiro-item {
+				@include make-sm-column(6);
+			}
+		}
+	}
+		
+}
+
+@media screen and (min-width: $resolucao-xs) and (max-width: $resolucao-sm) {
+
+	.destaque-info,
+	.evento-info,
+	.atracoes-info,
+	.parceiros-info,
+	.baixada-info,
+	.vale-info {	
+		@include make-xs-column(12);
+
+		img {
+			margin-right: 0;
+			width: 14.285em;
+		}			
+
+		.parceiro-item {
+			@include make-xs-column(12);
+		}	
 	}
 }

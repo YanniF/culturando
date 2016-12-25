@@ -20,7 +20,7 @@
                 @else
                     <div class="item">
                 @endif
-                    <a href="{{$s->link}}"><img src="{{$s->imagem}}" alt="{{$s->titulo}}" title="{{$s->titulo}}"></a>
+                    <a href="{{$s->link}}"><img src="{{asset($s->imagem)}}" alt="{{$s->titulo}}" title="{{$s->titulo}}"></a>
                     <div class="carousel-caption">                        
                         <h3><a href="{{$s->link}}">{{$s->titulo}}</a></h3>
                         <p><a href="{{$s->link}}">{{$s->mensagem}}</a></p>                        
@@ -56,7 +56,7 @@
                 <div class="destaque-item">
                     <a href="{{ action('HomeController@exibirDestaques', $d->id) }}"> 
                         <div class="fundo">
-                            <img src="{{$d->imagem}}" class="img-responsive" alt="{{$d->destaque}}" title="{{$d->destaque}}">
+                            <img src="{{asset($d->imagem)}}" class="img-responsive" alt="{{$d->destaque}}" title="{{$d->destaque}}">
                             <p>{{$d->destaque}}</p>
                         </div>
                     </a>
@@ -73,64 +73,45 @@
                 <h3 class="titulo evento1"><span class="glyphicon glyphicon-chevron-right"></span> <a href="{{action('HomeController@exibirEventos', 'Baixada Santista')}}">GALERIA DE EVENTOS</a></h3>
                 <h3 class="titulo evento2"><span class="glyphicon glyphicon-chevron-right"></span> <a  href="{{action('HomeController@exibirEventos', 'São Paulo')}}">EVENTOS ESTADUAIS</a></h3>
             </div>
-            <div class="content">
-            <?php 
-                //arrumar código
-                $classe = '<div class="eventos-baixada">';                    
-                $colunas = 0;
-                $qtdSp = count($eventosSP); 
-                $qtdBaixada = count($eventosBaixada);
-                $c = 0;
-                
-                foreach($eventosBaixada as $eventoB) {
-                    echo $classe; 
-            ?>
-                    <div class="evento-item">
-                        <a href="/eventos/Baixada Santista/{{$eventoB->id}}"><img src="{{$eventoB->imagem}}" class="img-responsive" alt="{{$eventoB->titulo}}" title="{{$eventoB->titulo}}"></a>
-                        <h3><a href="/eventos/Baixada Santista/{{$eventoB->id}}">{{$eventoB->titulo}}</a></h3>
-                        
-                        <?php echo "<p>" . cortarTexto($eventoB->descricao, 150) . "</p>";//não exibirá o resto do texto ?>
-                        <span><a href="/eventos/Baixada Santista/{{$eventoB->id}}">Saiba mais</a></span>
-                    </div>
-            <?php 
-                    $colunas++;
+            <div class="eventos-baixada">
 
-                    if($colunas % 2 == 0) {
-                        echo '</div>';//fechando eventos-baixada
+                <?php $c = 0;
 
-                        if($c < $qtdSp) {
-            ?>    
-                    <div class="eventos-fora">
+                    foreach($eventosBaixada as $eventoB) {
+                        if($c % 2 == 0) {
+                            echo '<div class="content">';                                
+                        }
+                ?>
                         <div class="evento-item">
-                            <a href="/eventos/São Paulo/{{$eventosSP[$c]->id}}"><img src="{{$eventosSP[$c]->imagem}}" class="img-responsive" alt="{{$eventosSP[$c]->titulo}}" title="{{$eventosSP[$c]->titulo}}">
-                            <h3>{{$eventosSP[$c]->titulo}}</h3></a>
-
-                            <?php echo "<p>" . cortarTexto($eventosSP[$c]->descricao, 200) . "</p>"; ?>
-                            <span><a href="/eventos/São Paulo/{{$eventosSP[$c]->id}}">Saiba mais</a></span>
+                            <a href="/eventos/Baixada Santista/{{$eventoB->id}}"><img src="{{asset($eventoB->imagem)}}" class="img-responsive" alt="{{$eventoB->titulo}}" title="{{$eventoB->titulo}}"></a>
+                            <h3><a href="/eventos/Baixada Santista/{{$eventoB->id}}">{{$eventoB->titulo}}</a></h3>
+                            
+                            <?php echo "<p>" . cortarTexto($eventoB->descricao, 150) . "</p>";//não exibirá o resto do texto ?>
+                            <span><a href="/eventos/Baixada Santista/{{$eventoB->id}}">Saiba mais</a></span>
                         </div>
-                    </div>
-                </div>
+                <?php       
+                        $c++;
 
-            <?php
-                            $c++;
-                        }
-                        if($c >= $qtdSp && $colunas >= $qtdBaixada) {
-                            echo '</div> ';
-                        }
-                        else {
-                            echo '<div class="content">'; 
-                        }
-                        
-                        $classe = '<div class="eventos-baixada">';                            
+                        if($c % 2 == 0) {
+                            echo '</div>';
+                        }                       
                     }
-                    else {
-                        $classe = ''; 
-                    }                    
-                }   
-            ?>             
-                    
-                </div>  
-            </div> 
+                ?>
+            </div>
+             
+            <div class="eventos-fora">  
+                @foreach($eventosSP as $fora) 
+                    <div class="content">
+                        <div class="evento-item">
+                            <a href="/eventos/São Paulo/{{$fora->id}}"><img src="{{asset($fora->imagem)}}" class="img-responsive" alt="{{$fora->titulo}}" title="{{$fora->titulo}}">
+                            <h3>{{$fora->titulo}}</h3></a>
+
+                            <?php echo "<p>" . cortarTexto($fora->descricao, 200) . "</p>"; ?>
+                            <span><a href="/eventos/São Paulo/{{$fora->id}}">Saiba mais</a></span>
+                        </div>
+                    </div> 
+                @endforeach 
+            </div>    
         </div>          
     </div>
 

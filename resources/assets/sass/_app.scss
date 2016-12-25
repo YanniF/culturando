@@ -49,8 +49,13 @@ header {
 					color: $cor-muy-escura;
 					transition: all 0.2s linear;
 				}
-			}						
+			}	
 
+			li:last-child {
+				a {
+					padding-right: 0;					
+				}
+			}
 			ul {
 				li {
 					padding: 0.625em 0;
@@ -164,20 +169,22 @@ footer {
 
 	header {
 		.logo {
-			@include make-sm-column(3);
+			@include make-sm-column(4);
 		}
+		
 		#menu1 {
-			@include make-sm-column(9);
+			@include make-sm-column(8);
 
 			padding-right: 0;
 			margin-bottom: 0;
-
+			
 			.navbar-nav {
-				float: left;
-
+				
 				li {
 					a {
 						font-size: 0.857em;
+						padding-left: 0.357em;
+						padding-right: 0.357em;
 					}
 				}
 			}
@@ -190,12 +197,21 @@ footer {
 
 			.navbar-collapse {
 				border: none;
-				box-shadow: none;
+				box-shadow: none;				
 
 				.navbar-nav {	
-					margin: 0;					
+					margin: 0;
 				}
 			}
+		}
+	}
+
+	footer {		
+		.mapa {
+			@include make-sm-column(6);
+
+			margin-top: 1.4285em;
+			margin-bottom: 0.714em;
 		}
 	}	
 }
@@ -204,13 +220,14 @@ footer {
 
 	header {
 		.logo {
-			@include make-xs-column(8);
+			@include make-xs-column(12);
+			
+			img {
+				margin: 0 auto;
+			}
 		}
 		#menu1 {
-			@include make-xs-column(4);
-
-			padding-left: 0;
-			padding-right: 0;
+			display: none;
 		}
 	}
 
@@ -218,5 +235,11 @@ footer {
 		#menu2 {
 			@include make-xs-column(12);
 		}
-	}	
+	}
+
+	footer {		
+		.mapa {
+			@include make-xs-column(12);
+		}
+	}
 }

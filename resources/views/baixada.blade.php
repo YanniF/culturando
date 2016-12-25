@@ -7,7 +7,7 @@
 		<div class="content">
 			<div class="baixada-info">
 				<h3 class="titulo"><span class="glyphicon glyphicon-chevron-right"></span> <a href="/atracoes/{{$bt->tipoAtracao}}/{{$bt->cidade}}/{{$bt->id}}">{{$bt->nome}}</a></h3>
-				@if($bt->foto != null)<img class="img-responsive img-thumbnail imagemModal" src="{{$bt->foto}}" data-image="{{$bt->foto}}" data-toggle="modal" data-target="#modalImagem">@endif
+				@if($bt->foto != null)<img class="img-responsive img-thumbnail imagemModal" src="{{asset($bt->foto)}}" data-image="{{$bt->foto}}" data-toggle="modal" data-target="#modalImagem">@endif
 				<ul>
 					@if($bt->endereco != null)<li><strong>Endereço: </strong> {{$bt->endereco}}</li>@endif
 					<li><strong>Cidade: </strong>{{$bt->cidade}}</li>

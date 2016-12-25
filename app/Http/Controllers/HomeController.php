@@ -41,7 +41,7 @@ class HomeController extends Controller
     }
 
     public function listarEventosSP() {
-        return Evento::select('*')->where('eventoEm', '=', 'São Paulo')->get();
+        return Evento::select('*')->where('eventoEm', '=', 'São Paulo')->latest()->limit(3)->get();
     }
 
     public function index() {

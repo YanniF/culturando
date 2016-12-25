@@ -12,7 +12,7 @@
 	@foreach($parceiros as $p)		
 			<div class="parceiro-item">					
 				<h3 class="titulo"><span class="glyphicon glyphicon-chevron-right"></span> <a href="{{$p->link}}">{{$p->nome}}</a></h3>
-				<a href="{{$p->link}}" target="_blank"><img class="img-responsive img-thumbnail" src="{{$p->imagem}}" alt="{{$p->nome}}" title="{{$p->nome}}"></a>
+				<a href="{{$p->link}}" target="_blank"><img class="img-responsive img-thumbnail" src="{{asset($p->imagem)}}" alt="{{$p->nome}}" title="{{$p->nome}}"></a>
 			</div>
 		<?php $c++; ?>
 		@if($c % 2 == 0)			
