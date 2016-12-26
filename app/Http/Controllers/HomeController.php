@@ -12,6 +12,7 @@ use culturando\Models\Slider;
 use culturando\Models\Evento;
 use culturando\Models\Parceiro;
 use culturando\Models\Atracao;
+use culturando\Models\Galeria;
 
 class HomeController extends Controller
 {
@@ -145,5 +146,17 @@ class HomeController extends Controller
         $valeTem = Atracao::select('*')->whereIn('cidade', $cidadesVale)->orderBy('tipoAtracao')->get();
 
         return view('/vale')->with(array('valeTem' => $valeTem, 'tipoAtracao' => $tipoAtracao, 'baixada' => $cidadesBaixada, 'vale' => $cidadesVale, ));
+    }
+
+    public function exibirGaleria() {
+
+        $cidadesBaixada = $this->listarCidadeBaixada();
+        $cidadesVale = $this->listarCidadeVale();
+        $tipoAtracao = $this->listarAtracoes();
+
+        $galeria = Galeria::all();
+
+        return view('/galeria')->with(array('galeria' => $galeria, 'tipoAtracao' => $tipoAtracao, 'baixada' => $cidadesBaixada, 'vale' => $cidadesVale, ));
+
     }
 }

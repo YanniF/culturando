@@ -37,8 +37,16 @@ $('.apagar').on('click', function(){
     $('#apagarModal').modal('show'); // modal aparece
 });
 
-//clicar na imagem e aparecer no modal
-$('.imagemModal').on('click', function () {
-	var imagem = $(this).data('image');
-	$('img.foto').attr('src', imagem);
+//galeria
+$(document).ready(function() {
+
+	$(".fancybox").fancybox({
+	    beforeShow : function() {
+	        var alt = this.element.find('img').attr('alt');
+	        
+	        this.inner.find('img').attr('alt', alt);
+	        
+	        this.title = alt;
+	    }
+	});
 });

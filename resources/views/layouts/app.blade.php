@@ -24,7 +24,8 @@
 
     <link rel="shortcut icon" href="{{ asset('img/icon.png') }}" >
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Merriweather" > 
-    <link rel="stylesheet" href="{{ asset('css/plugins/plugins.css') }}">  
+    <link rel="stylesheet" href="{{ asset('css/plugins/plugins.css') }}">     
+    <link rel="stylesheet" href="{{ asset('source/jquery.fancybox.css') }}">
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 
     <!-- Scripts -->
@@ -59,7 +60,7 @@
                             <li><a href="{{action('HomeController@baixadaTem')}}">NA BAIXADA TEM</a></li>
                             <li><a href="{{action('HomeController@valeTem')}}">NO VALE TEM</a></li>
                             <li><a href="{{action('HomeController@exibirParceiros')}}">PARCEIROS</a></li>
-                            <li><a href="#">GALERIA</a></li>
+                            <li><a href="{{action('HomeController@exibirGaleria')}}">GALERIA</a></li>
                             <li class="dropdown">
                               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">CONTATO <span class="caret"></span></a>
                               <ul class="dropdown-menu">
@@ -143,11 +144,15 @@
                     <a href="">CONTATO</a>
                 </div>
             </div>
-        </div>
+            <div class="desenvolvido">
+                <a href="#">Site desenvolvido por Yanni Fraga</a>
+            </div>
+        </div>        
     </footer>
 
     <script src="{{ asset('/js/plugins/jquery/jquery-2.2.3.min.js') }}"></script>
     <script src="{{ asset('/js/plugins/bootstrap/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('source/jquery.fancybox.pack.js') }}"></script>
     <script src="{{ asset('/js/main.js') }}"></script>
 </body>
 </html>

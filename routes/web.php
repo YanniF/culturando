@@ -7,6 +7,7 @@ Route::get('/eventos/{eventoEm}/{id?}', 'HomeController@exibirEventos');
 Route::get('/parceiros', 'HomeController@exibirParceiros');
 Route::get('/baixada', 'HomeController@baixadaTem');
 Route::get('/vale', 'HomeController@valeTem');
+Route::get('/galeria', 'HomeController@exibirGaleria');
 
 /*Admin*/
 Route::get('/admin/', 'PainelController@chamarPainel');
@@ -54,5 +55,14 @@ Route::get('/admin/slider/editar/{id}', 'SliderController@editar');
 Route::post('/admin/slider/atualizar/{id}', 'SliderController@alterar');
 Route::get('/admin/slider/exibir/{id}', 'SliderController@exibir');
 Route::get('/admin/slider/excluir/{id}', 'SliderController@excluir');
+/*Galeria*/
+Route::get('/admin/galeria/painel', 'GaleriaController@listarElementos');
+Route::post('/admin/galeria/verificar', 'GaleriaController@verificarBotao');
+Route::get('/admin/galeria/novo', 'GaleriaController@novo');
+Route::post('/admin/galeria/cadastrar', 'GaleriaController@cadastrar');
+Route::get('/admin/galeria/editar/{id}', 'GaleriaController@editar');
+Route::post('/admin/galeria/atualizar/{id}', 'GaleriaController@alterar');
+Route::get('/admin/galeria/exibir/{id}', 'GaleriaController@exibir');
+Route::get('/admin/galeria/excluir/{id}', 'GaleriaController@excluir');
 
 Auth::routes();

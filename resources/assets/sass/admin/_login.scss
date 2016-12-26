@@ -2,23 +2,24 @@
 	.logo {
 		@include make-md-column(12);
 
-		margin-bottom: 30px;
+		margin-bottom: 1.875em;
 		a {					
 			img {
-				margin: 20px auto;
+				margin: 1.25em auto;
 			}
 		}
 	}
 	.form-horizontal {
 		width: 60%;
-		margin: 100px auto;
+		margin: 6.25em auto;
 		border: 5px solid $cor-escura;
 		border-radius: 10px;
 	}
 	.form-group {
-		margin: 20px 10px;
-		padding: 10px 20px;
-		font: 600 20px $fonte;
+		margin: 1.25em 0.625em;
+		padding: 0.625em 1.25em;
+		font-bold: 600;
+		font-size: 1.25em;
 	}
 	.control-label {
 		@include make-md-column(2);
@@ -28,7 +29,7 @@
 		@include make-md-column(10);
 
 		.form-control {
-			padding: 0 10px;
+			padding: 0 0.625em;
 			font-size: 1.125em;
 		}
 	}

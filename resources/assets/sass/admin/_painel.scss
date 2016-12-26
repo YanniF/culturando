@@ -3,7 +3,7 @@
 
 	a {					
 		img {
-			margin: 20px auto;
+			margin: 1.25em auto;
 		}
 	}
 }
@@ -12,10 +12,10 @@
 	@include make-md-column(12);
 
 	text-align: right;
-	margin-bottom: 20px;
+	margin-bottom: 1.25em;
 
 	span {
-		font-size: 14px;
+		font-size: 0.875em;
 	}
 }
 
@@ -23,13 +23,13 @@
 	h3 {
 		@include make-md-column(12);
 			
-		font-weight: 24px;	
+		font-size: 1.5em;	
 	}
 
 	.botoes {
 		@include make-md-column(12);
 
-		margin: 60px 0;
+		margin: 3.75em 0;
 
 		.btn {
 			@include make-md-column(2);
@@ -37,10 +37,39 @@
 			@include make-md-column-pull(1);
 
 			font-weight: bold;
-			font-size: 22px;
+			font-size: 1.375em;
 
 			span {
-				font-size: 20px;
+				font-size: 0.875em;
+			}
+		}
+	}
+}
+
+@media screen and (max-width: $resolucao-md) {
+
+	#painel {
+		.botoes {
+			@include make-sm-column(12);
+
+			.btn {
+				@include make-sm-column(3); 
+				@include make-sm-column-offset(1);
+			}
+		}
+	}	
+}
+
+@media screen and (min-width: $resolucao-xs) and (max-width: $resolucao-sm) {
+
+	#painel {
+		.botoes {
+			@include make-xs-column(12);
+			
+			margin: 1.4285em 0;
+			.btn {
+				@include make-xs-column(12);
+				margin-bottom: 1.4285em;
 			}
 		}
 	}

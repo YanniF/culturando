@@ -59,6 +59,10 @@ header {
 			ul {
 				li {
 					padding: 0.625em 0;
+
+					a {
+						padding: 0 0.625em;
+					}
 				}
 			}
 		}//navbar-nav		
@@ -147,21 +151,30 @@ footer {
 		@include make-md-column(3);
 
 		margin-top: 3.75em;
-		margin-bottom: 3.75em;
+		margin-bottom: 3.125em;
 		font-weight: bold;
 		font-size: 1.25em;
-		text-align: center;
+		text-align: center;						
+	}
+	a {
+		text-decoration: none;
+		color: $cor-clara;
+		transition: all 0.2s linear;
+		
+		&:visited, &:link {
+			color: $cor-clara;;
+		}
 
-		a {
-			text-decoration: none;
-			color: $cor-clara;
+		&:hover {
+			color: #FFFFFF;
 			transition: all 0.2s linear;
+		}		
+	}
 
-			&:hover {
-				color: #FFFFFF;
-				transition: all 0.2s linear;
-			}
-		}				
+	.desenvolvido {
+		margin-bottom: 0.75em;
+		font-size: 0.75em;
+		text-align: center;
 	}
 }
 

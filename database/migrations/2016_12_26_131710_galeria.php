@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class Slider extends Migration
+class Galeria extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,10 @@ class Slider extends Migration
      */
     public function up()
     {
-        Schema::create('slider', function(Blueprint $table) {
+        Schema::create('galeria', function(Blueprint $table) {
             $table->increments('id');
-            $table->string('titulo', 70);
-            $table->string('mensagem');
+            $table->string('titulo', 100);
             $table->string('imagem');
-            $table->string('link')->nullable();
             $table->timestamps();
         });
     }
@@ -30,6 +28,6 @@ class Slider extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('slider');
+        Schema::dropIfExists('galeria');
     }
 }

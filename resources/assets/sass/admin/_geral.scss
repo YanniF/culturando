@@ -2,22 +2,23 @@
 #painelDestaques,
 #painelParceiros,
 #painelEventos, 
-#painelSlider {	
+#painelSlider,
+#painelGaleria {	
 	h3 {
 		@include make-md-column(12);
 		
 		margin-top: 0;
-		font-size: 20px;
+		font-size: 1.25em;
 	}
 	
 	.btn-default {
 		span {
-			font-size: 14px;
+			font-size: 0.875em;
 		}
 	}
 
 	.form-horizontal {//atrações e eventos
-		margin-bottom: 30px;
+		margin-bottom: 1.875em;
 
 		.content {
 			margin: 0;
@@ -29,7 +30,7 @@
 			margin: 0;
 			padding: 5px 0;
 			font-weight: 600;
-			font-size: 20px;
+			font-size: 1.25em;
 
 			.control-label {
 				@include make-md-column(2);				
@@ -39,7 +40,7 @@
 				@include make-md-column(10);
 
 				.form-control {					
-					font-size: 18px;							
+					font-size: 1em;							
 				}
 			}
 
@@ -50,7 +51,7 @@
 				
 				.btn-default {
 					span {
-						font-size: 13px;																
+						font-size: 0.875em;																
 					}
 				}						
 			}
@@ -64,7 +65,7 @@
 	.table-striped {
 		
 		thead {
-			font-size: 18px;
+			font-size: 1.125em;
 		}
 
 		tbody {
@@ -74,7 +75,7 @@
 
 			.btn {
 				span {
-					font-size: 14px;
+					font-size: 0.875em;
 				}
 			}
 		}				
@@ -83,7 +84,7 @@
 	.cabec {
 		h3 {
 			@include make-md-column(10);
-			margin-bottom: 40px;					
+			margin-bottom: 2.5em;					
 		}
 
 		.botao {
@@ -94,16 +95,16 @@
 
 	.modal {		
 		.modal-title {
-			font-size: 20px;
+			font-size: 1.25em;
 		}
 		.modal-body {
 			p {
-				font-size: 18px;
+				font-size: 1.125em;
 			}
 		}
 		.modal-footer {
 			.btn-default:nth-child(2) {
-				margin-left: 30px;
+				margin-left: 1.875em;
 			}
 		}
 	}
@@ -117,7 +118,7 @@
 	.form-group {
 		@include make-md-column(6);
 
-		padding: 10px 20px;
+		padding: 0.625em 1.25em;
 		font-weight: 600;
 	}
 	.control-label {
@@ -134,7 +135,7 @@
 		
 		.btn-default {
 			span {
-				font-size: 14px;	
+				font-size: 0.875em;	
 			}
 		}						
 	}
@@ -155,15 +156,15 @@
 .detalhes {			
 	h1 {
 		margin-top: 40px;
-		font-size: 30px;
+		font-size: 1.875em;
 	}
 	ul {
 		padding: 0;
 		list-style: none;
 
 		li {
-			padding-bottom: 20px;
-			font-size: 20px;
+			padding-bottom: 1.25em;
+			font-size: 1.25em;
 			text-align: justify;
 		}
 	}

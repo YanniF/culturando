@@ -13,7 +13,7 @@
 		<div class="content">
 			<div class="atracoes-info">							
 				<h3 class="titulo"><span class="glyphicon glyphicon-chevron-right"></span> <a href="/atracoes/{{$atr[0]->tipoAtracao}}/{{$atr[0]->cidade}}/{{$atr[0]->id}}">{{$atr[0]->nome}}</a></h3>
-				@if($atr[0]->foto != null)<img class="img-responsive img-thumbnail imagemModal" src="{{$atr[0]->foto}}" data-image="{{$atr[0]->foto}}" data-toggle="modal" data-target="#modalImagem">@endif
+				@if($atr[0]->foto != null)<img class="img-responsive img-thumbnail" src="{{$atr[0]->foto}}">@endif
 				<ul>
 					@if($atr[0]->endereco != null)<li><strong>Endereço: </strong> {{$atr[0]->endereco}}</li>@endif
 					<li><strong>Cidade: </strong>{{$atr[0]->cidade}}</li>
@@ -29,7 +29,7 @@
 			<div class="content">
 				<div class="atracoes-info">					
 					<h3 class="titulo"><span class="glyphicon glyphicon-chevron-right"></span> <a href="/atracoes/{{$a->tipoAtracao}}/{{$a->cidade}}/{{$a->id}}">{{$a->nome}}</a></h3>
-					@if($a->foto != null)<img class="img-responsive img-thumbnail imagemModal" src="{{$a->foto}}" data-image="{{$a->foto}}" data-toggle="modal" data-target="#modalImagem">@endif
+					@if($a->foto != null)<img class="img-responsive img-thumbnail" src="{{$a->foto}}">@endif
 					<ul>
 						@if($a->endereco != null)<li><strong>Endereço: </strong> {{$a->endereco}}</li>@endif
 						<li><strong>Cidade: </strong>{{$a->cidade}}</li>
@@ -62,13 +62,6 @@
 			</div>
 		</div>	
 	@endif
-		<div id="modalImagem" class="modal fade" role="dialog">
-		  	<div class="modal-dialog">
-			    <div class="modal-content">
-		        	<img class="foto" src="">
-			    </div>
-			</div>
-		</div>
 	</div>
 
 @endsection

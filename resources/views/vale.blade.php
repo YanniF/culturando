@@ -7,7 +7,7 @@
 		<div class="content">
 			<div class="vale-info">
 				<h3 class="titulo"><span class="glyphicon glyphicon-chevron-right"></span> <a href="/atracoes/{{$vt->tipoAtracao}}/{{$vt->cidade}}/{{$vt->id}}">{{$vt->nome}}</a></h3>
-				@if($vt->foto != null)<img class="img-responsive img-thumbnail imagemModal" src="{{asset($vt->foto)}}" data-image="{{$vt->foto}}" data-toggle="modal" data-target="#modalImagem">@endif
+				@if($vt->foto != null)<img class="img-responsive img-thumbnail" src="{{asset($vt->foto)}}">@endif
 				<ul>
 					@if($vt->endereco != null)<li><strong>Endereço: </strong> {{$vt->endereco}}</li>@endif
 					<li><strong>Cidade: </strong>{{$vt->cidade}}</li>
@@ -34,14 +34,6 @@
 			</div>
 		</div>
 	@endforeach
-
-	<div id="modalImagem" class="modal fade" role="dialog">
-	  	<div class="modal-dialog">
-		    <div class="modal-content">
-	        	<img class="foto" src="">
-		    </div>
-		</div>
-	</div>
 </div>
 
 @endsection
